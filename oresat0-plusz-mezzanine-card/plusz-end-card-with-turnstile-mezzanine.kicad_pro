@@ -37,9 +37,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.84,
-          "height": 1.24,
-          "width": 1.24
+          "drill": 0.0,
+          "height": 2.413,
+          "width": 0.762
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -48,7 +48,7 @@
         "silk_text_thickness": 0.1,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.5
+          "min_clearance": 0.7
         }
       },
       "diff_pair_dimensions": [
@@ -58,7 +58,36 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        [
+          "items_not_allowed|123451128|99839625|0165b45e-a0be-43dc-bc83-4f84f30bed6d|00000000-0000-0000-0000-000000000000",
+          "It's Fine"
+        ],
+        [
+          "items_not_allowed|148551128|124939625|b55ed395-fae5-47a7-a3bd-12a243ec19b5|00000000-0000-0000-0000-000000000000",
+          "It's Fine"
+        ],
+        [
+          "items_not_allowed|148551128|74739625|0c97d82d-322e-46a5-9b85-71eaf6d27950|00000000-0000-0000-0000-000000000000",
+          "It's Fine"
+        ],
+        [
+          "items_not_allowed|173651128|99839625|5e63ac56-7199-4184-8650-0b9561f678ec|00000000-0000-0000-0000-000000000000",
+          "It's Fine"
+        ],
+        [
+          "solder_mask_bridge|111900600|70441956|7c1da5f7-5bed-4f14-be0d-0c154aedfff1|697a3fae-264b-4726-8fb3-786846356c51",
+          "It's Fine"
+        ],
+        [
+          "solder_mask_bridge|111907013|136371383|aaee05b3-d067-4f22-b081-eb2a977a256e|cba84239-9b83-4c8d-9e12-a51daf98d104",
+          "It's Fine"
+        ],
+        [
+          "solder_mask_bridge|185900600|70441956|cd7ede13-fbf6-4def-889f-a466006f430d|c58c4fc2-a68d-45f2-a240-d1b3a5f5fb45",
+          "It's Fine"
+        ]
+      ],
       "meta": {
         "filename": "board_design_settings.json",
         "version": 2
@@ -189,7 +218,8 @@
       ],
       "track_widths": [
         0.0,
-        0.25
+        0.25,
+        0.34925
       ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
