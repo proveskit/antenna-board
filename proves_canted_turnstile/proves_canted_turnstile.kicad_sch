@@ -288,6 +288,291 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "FIDUCIAL"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Footprint" "plusz-end-card-with-turnstile-mezzanine:FIDUCIAL-1.0X2.0"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Fiducials for optical coordinate reference"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "FIDUCIAL-1.0X2.0_1_0"
+				(polyline
+					(pts
+						(xy -5.08 5.08) (xy 5.08 5.08)
+					)
+					(stroke
+						(width 0.127)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -5.08 3.556)
+					(end -2.54 5.08)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start -5.08 2.54)
+					(end -3.556 5.08)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start -5.08 -5.08)
+					(end -3.556 -2.54)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start -5.08 -5.08)
+					(end -2.54 -3.556)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy -5.08 -5.08) (xy -5.08 5.08)
+					)
+					(stroke
+						(width 0.127)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -5.08 -5.08) (xy 5.08 -5.08)
+					)
+					(stroke
+						(width 0.127)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -4.699 2.54) (xy -4.699 -2.54)
+					)
+					(stroke
+						(width 0.762)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 4.699) (xy 2.54 4.699)
+					)
+					(stroke
+						(width 0.762)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -4.699) (xy 2.54 -4.699)
+					)
+					(stroke
+						(width 0.762)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0 0)
+					(radius 2.54)
+					(stroke
+						(width 2.54)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0 0)
+					(radius 4.699)
+					(stroke
+						(width 0.762)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 2.54 3.556)
+					(end 5.08 5.08)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 2.54 -5.08)
+					(end 5.08 -3.556)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 3.556 2.54)
+					(end 5.08 5.08)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 3.556 -5.08)
+					(end 5.08 -2.54)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 4.699 -2.54) (xy 4.699 2.54)
+					)
+					(stroke
+						(width 0.762)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 5.08) (xy 5.08 -5.08)
+					)
+					(stroke
+						(width 0.127)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin no_connect line
+					(at 0 0 0)
+					(length 0)
+					(name "FIDUCIAL"
+						(effects
+							(font
+								(size 1.524 1.524)
+							)
+						)
+					)
+					(number "FIDUCIAL"
+						(effects
+							(font
+								(size 1.524 1.524)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "plusz-end-card-with-turnstile-mezzanine-eagle-import:GND"
 			(power)
 			(exclude_from_sim no)
@@ -1542,7 +1827,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine:QBA-07+"
+		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:QBA-07+"
 			(at 105.41 78.74 0)
 			(effects
 				(font
@@ -1678,6 +1963,72 @@
 		)
 	)
 	(symbol
+		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0")
+		(at 44.45 160.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "361d85bd-3c89-4c60-8a8b-5de8083d298d")
+		(property "Reference" "FIDUCIAL2"
+			(at 44.45 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "FIDUCIAL-1.0X2.0"
+			(at 44.45 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0"
+			(at 44.45 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 44.45 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 44.45 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "FIDUCIAL"
+			(uuid "aad9da1d-64f9-4abb-ac21-4f0107c14ef9")
+		)
+		(instances
+			(project "proves_canted_turnstile"
+				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
+					(reference "FIDUCIAL2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:R-US_0603-C-NOSILK")
 		(at 82.55 91.44 90)
 		(unit 1)
@@ -1704,7 +2055,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine:.0603-C-NOSILK"
+		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:.0603-C-NOSILK"
 			(at 82.55 91.44 0)
 			(effects
 				(font
@@ -1906,7 +2257,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine:.0603-C-NOSILK"
+		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:.0603-C-NOSILK"
 			(at 161.29 73.66 0)
 			(effects
 				(font
@@ -2009,6 +2360,204 @@
 			(project "proves_canted_turnstile"
 				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
 					(reference "#GND014")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0")
+		(at 107.95 160.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5ea96345-dd93-4807-9bfb-deed6ebd5c6c")
+		(property "Reference" "FIDUCIAL1"
+			(at 107.95 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "FIDUCIAL-1.0X2.0"
+			(at 107.95 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0"
+			(at 107.95 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 107.95 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 107.95 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "FIDUCIAL"
+			(uuid "d1edd4aa-7584-44af-89ff-ba65d85bfda4")
+		)
+		(instances
+			(project "proves_canted_turnstile"
+				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
+					(reference "FIDUCIAL1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0")
+		(at 95.25 160.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6326e8ec-3b9f-4df4-9f95-31fed58f0375")
+		(property "Reference" "FIDUCIAL7"
+			(at 95.25 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "FIDUCIAL-1.0X2.0"
+			(at 95.25 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0"
+			(at 95.25 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 95.25 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 95.25 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "FIDUCIAL"
+			(uuid "adafe16f-7d47-46ac-9b1e-51a17a935019")
+		)
+		(instances
+			(project "proves_canted_turnstile"
+				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
+					(reference "FIDUCIAL7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0")
+		(at 57.15 160.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "701b64f5-0605-4186-8422-460308855fb7")
+		(property "Reference" "FIDUCIAL3"
+			(at 57.15 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "FIDUCIAL-1.0X2.0"
+			(at 57.15 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0"
+			(at 57.15 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 57.15 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 57.15 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "FIDUCIAL"
+			(uuid "39a0fdb3-2388-4788-8a36-e005fb2a3ca5")
+		)
+		(instances
+			(project "proves_canted_turnstile"
+				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
+					(reference "FIDUCIAL3")
 					(unit 1)
 				)
 			)
@@ -2173,7 +2722,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine:QBA-07+"
+		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:QBA-07+"
 			(at 184.15 60.96 0)
 			(effects
 				(font
@@ -2269,7 +2818,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine:.0603-C-NOSILK"
+		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:.0603-C-NOSILK"
 			(at 161.29 124.46 0)
 			(effects
 				(font
@@ -2445,6 +2994,72 @@
 		)
 	)
 	(symbol
+		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0")
+		(at 69.85 160.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "bea9be19-559a-42cb-b144-19693c4343b8")
+		(property "Reference" "FIDUCIAL4"
+			(at 69.85 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "FIDUCIAL-1.0X2.0"
+			(at 69.85 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0"
+			(at 69.85 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 69.85 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 69.85 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "FIDUCIAL"
+			(uuid "d1699fd5-72eb-49d1-9660-8a28cf14c55e")
+		)
+		(instances
+			(project "proves_canted_turnstile"
+				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
+					(reference "FIDUCIAL4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:Antenna")
 		(at 237.49 43.18 0)
 		(unit 1)
@@ -2604,7 +3219,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine:QBA-07+"
+		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:QBA-07+"
 			(at 184.15 111.76 0)
 			(effects
 				(font
@@ -2668,6 +3283,72 @@
 			(project "proves_canted_turnstile"
 				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
 					(reference "U3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0")
+		(at 82.55 160.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e4da06d3-59b1-414a-a844-a798a7ba53eb")
+		(property "Reference" "FIDUCIAL6"
+			(at 82.55 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "FIDUCIAL-1.0X2.0"
+			(at 82.55 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0"
+			(at 82.55 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 82.55 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 82.55 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "FIDUCIAL"
+			(uuid "87ccc458-703f-4ab4-8ca4-f161ac344983")
+		)
+		(instances
+			(project "proves_canted_turnstile"
+				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
+					(reference "FIDUCIAL6")
 					(unit 1)
 				)
 			)
