@@ -99,8 +99,8 @@
 	(footprint "Turnstile_Library:Singular_Tape_Measure_Antenna"
 		(layer "F.Cu")
 		(uuid "10bc82fe-db57-4446-b151-ad7d79d52fca")
-		(at 121.746067 109.720487 50)
-		(property "Reference" "UHF 0"
+		(at 62.357 149.733 50)
+		(property "Reference" "UHF 180"
 			(at -4.967884 1.59847 0)
 			(unlocked yes)
 			(layer "F.SilkS")
@@ -2206,8 +2206,8 @@
 	(footprint "Turnstile_Library:Singular_Tape_Measure_Antenna"
 		(layer "F.Cu")
 		(uuid "d0aa4b25-d4b5-4eae-8d5c-f6646fb850f4")
-		(at 90.250067 98.163487 50)
-		(property "Reference" "UHF 0"
+		(at 30.861 138.176 50)
+		(property "Reference" "UHF 90"
 			(at -4.967884 1.59847 0)
 			(unlocked yes)
 			(layer "F.SilkS")
@@ -2363,8 +2363,8 @@
 	(footprint "Turnstile_Library:Singular_Tape_Measure_Antenna"
 		(layer "F.Cu")
 		(uuid "e0844520-2566-4578-8593-c7db31c01dcf")
-		(at 144.987067 91.432487 50)
-		(property "Reference" "UHF 0"
+		(at 85.598 131.445 50)
+		(property "Reference" "UHF 270"
 			(at -4.967884 1.59847 0)
 			(unlocked yes)
 			(layer "F.SilkS")
@@ -3123,7 +3123,7 @@
 	(footprint "Turnstile_Library:Singular_Tape_Measure_Antenna"
 		(layer "F.Cu")
 		(uuid "f152462e-0421-4c83-a00b-93fe5bc41d28")
-		(at 128.477067 68.826487 50)
+		(at 69.088 108.839 50)
 		(property "Reference" "UHF 0"
 			(at -4.967884 1.59847 0)
 			(unlocked yes)
