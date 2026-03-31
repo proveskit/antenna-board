@@ -2911,7 +2911,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Turnstile_Library:Singular_Tape_Measure_Antenna"
+		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:Singular Tape Measure"
 			(at 237.49 66.04 0)
 			(effects
 				(font
@@ -4074,7 +4074,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Turnstile_Library:Singular_Tape_Measure_Antenna"
+		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:Singular Tape Measure"
 			(at 237.49 111.76 0)
 			(effects
 				(font
@@ -4271,7 +4271,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Turnstile_Library:Singular_Tape_Measure_Antenna"
+		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:Singular Tape Measure"
 			(at 237.49 43.18 0)
 			(effects
 				(font
@@ -4566,7 +4566,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Turnstile_Library:Singular_Tape_Measure_Antenna"
+		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:Singular Tape Measure"
 			(at 237.49 88.9 0)
 			(effects
 				(font
