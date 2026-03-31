@@ -2455,6 +2455,70 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 102.87 154.94 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "07422b3c-1cf1-47b2-aa16-ff73851b4598")
+		(property "Reference" "H6"
+			(at 105.41 153.6699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 105.41 156.2099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_Pad"
+			(at 102.87 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 102.87 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 102.87 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "proves_canted_turnstile"
+				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
+					(reference "H6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 29.21 34.29 0)
 		(unit 1)
@@ -4181,7 +4245,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 68.58 154.94 0)
+		(at 39.37 154.94 0)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom no)
@@ -4190,7 +4254,7 @@
 		(fields_autoplaced yes)
 		(uuid "c5126e6e-6c07-4e20-ab03-152b966ebf29")
 		(property "Reference" "H4"
-			(at 71.12 153.6699 0)
+			(at 41.91 153.6699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4199,7 +4263,7 @@
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 71.12 156.2099 0)
+			(at 41.91 156.2099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4208,7 +4272,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_Pad"
-			(at 68.58 154.94 0)
+			(at 39.37 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4217,7 +4281,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 68.58 154.94 0)
+			(at 39.37 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4226,7 +4290,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
-			(at 68.58 154.94 0)
+			(at 39.37 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4467,6 +4531,134 @@
 			(project "proves_canted_turnstile"
 				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
 					(reference "U3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 68.58 154.94 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d9343b5c-cd44-49f2-8270-0dddf3e5c154")
+		(property "Reference" "H5"
+			(at 71.12 153.6699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 71.12 156.2099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_Pad"
+			(at 68.58 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 68.58 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 68.58 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "proves_canted_turnstile"
+				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
+					(reference "H5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 130.81 154.94 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "dd922bad-1d0e-46d9-8886-9da30fb2c771")
+		(property "Reference" "H7"
+			(at 133.35 153.6699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 133.35 156.2099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_Pad"
+			(at 130.81 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 130.81 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 130.81 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "proves_canted_turnstile"
+				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
+					(reference "H7")
 					(unit 1)
 				)
 			)
