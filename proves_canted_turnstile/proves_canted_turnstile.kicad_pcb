@@ -789,7 +789,7 @@
 	(footprint "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0"
 		(layer "F.Cu")
 		(uuid "3a695ccc-2890-4c97-929b-6ebed8490ffb")
-		(at 252.476 148.796)
+		(at 113.792 128.778)
 		(descr "Moderate Fiducial, 1.0 mm diameter with 2 mm mask clearance")
 		(property "Reference" "FIDUCIAL2"
 			(at 0 0 0)
@@ -972,7 +972,7 @@
 	(footprint "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0"
 		(layer "F.Cu")
 		(uuid "3b4892ec-0378-4dcf-bed8-4dcb69b3fe2c")
-		(at 252.476 145.796)
+		(at 102.87 113.792)
 		(descr "Moderate Fiducial, 1.0 mm diameter with 2 mm mask clearance")
 		(property "Reference" "FIDUCIAL1"
 			(at 0 0 0)
@@ -1226,7 +1226,7 @@
 	(footprint "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0"
 		(layer "F.Cu")
 		(uuid "5077e728-0f35-4e6e-b29f-72e948282e51")
-		(at 258.476 145.796)
+		(at 174.752 39.624)
 		(descr "Moderate Fiducial, 1.0 mm diameter with 2 mm mask clearance")
 		(property "Reference" "FIDUCIAL6"
 			(at 0 0 0)
@@ -1307,7 +1307,7 @@
 	(footprint "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0"
 		(layer "F.Cu")
 		(uuid "59357bb7-dc35-438e-95b3-1ef78a7612f7")
-		(at 255.476 148.796)
+		(at 173.736 129.794)
 		(descr "Moderate Fiducial, 1.0 mm diameter with 2 mm mask clearance")
 		(property "Reference" "FIDUCIAL4"
 			(at 0 0 0)
@@ -2846,7 +2846,7 @@
 	(footprint "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0"
 		(layer "F.Cu")
 		(uuid "c7a966ea-fe86-429b-9311-071879d5929c")
-		(at 255.476 145.796)
+		(at 108.458 45.974)
 		(descr "Moderate Fiducial, 1.0 mm diameter with 2 mm mask clearance")
 		(property "Reference" "FIDUCIAL3"
 			(at 0 0 0)
@@ -2927,7 +2927,7 @@
 	(footprint "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0"
 		(layer "F.Cu")
 		(uuid "cedf0d17-7b44-4b31-abf5-e671800d1d75")
-		(at 258.476 148.796)
+		(at 183.388 104.394)
 		(descr "Moderate Fiducial, 1.0 mm diameter with 2 mm mask clearance")
 		(property "Reference" "FIDUCIAL7"
 			(at 0 0 0)
@@ -3008,11 +3008,11 @@
 	(footprint "Resistor_THT:R_Axial_DIN0411_L9.9mm_D3.6mm_P25.40mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "d7bf93b8-feb8-4b89-bb85-5f91c230ed3a")
-		(at 66.548 159.766)
+		(at 132.243744 87.720256 45)
 		(descr "Resistor, Axial_DIN0411 series, Axial, Horizontal, pin pitch=25.4mm, 1W, length*diameter=9.9*3.6mm^2")
 		(tags "Resistor Axial_DIN0411 series Axial Horizontal pin pitch 25.4mm 1W length 9.9mm diameter 3.6mm")
 		(property "Reference" "R4"
-			(at 12.7 -2.92 0)
+			(at 12.7 -2.92 45)
 			(layer "F.SilkS")
 			(uuid "a484d402-4f5e-4481-ba05-4dee3e52d1d3")
 			(effects
@@ -3023,7 +3023,7 @@
 			)
 		)
 		(property "Value" "R_Small_US"
-			(at 12.7 2.92 0)
+			(at 12.7 2.92 45)
 			(layer "F.Fab")
 			(uuid "8f9554db-fca8-446e-99fc-4452ffbf4013")
 			(effects
@@ -3034,7 +3034,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 0)
+			(at 0 0 45)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
@@ -3047,7 +3047,7 @@
 			)
 		)
 		(property "Description" "Resistor, small US symbol"
-			(at 0 0 0)
+			(at 0 0 45)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
@@ -3086,7 +3086,7 @@
 		)
 		(fp_line
 			(start 7.63 1.92)
-			(end 17.77 1.92)
+			(end 17.77 1.920001)
 			(stroke
 				(width 0.12)
 				(type solid)
@@ -3095,7 +3095,7 @@
 			(uuid "c9f6733b-761e-4e6e-978e-2a3c0d276096")
 		)
 		(fp_line
-			(start 17.77 -1.92)
+			(start 17.77 -1.920001)
 			(end 7.63 -1.92)
 			(stroke
 				(width 0.12)
@@ -3105,8 +3105,8 @@
 			(uuid "5f799f15-d090-4327-adbb-bf3668572ca6")
 		)
 		(fp_line
-			(start 17.77 1.92)
-			(end 17.77 -1.92)
+			(start 17.77 1.920001)
+			(end 17.77 -1.920001)
 			(stroke
 				(width 0.12)
 				(type solid)
@@ -3115,8 +3115,8 @@
 			(uuid "2fdd0b6a-4295-43b3-93ba-750007a4a327")
 		)
 		(fp_line
-			(start 23.96 0)
-			(end 17.77 0)
+			(start 23.959999 0)
+			(end 17.770001 0)
 			(stroke
 				(width 0.12)
 				(type solid)
@@ -3166,7 +3166,7 @@
 		)
 		(fp_line
 			(start 0 0)
-			(end 7.75 0)
+			(end 7.750001 0)
 			(stroke
 				(width 0.1)
 				(type solid)
@@ -3225,7 +3225,7 @@
 			(uuid "f1dd41f0-9a0a-4781-9b95-9c32731f3350")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 12.7 0 0)
+			(at 12.7 0 45)
 			(layer "F.Fab")
 			(uuid "23202dbe-d4b5-407d-99a2-a19b68d91e85")
 			(effects
@@ -3236,7 +3236,7 @@
 			)
 		)
 		(pad "1" thru_hole circle
-			(at 0 0)
+			(at 0 0 45)
 			(size 2.4 2.4)
 			(drill 1.2)
 			(layers "*.Cu" "*.Mask")
@@ -3246,7 +3246,7 @@
 			(uuid "52959d95-00af-4624-854b-5ce90b6fd7d8")
 		)
 		(pad "2" thru_hole oval
-			(at 25.4 0)
+			(at 25.4 0 45)
 			(size 2.4 2.4)
 			(drill 1.2)
 			(layers "*.Cu" "*.Mask")
