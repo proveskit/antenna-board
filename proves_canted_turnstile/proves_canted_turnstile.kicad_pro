@@ -510,7 +510,7 @@
     "netclass_patterns": [
       {
         "netclass": "RF",
-        "pattern": "/UHF-SHORT+1/4WAVE"
+        "pattern": "/UHF-SHORT+1{slash}4WAVE"
       },
       {
         "netclass": "RF",
