@@ -241,7 +241,7 @@
 		(path "/e7ef5f3c-707c-48a2-8685-f1ec541760dd")
 		(sheetname "/")
 		(sheetfile "proves_canted_turnstile.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start 7.192404 5.114799)
 			(end 7.192399 -5.045213)
@@ -414,7 +414,7 @@
 		(path "/c62b83e1-e0aa-41a7-914d-948a37db31a9")
 		(sheetname "/")
 		(sheetfile "proves_canted_turnstile.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start 4.652403 -5.045204)
 			(end 4.652407 5.114796)
@@ -585,6 +585,7 @@
 		(path "/172a6edb-20d1-4d03-b4a0-1e49157e65ab")
 		(sheetname "/")
 		(sheetfile "proves_canted_turnstile.kicad_sch")
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -3.81 -3.175)
 			(end -3.81 3.175)
@@ -1134,7 +1135,7 @@
 		(path "/3cb2fc5b-6263-45f3-bb47-6d0cf25a9be5")
 		(sheetname "/")
 		(sheetfile "proves_canted_turnstile.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start 7.192399 -5.045213)
 			(end 4.652403 -5.045204)
@@ -1469,6 +1470,7 @@
 		(path "/9936d479-3eb1-4074-b316-2bad5ff46104")
 		(sheetname "/")
 		(sheetfile "proves_canted_turnstile.kicad_sch")
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -3.81 3.175)
 			(end -3.429 3.175)
@@ -1740,6 +1742,18 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "1c88205e-09f2-4d5a-90f5-d4271d97b87b")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C506665"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "3054419f-43a8-4f46-9c4a-cbdf34a42d7b")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2159,6 +2173,18 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "c515a6d0-28dd-4a48-8f5e-644b3cfacc58")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C5879483"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "5576a6b9-792a-40d0-a836-21e8c018d32e")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2850,7 +2876,7 @@
 		(path "/bd85561f-1025-4324-a4d1-91bfd7e2b820")
 		(sheetname "/")
 		(sheetfile "proves_canted_turnstile.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start 7.192404 5.114799)
 			(end 7.192399 -5.045213)
@@ -3011,6 +3037,18 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "a2e561fd-b160-41d4-bbc3-b4aa6fa618d8")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C506658"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "51013ca2-a96b-4c92-8858-213a643ca519")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3548,6 +3586,18 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "53f1ad8a-70fa-4c09-b4cd-a4337b7eb74c")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C5879483"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "e9478685-db44-4c39-b3ad-beb35fced5c8")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4143,6 +4193,7 @@
 		(path "/d8458433-61d6-4889-8168-28fb1f0023b1")
 		(sheetname "/")
 		(sheetfile "proves_canted_turnstile.kicad_sch")
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start 3.81 -3.175)
 			(end 3.81 3.175)
@@ -4526,6 +4577,18 @@
 				)
 			)
 		)
+		(property "LCSC" "C5879483"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "cba3d4f5-b5c6-49b7-a8c2-108becc66828")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/4c4495af-41db-4a37-bb1b-d069f994c36d")
 		(sheetname "/")
 		(sheetfile "proves_canted_turnstile.kicad_sch")
@@ -4853,7 +4916,7 @@
 		(path "/dcc2ac66-46be-4bba-b5fa-65caf5ca6580")
 		(sheetname "/")
 		(sheetfile "proves_canted_turnstile.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -1.38 -3.92)
 			(end 1.38 -3.92)
@@ -5741,7 +5804,7 @@
 		(path "/bb4a7df1-6ce5-4ffd-bd20-b6748699b7ec")
 		(sheetname "/")
 		(sheetfile "proves_canted_turnstile.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -1.38 -3.92)
 			(end 1.38 -3.92)
@@ -5995,10 +6058,22 @@
 				(justify mirror)
 			)
 		)
+		(property "LCSC" "C23186"
+			(at 0 0 0)
+			(layer "B.SilkS")
+			(hide yes)
+			(uuid "f7bc1ead-a3ae-4a23-b5c3-e92c75338f33")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/c3c42601-5c94-4a33-ba2b-4da7feb215e7")
 		(sheetname "/")
 		(sheetfile "proves_canted_turnstile.kicad_sch")
-		(attr smd exclude_from_bom)
+		(attr smd)
 		(fp_line
 			(start -0.237258 0.5225)
 			(end 0.237258 0.5225)
@@ -6200,10 +6275,22 @@
 				(justify mirror)
 			)
 		)
+		(property "LCSC" "C23186"
+			(at 0 0 0)
+			(layer "B.SilkS")
+			(hide yes)
+			(uuid "de3f12fe-f8be-4ac1-8910-04af29a76e51")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/f6e0a81e-a95c-4c22-aab0-e3f02ccbda74")
 		(sheetname "/")
 		(sheetfile "proves_canted_turnstile.kicad_sch")
-		(attr smd exclude_from_bom)
+		(attr smd)
 		(fp_line
 			(start -0.237258 0.5225)
 			(end 0.237258 0.5225)
@@ -6406,6 +6493,18 @@
 					(thickness 0.15)
 				)
 				(justify mirror)
+			)
+		)
+		(property "LCSC" "C165948"
+			(at 0 0 0)
+			(layer "B.SilkS")
+			(hide yes)
+			(uuid "6b2db192-e311-464e-a241-7f0e53a1ced2")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
 			)
 		)
 		(property ki_fp_filters "USB*C*Receptacle*")
@@ -6834,7 +6933,7 @@
 		(path "/8c40abf8-9da8-43da-9ce4-ad76fedb562c")
 		(sheetname "/")
 		(sheetfile "proves_canted_turnstile.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -1.38 -3.92)
 			(end 1.38 -3.92)
@@ -7088,10 +7187,22 @@
 				(justify mirror)
 			)
 		)
+		(property "LCSC" "C23186"
+			(at 0 0 0)
+			(layer "B.SilkS")
+			(hide yes)
+			(uuid "e8d840e3-215a-4c4f-bd55-f16fe905a62f")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/95b3b451-e50c-4bb3-868c-ad0cfb18444f")
 		(sheetname "/")
 		(sheetfile "proves_canted_turnstile.kicad_sch")
-		(attr smd exclude_from_bom)
+		(attr smd)
 		(fp_line
 			(start -0.237258 0.5225)
 			(end 0.237258 0.5225)
@@ -28781,7 +28892,7 @@
 		(path "/a65f9f79-9af3-4f9b-bf9d-ceeece0384c1")
 		(sheetname "/")
 		(sheetfile "proves_canted_turnstile.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -1.38 -3.92)
 			(end 1.38 -3.92)
@@ -29036,6 +29147,18 @@
 					(thickness 0.15)
 				)
 				(justify mirror)
+			)
+		)
+		(property "LCSC" "C165948"
+			(at 0 0 0)
+			(layer "B.SilkS")
+			(hide yes)
+			(uuid "1903ae28-9e25-4469-bce4-b0ff8d5799f8")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
 			)
 		)
 		(property ki_fp_filters "USB*C*Receptacle*")
@@ -29460,10 +29583,22 @@
 				(justify mirror)
 			)
 		)
+		(property "LCSC" "C23186"
+			(at 0 0 0)
+			(layer "B.SilkS")
+			(hide yes)
+			(uuid "addef3cf-f662-42fa-bd87-7c3fc846312a")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/ca02a1e3-a9d1-49ad-8fd3-eefe3ebff7cc")
 		(sheetname "/")
 		(sheetfile "proves_canted_turnstile.kicad_sch")
-		(attr smd exclude_from_bom)
+		(attr smd)
 		(fp_line
 			(start -0.237258 0.5225)
 			(end 0.237258 0.5225)
@@ -31871,7 +32006,7 @@
 		(path "/78912026-1451-4fb3-b676-3ae39c1c6b20")
 		(sheetname "/")
 		(sheetfile "proves_canted_turnstile.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start 5.31 -0.076)
 			(end 4.62 -0.076)
