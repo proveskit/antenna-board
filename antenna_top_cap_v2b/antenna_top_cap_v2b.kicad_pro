@@ -59,7 +59,20 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        [
+          "clearance|147833300|111081900|8f416509-484a-426a-9e52-3f8b78ebf021|ffaffe51-bffa-40f9-beac-bcaaf112557e",
+          "0.15mm Pad to Pad at JLC"
+        ],
+        [
+          "clearance|148333300|111081901|ffaffe51-bffa-40f9-beac-bcaaf112557e|993e9ed8-7fd5-4aa3-a242-0a0b5a5aec6b",
+          "0.15mm Pad to Pad at JLC"
+        ],
+        [
+          "clearance|148658300|109656899|83ce59a8-cd01-4959-b190-1e1a353db145|94bf4206-fe97-48d0-9d50-3b6f856beba3",
+          "0.15mm Pad to Pad at JLC"
+        ]
+      ],
       "meta": {
         "version": 2
       },
@@ -102,11 +115,11 @@
         "padstack": "error",
         "pth_inside_courtyard": "ignore",
         "shorting_items": "error",
-        "silk_edge_clearance": "warning",
+        "silk_edge_clearance": "ignore",
         "silk_over_copper": "warning",
         "silk_overlap": "warning",
         "skew_out_of_range": "error",
-        "solder_mask_bridge": "warning",
+        "solder_mask_bridge": "error",
         "starved_thermal": "ignore",
         "text_height": "warning",
         "text_on_edge_cuts": "error",
