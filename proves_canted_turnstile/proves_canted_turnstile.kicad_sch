@@ -2512,6 +2512,177 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "pSEMI:PE4259"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 8.382 13.97 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "PE4256"
+				(at 8.382 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(color 132 0 0 1)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "PE4259_1_1"
+				(rectangle
+					(start 0 12.7)
+					(end 16.51 0)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin input line
+					(at -2.54 10.16 0)
+					(length 2.54)
+					(name "RF1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -2.54 6.35 0)
+					(length 2.54)
+					(name "RF2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -2.54 2.54 0)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 19.05 10.16 180)
+					(length 2.54)
+					(name "VDD/~{CTRL}"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 19.05 6.35 180)
+					(length 2.54)
+					(name "RFC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 19.05 2.54 180)
+					(length 2.54)
+					(name "CTRL"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -3410,6 +3581,131 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "power:+3V3"
+			(power)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "+3V3"
+				(at 0 3.556 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"+3V3\""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "+3V3_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "+3V3_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "power:GND"
 			(power)
 			(pin_numbers
@@ -3512,9 +3808,19 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "PROVES Radio\n"
+		(exclude_from_sim no)
+		(at 103.378 91.948 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "0736836d-b09a-4c2f-a11c-f1ea1e8515a7")
+	)
 	(text "MAKE SAME LENGTH"
 		(exclude_from_sim no)
-		(at 209.55 134.62 0)
+		(at 294.64 140.97 0)
 		(effects
 			(font
 				(size 1.778 1.5113)
@@ -3533,9 +3839,19 @@
 		)
 		(uuid "4abb52cf-52ca-4b8f-bf37-9685c9ed6a97")
 	)
+	(text "SATNOGS Comms\n"
+		(exclude_from_sim no)
+		(at 68.326 70.104 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "8255889e-8dfb-4db8-801c-a16bc2e5e57b")
+	)
 	(text "90 Degree Phase Shifter Trace"
 		(exclude_from_sim no)
-		(at 146.304 95.504 0)
+		(at 231.394 101.854 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3555,7 +3871,7 @@
 	)
 	(text "1/4 wavelength"
 		(exclude_from_sim no)
-		(at 123.19 114.808 0)
+		(at 208.28 121.158 0)
 		(effects
 			(font
 				(size 1.778 1.5113)
@@ -3566,7 +3882,7 @@
 	)
 	(text "105 mm on 4 lyr OSH Park PCB"
 		(exclude_from_sim no)
-		(at 113.03 117.348 0)
+		(at 198.12 123.698 0)
 		(effects
 			(font
 				(size 1.778 1.5113)
@@ -3596,10 +3912,22 @@
 		(uuid "ffbb5dac-dd89-40a8-a986-20f38df119e7")
 	)
 	(junction
+		(at 120.65 104.14)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "17006d41-47bb-4134-9d4e-a43fb78853d2")
+	)
+	(junction
 		(at 68.58 223.52)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "2098177b-f122-4b64-a7dd-873c723b4b39")
+	)
+	(junction
+		(at 143.51 101.6)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "24661cb4-864f-450c-a9d8-604ce9e84fcc")
 	)
 	(junction
 		(at 45.72 247.65)
@@ -3703,7 +4031,7 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 43.18) (xy 232.41 43.18)
+			(xy 307.34 49.53) (xy 317.5 49.53)
 		)
 		(stroke
 			(width 0.1524)
@@ -3713,7 +4041,7 @@
 	)
 	(wire
 		(pts
-			(xy 123.19 104.14) (xy 123.19 78.74)
+			(xy 208.28 110.49) (xy 208.28 85.09)
 		)
 		(stroke
 			(width 0.1524)
@@ -3723,7 +4051,7 @@
 	)
 	(wire
 		(pts
-			(xy 191.77 104.14) (xy 222.25 104.14)
+			(xy 276.86 110.49) (xy 307.34 110.49)
 		)
 		(stroke
 			(width 0.1524)
@@ -3733,7 +4061,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 78.74) (xy 77.47 81.28)
+			(xy 162.56 85.09) (xy 162.56 87.63)
 		)
 		(stroke
 			(width 0.1524)
@@ -3753,6 +4081,16 @@
 	)
 	(wire
 		(pts
+			(xy 120.65 104.14) (xy 120.65 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "17a12158-413b-4900-9a12-d448fc04bdd2")
+	)
+	(wire
+		(pts
 			(xy 120.65 247.65) (xy 120.65 251.46)
 		)
 		(stroke
@@ -3763,7 +4101,7 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 60.96) (xy 156.21 63.5)
+			(xy 241.3 67.31) (xy 241.3 69.85)
 		)
 		(stroke
 			(width 0.1524)
@@ -3803,7 +4141,17 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 73.66) (xy 156.21 76.2)
+			(xy 138.43 101.6) (xy 143.51 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "250ad7fb-a8d1-48cb-9d9f-004e586dc8ce")
+	)
+	(wire
+		(pts
+			(xy 241.3 80.01) (xy 241.3 82.55)
 		)
 		(stroke
 			(width 0.1524)
@@ -3823,13 +4171,33 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 111.76) (xy 156.21 114.3)
+			(xy 241.3 118.11) (xy 241.3 120.65)
 		)
 		(stroke
 			(width 0.1524)
 			(type solid)
 		)
 		(uuid "286a86d4-7500-41f4-83a4-40be24db2bbf")
+	)
+	(wire
+		(pts
+			(xy 143.51 104.14) (xy 143.51 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2b764ee0-30a6-4e92-bd48-ef3b7c15ed5f")
+	)
+	(wire
+		(pts
+			(xy 90.17 73.66) (xy 118.11 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2eb0c58d-3b2e-405d-8490-20c1f36e2f95")
 	)
 	(wire
 		(pts
@@ -3873,6 +4241,16 @@
 	)
 	(wire
 		(pts
+			(xy 143.51 81.28) (xy 143.51 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "35479749-aa46-4fde-bf67-6e5a7b86a987")
+	)
+	(wire
+		(pts
 			(xy 68.58 218.44) (xy 64.77 218.44)
 		)
 		(stroke
@@ -3883,7 +4261,7 @@
 	)
 	(polyline
 		(pts
-			(xy 254 139.7) (xy 254 34.29)
+			(xy 339.09 146.05) (xy 339.09 40.64)
 		)
 		(stroke
 			(width 0.1524)
@@ -3913,7 +4291,7 @@
 	)
 	(polyline
 		(pts
-			(xy 254 34.29) (xy 196.85 34.29)
+			(xy 339.09 40.64) (xy 281.94 40.64)
 		)
 		(stroke
 			(width 0.1524)
@@ -3953,7 +4331,7 @@
 	)
 	(wire
 		(pts
-			(xy 123.19 53.34) (xy 166.37 53.34)
+			(xy 208.28 59.69) (xy 251.46 59.69)
 		)
 		(stroke
 			(width 0.1524)
@@ -3983,7 +4361,7 @@
 	)
 	(wire
 		(pts
-			(xy 179.07 116.84) (xy 179.07 127)
+			(xy 264.16 123.19) (xy 264.16 133.35)
 		)
 		(stroke
 			(width 0.1524)
@@ -4003,7 +4381,7 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 66.04) (xy 232.41 66.04)
+			(xy 307.34 72.39) (xy 317.5 72.39)
 		)
 		(stroke
 			(width 0.1524)
@@ -4043,7 +4421,7 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 78.74) (xy 77.47 78.74)
+			(xy 172.72 85.09) (xy 162.56 85.09)
 		)
 		(stroke
 			(width 0.1524)
@@ -4083,7 +4461,7 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 124.46) (xy 156.21 127)
+			(xy 241.3 130.81) (xy 241.3 133.35)
 		)
 		(stroke
 			(width 0.1524)
@@ -4103,7 +4481,7 @@
 	)
 	(polyline
 		(pts
-			(xy 196.85 34.29) (xy 196.85 139.7)
+			(xy 281.94 40.64) (xy 281.94 146.05)
 		)
 		(stroke
 			(width 0.1524)
@@ -4113,7 +4491,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 104.14) (xy 148.59 99.06)
+			(xy 233.68 110.49) (xy 233.68 105.41)
 		)
 		(stroke
 			(width 0.1524)
@@ -4133,7 +4511,7 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 104.14) (xy 222.25 88.9)
+			(xy 307.34 110.49) (xy 307.34 95.25)
 		)
 		(stroke
 			(width 0.1524)
@@ -4143,7 +4521,7 @@
 	)
 	(wire
 		(pts
-			(xy 191.77 111.76) (xy 232.41 111.76)
+			(xy 276.86 118.11) (xy 317.5 118.11)
 		)
 		(stroke
 			(width 0.1524)
@@ -4163,6 +4541,16 @@
 	)
 	(wire
 		(pts
+			(xy 110.49 77.47) (xy 118.11 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7ac779f5-7686-4d32-a05b-fe9391f16feb")
+	)
+	(wire
+		(pts
 			(xy 69.85 209.55) (xy 71.12 209.55)
 		)
 		(stroke
@@ -4173,7 +4561,7 @@
 	)
 	(wire
 		(pts
-			(xy 133.35 99.06) (xy 133.35 109.22)
+			(xy 218.44 105.41) (xy 218.44 115.57)
 		)
 		(stroke
 			(width 0.1524)
@@ -4183,7 +4571,17 @@
 	)
 	(wire
 		(pts
-			(xy 123.19 71.12) (xy 123.19 53.34)
+			(xy 143.51 81.28) (xy 139.7 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "80833229-b3d7-42df-885c-e2e1102ddb11")
+	)
+	(wire
+		(pts
+			(xy 208.28 77.47) (xy 208.28 59.69)
 		)
 		(stroke
 			(width 0.1524)
@@ -4201,15 +4599,45 @@
 		)
 		(uuid "81db5419-a8e6-4716-95af-5141f1091a1a")
 	)
+	(wire
+		(pts
+			(xy 125.73 101.6) (xy 120.65 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "848b51fd-2eb0-4dad-a05f-f07800001636")
+	)
+	(wire
+		(pts
+			(xy 125.73 104.14) (xy 120.65 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "85a611c1-17a0-4e7e-838e-9f8f6bb35440")
+	)
 	(polyline
 		(pts
-			(xy 196.85 139.7) (xy 254 139.7)
+			(xy 281.94 146.05) (xy 339.09 146.05)
 		)
 		(stroke
 			(width 0.1524)
 			(type solid)
 		)
 		(uuid "8641b691-a827-40bd-bd60-e1a1ceeb65bf")
+	)
+	(wire
+		(pts
+			(xy 118.11 81.28) (xy 115.57 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "870036e9-8415-4f7c-9697-a862005e68e8")
 	)
 	(wire
 		(pts
@@ -4243,7 +4671,7 @@
 	)
 	(wire
 		(pts
-			(xy 123.19 78.74) (xy 113.03 78.74)
+			(xy 208.28 85.09) (xy 198.12 85.09)
 		)
 		(stroke
 			(width 0.1524)
@@ -4283,7 +4711,7 @@
 	)
 	(wire
 		(pts
-			(xy 100.33 83.82) (xy 100.33 93.98)
+			(xy 185.42 90.17) (xy 185.42 100.33)
 		)
 		(stroke
 			(width 0.1524)
@@ -4293,7 +4721,7 @@
 	)
 	(wire
 		(pts
-			(xy 128.27 109.22) (xy 128.27 104.14)
+			(xy 213.36 115.57) (xy 213.36 110.49)
 		)
 		(stroke
 			(width 0.1524)
@@ -4323,7 +4751,7 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 111.76) (xy 156.21 111.76)
+			(xy 251.46 118.11) (xy 241.3 118.11)
 		)
 		(stroke
 			(width 0.1524)
@@ -4333,7 +4761,7 @@
 	)
 	(wire
 		(pts
-			(xy 191.77 60.96) (xy 222.25 60.96)
+			(xy 276.86 67.31) (xy 307.34 67.31)
 		)
 		(stroke
 			(width 0.1524)
@@ -4353,13 +4781,23 @@
 	)
 	(wire
 		(pts
-			(xy 179.07 66.04) (xy 179.07 76.2)
+			(xy 264.16 72.39) (xy 264.16 82.55)
 		)
 		(stroke
 			(width 0.1524)
 			(type solid)
 		)
 		(uuid "9de9a955-191f-4a07-9019-6807f5f0b03d")
+	)
+	(wire
+		(pts
+			(xy 139.7 77.47) (xy 172.72 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9e8f946c-cb52-4b20-8581-0c692ffa725a")
 	)
 	(wire
 		(pts
@@ -4373,7 +4811,7 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 99.06) (xy 133.35 99.06)
+			(xy 223.52 105.41) (xy 218.44 105.41)
 		)
 		(stroke
 			(width 0.1524)
@@ -4413,7 +4851,7 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 88.9) (xy 232.41 88.9)
+			(xy 307.34 95.25) (xy 317.5 95.25)
 		)
 		(stroke
 			(width 0.1524)
@@ -4423,7 +4861,7 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 76.2) (xy 41.91 81.28)
+			(xy 105.41 82.55) (xy 105.41 83.82)
 		)
 		(stroke
 			(width 0.1524)
@@ -4453,7 +4891,17 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 104.14) (xy 148.59 104.14)
+			(xy 115.57 81.28) (xy 115.57 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a68dcb27-410e-4420-8ffa-5aa3b4933811")
+	)
+	(wire
+		(pts
+			(xy 251.46 110.49) (xy 233.68 110.49)
 		)
 		(stroke
 			(width 0.1524)
@@ -4493,17 +4941,7 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 71.12) (xy 87.63 71.12)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "b2e6e1ed-be4e-4ad1-b9b3-db5e56147a49")
-	)
-	(wire
-		(pts
-			(xy 113.03 71.12) (xy 123.19 71.12)
+			(xy 198.12 77.47) (xy 208.28 77.47)
 		)
 		(stroke
 			(width 0.1524)
@@ -4523,7 +4961,7 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 60.96) (xy 222.25 66.04)
+			(xy 307.34 67.31) (xy 307.34 72.39)
 		)
 		(stroke
 			(width 0.1524)
@@ -4533,13 +4971,23 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 91.44) (xy 77.47 93.98)
+			(xy 162.56 97.79) (xy 162.56 100.33)
 		)
 		(stroke
 			(width 0.1524)
 			(type solid)
 		)
 		(uuid "b833b63f-fc24-4f90-a710-8c2dc378e04a")
+	)
+	(wire
+		(pts
+			(xy 85.09 78.74) (xy 85.09 83.82)
+		)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(uuid "b994a8b7-a47f-4b80-92da-dbce609652a0")
 	)
 	(wire
 		(pts
@@ -4603,7 +5051,7 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 60.96) (xy 156.21 60.96)
+			(xy 251.46 67.31) (xy 241.3 67.31)
 		)
 		(stroke
 			(width 0.1524)
@@ -4643,7 +5091,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 109.22) (xy 138.43 109.22)
+			(xy 228.6 115.57) (xy 223.52 115.57)
 		)
 		(stroke
 			(width 0.1524)
@@ -4653,7 +5101,7 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 109.22) (xy 138.43 99.06)
+			(xy 223.52 115.57) (xy 223.52 105.41)
 		)
 		(stroke
 			(width 0.1524)
@@ -4683,7 +5131,7 @@
 	)
 	(wire
 		(pts
-			(xy 191.77 53.34) (xy 222.25 53.34)
+			(xy 276.86 59.69) (xy 307.34 59.69)
 		)
 		(stroke
 			(width 0.1524)
@@ -4693,7 +5141,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 99.06) (xy 143.51 99.06)
+			(xy 233.68 105.41) (xy 228.6 105.41)
 		)
 		(stroke
 			(width 0.1524)
@@ -4723,7 +5171,27 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 99.06) (xy 143.51 109.22)
+			(xy 142.24 72.39) (xy 142.24 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e08819b8-2f36-48e2-a9f3-dd24da6af827")
+	)
+	(wire
+		(pts
+			(xy 120.65 101.6) (xy 120.65 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e15d4b46-d9ca-4b60-b479-2278687fb567")
+	)
+	(wire
+		(pts
+			(xy 228.6 105.41) (xy 228.6 115.57)
 		)
 		(stroke
 			(width 0.1524)
@@ -4753,7 +5221,7 @@
 	)
 	(wire
 		(pts
-			(xy 133.35 109.22) (xy 128.27 109.22)
+			(xy 218.44 115.57) (xy 213.36 115.57)
 		)
 		(stroke
 			(width 0.1524)
@@ -4783,7 +5251,7 @@
 	)
 	(wire
 		(pts
-			(xy 128.27 104.14) (xy 123.19 104.14)
+			(xy 213.36 110.49) (xy 208.28 110.49)
 		)
 		(stroke
 			(width 0.1524)
@@ -4793,13 +5261,23 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 53.34) (xy 222.25 43.18)
+			(xy 307.34 59.69) (xy 307.34 49.53)
 		)
 		(stroke
 			(width 0.1524)
 			(type solid)
 		)
 		(uuid "f7025b2a-eee3-4f11-84de-c70e54f92af4")
+	)
+	(wire
+		(pts
+			(xy 138.43 104.14) (xy 143.51 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f7a76ef4-8541-4afb-a5ab-dc9885151674")
 	)
 	(wire
 		(pts
@@ -4813,6 +5291,16 @@
 	)
 	(wire
 		(pts
+			(xy 139.7 73.66) (xy 142.24 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fc4f3000-db95-4a21-ae6d-4b33efd562a6")
+	)
+	(wire
+		(pts
 			(xy 158.75 237.49) (xy 166.37 237.49)
 		)
 		(stroke
@@ -4821,8 +5309,276 @@
 		)
 		(uuid "fe49ea65-1668-4370-8baa-05eac65be707")
 	)
+	(image
+		(at 125.73 43.18)
+		(scale 0.376463)
+		(uuid "815290ab-cc2d-4e55-8b72-cc2f11a85645")
+		(data "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"
+			"OdQAAAAASUVORK5CYII="
+		)
+	)
 	(label "UHF"
-		(at 62.23 71.12 0)
+		(at 147.32 77.47 0)
 		(effects
 			(font
 				(size 1.2446 1.2446)
@@ -4832,7 +5588,7 @@
 		(uuid "28c0c29f-bf24-4af1-8c25-0e246bbcd924")
 	)
 	(label "UHF_180"
-		(at 204.47 104.14 0)
+		(at 289.56 110.49 0)
 		(effects
 			(font
 				(size 1.2446 1.2446)
@@ -4842,7 +5598,7 @@
 		(uuid "38a6b7b6-d303-4e75-b7bd-7981f9a19e57")
 	)
 	(label "UHF_270"
-		(at 204.47 111.76 0)
+		(at 289.56 118.11 0)
 		(effects
 			(font
 				(size 1.2446 1.2446)
@@ -4852,7 +5608,7 @@
 		(uuid "38ce71ff-bc12-4061-b14d-bc682973b62d")
 	)
 	(label "UHF_0"
-		(at 204.47 53.34 0)
+		(at 289.56 59.69 0)
 		(effects
 			(font
 				(size 1.2446 1.2446)
@@ -4862,7 +5618,7 @@
 		(uuid "45cae7ff-2a35-460d-867c-97391feecfff")
 	)
 	(label "UHF-SHORT+1/4WAVE"
-		(at 123.19 91.44 0)
+		(at 208.28 97.79 0)
 		(effects
 			(font
 				(size 1.2446 1.2446)
@@ -4872,7 +5628,7 @@
 		(uuid "49753166-3954-42d1-bf5b-f6106d79d018")
 	)
 	(label "UHF_90"
-		(at 204.47 60.96 0)
+		(at 289.56 67.31 0)
 		(effects
 			(font
 				(size 1.2446 1.2446)
@@ -4882,7 +5638,7 @@
 		(uuid "65dbcf75-524c-4967-b126-2e93e9722636")
 	)
 	(label "UHF-SHORT"
-		(at 118.11 71.12 0)
+		(at 203.2 77.47 0)
 		(effects
 			(font
 				(size 1.2446 1.2446)
@@ -5333,7 +6089,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_Coaxial")
-		(at 41.91 71.12 0)
+		(at 105.41 77.47 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5342,7 +6098,7 @@
 		(dnp no)
 		(uuid "04731995-ac5a-41f6-9d0b-a1f694fe1a2f")
 		(property "Reference" "J1"
-			(at 38.1 70.1431 0)
+			(at 101.6 76.4931 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5351,7 +6107,7 @@
 			)
 		)
 		(property "Value" "Conn_Coaxial"
-			(at 38.1 72.6831 0)
+			(at 101.6 79.0331 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5360,7 +6116,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Coaxial:MMCX_Molex_73415-1471_Vertical"
-			(at 41.91 71.12 0)
+			(at 105.41 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5369,7 +6125,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 41.91 71.12 0)
+			(at 105.41 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5378,7 +6134,7 @@
 			)
 		)
 		(property "Description" "coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, LEMO, ...)"
-			(at 41.91 71.12 0)
+			(at 105.41 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5403,7 +6159,7 @@
 	)
 	(symbol
 		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:QBA-07+")
-		(at 100.33 73.66 0)
+		(at 185.42 80.01 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5411,7 +6167,7 @@
 		(dnp no)
 		(uuid "172a6edb-20d1-4d03-b4a0-1e49157e65ab")
 		(property "Reference" "U1"
-			(at 106.68 83.82 0)
+			(at 191.77 90.17 0)
 			(effects
 				(font
 					(size 1.778 1.5113)
@@ -5420,7 +6176,7 @@
 			)
 		)
 		(property "Value" "QBA-07+"
-			(at 87.63 83.82 0)
+			(at 172.72 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5429,7 +6185,7 @@
 			)
 		)
 		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:QBA-07+"
-			(at 100.33 73.66 0)
+			(at 185.42 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5438,7 +6194,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 100.33 73.66 0)
+			(at 185.42 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5447,7 +6203,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 100.33 73.66 0)
+			(at 185.42 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5492,6 +6248,87 @@
 			(project "proves_canted_turnstile"
 				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
 					(reference "U1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "pSEMI:PE4259")
+		(at 120.65 83.82 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "19ed944a-2c77-4ee4-ab7f-c97e2c60b42d")
+		(property "Reference" "U4"
+			(at 128.905 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PE4256"
+			(at 128.905 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(color 132 0 0 1)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 120.65 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 120.65 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 120.65 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "6ed48568-6089-42ed-8a65-b03ecbda99b1")
+		)
+		(pin "2"
+			(uuid "cefb434a-1155-4105-b158-ecedb871398e")
+		)
+		(pin "4"
+			(uuid "32078109-ab0a-4a7f-8e03-6f32223fea29")
+		)
+		(pin "6"
+			(uuid "abce4d39-3b21-46f2-ba3d-c983e71fbf25")
+		)
+		(pin "5"
+			(uuid "adde0654-1123-4c67-8366-f65f36e0de21")
+		)
+		(pin "1"
+			(uuid "19121d07-1fbe-4cf8-a5b4-037ab7db1b7d")
+		)
+		(instances
+			(project ""
+				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
+					(reference "U4")
 					(unit 1)
 				)
 			)
@@ -5663,8 +6500,151 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector_Generic:Conn_02x02_Odd_Even")
+		(at 130.81 101.6 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "25adcd65-9fdb-40d7-a845-9f9a3e931367")
+		(property "Reference" "J13"
+			(at 131.826 99.314 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "DF11-4DP-2DSA"
+			(at 132.08 108.458 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_Hirose:Hirose_DF11-4DP-2DSA_2x02_P2.00mm_Vertical"
+			(at 130.81 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 130.81 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, double row, 02x02, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 130.81 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "5ccc8739-c6ae-4bd0-b4e8-c65e22e279bb")
+		)
+		(pin "4"
+			(uuid "08dae091-ec74-4bce-8e52-1b37bd598f00")
+		)
+		(pin "2"
+			(uuid "0563feb2-71b8-41b0-b9bc-8a92e649774b")
+		)
+		(pin "1"
+			(uuid "5555a459-39e0-4be6-a67d-5742d4ce15f1")
+		)
+		(instances
+			(project "proves_canted_turnstile"
+				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
+					(reference "J13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_Coaxial")
+		(at 85.09 73.66 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2ceb7298-2218-428c-b15d-d8c0de04c99f")
+		(property "Reference" "J2"
+			(at 81.28 72.6831 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Conn_Coaxial"
+			(at 81.28 75.184 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_Coaxial:MMCX_Molex_73415-1471_Vertical"
+			(at 85.09 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 85.09 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, LEMO, ...)"
+			(at 85.09 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "846e91f6-2779-4f57-bea0-87e33cf304f0")
+		)
+		(pin "1"
+			(uuid "bd827d5f-1821-4247-925a-be249762af62")
+		)
+		(instances
+			(project "proves_canted_turnstile"
+				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
+					(reference "J2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:GND")
-		(at 179.07 129.54 0)
+		(at 264.16 135.89 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5672,7 +6652,7 @@
 		(dnp no)
 		(uuid "34accab3-d2ba-4187-9cc5-3dfc60f108c5")
 		(property "Reference" "#GND03"
-			(at 179.07 129.54 0)
+			(at 264.16 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5681,7 +6661,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 176.53 132.08 0)
+			(at 261.62 138.43 0)
 			(effects
 				(font
 					(size 1.778 1.5113)
@@ -5690,7 +6670,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 179.07 129.54 0)
+			(at 264.16 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5699,7 +6679,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 179.07 129.54 0)
+			(at 264.16 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5708,7 +6688,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 179.07 129.54 0)
+			(at 264.16 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5730,7 +6710,7 @@
 	)
 	(symbol
 		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0")
-		(at 311.15 76.2 0)
+		(at 444.5 93.98 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5738,7 +6718,7 @@
 		(dnp no)
 		(uuid "361d85bd-3c89-4c60-8a8b-5de8083d298d")
 		(property "Reference" "FIDUCIAL2"
-			(at 311.15 76.2 0)
+			(at 444.5 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5747,7 +6727,7 @@
 			)
 		)
 		(property "Value" "FIDUCIAL-1.0X2.0"
-			(at 311.15 76.2 0)
+			(at 444.5 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5756,7 +6736,7 @@
 			)
 		)
 		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0"
-			(at 311.15 76.2 0)
+			(at 444.5 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5765,7 +6745,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 311.15 76.2 0)
+			(at 444.5 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5774,7 +6754,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 311.15 76.2 0)
+			(at 444.5 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5796,7 +6776,7 @@
 	)
 	(symbol
 		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:R-US_0603-C-NOSILK")
-		(at 77.47 86.36 90)
+		(at 162.56 92.71 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5804,7 +6784,7 @@
 		(dnp no)
 		(uuid "3867e906-2183-4c02-b976-246171785e56")
 		(property "Reference" "R1"
-			(at 75.9714 90.17 0)
+			(at 161.0614 96.52 0)
 			(effects
 				(font
 					(size 1.778 1.5113)
@@ -5813,7 +6793,7 @@
 			)
 		)
 		(property "Value" "50"
-			(at 80.772 90.17 0)
+			(at 165.862 96.52 0)
 			(effects
 				(font
 					(size 1.778 1.5113)
@@ -5822,7 +6802,7 @@
 			)
 		)
 		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:.0603-C-NOSILK"
-			(at 77.47 86.36 0)
+			(at 162.56 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5831,7 +6811,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 77.47 86.36 0)
+			(at 162.56 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5840,7 +6820,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 77.47 86.36 0)
+			(at 162.56 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5932,7 +6912,7 @@
 	)
 	(symbol
 		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:GND")
-		(at 156.21 78.74 0)
+		(at 241.3 85.09 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5940,7 +6920,7 @@
 		(dnp no)
 		(uuid "3bb45c37-6d8a-4a47-a5b4-4aac4e1782d6")
 		(property "Reference" "#GND05"
-			(at 156.21 78.74 0)
+			(at 241.3 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5949,7 +6929,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 153.67 81.28 0)
+			(at 238.76 87.63 0)
 			(effects
 				(font
 					(size 1.778 1.5113)
@@ -5958,7 +6938,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 156.21 78.74 0)
+			(at 241.3 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5967,7 +6947,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 156.21 78.74 0)
+			(at 241.3 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5976,7 +6956,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 156.21 78.74 0)
+			(at 241.3 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5998,7 +6978,7 @@
 	)
 	(symbol
 		(lib_id "Device:Antenna")
-		(at 232.41 60.96 0)
+		(at 317.5 67.31 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6007,7 +6987,7 @@
 		(fields_autoplaced yes)
 		(uuid "3cb2fc5b-6263-45f3-bb47-6d0cf25a9be5")
 		(property "Reference" "AE2"
-			(at 234.95 60.3249 0)
+			(at 320.04 66.6749 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6016,7 +6996,7 @@
 			)
 		)
 		(property "Value" "Antenna"
-			(at 234.95 62.8649 0)
+			(at 320.04 69.2149 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6025,7 +7005,7 @@
 			)
 		)
 		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:Singular Tape Measure"
-			(at 232.41 60.96 0)
+			(at 317.5 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6034,7 +7014,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 232.41 60.96 0)
+			(at 317.5 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6043,7 +7023,7 @@
 			)
 		)
 		(property "Description" "Antenna"
-			(at 232.41 60.96 0)
+			(at 317.5 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6064,34 +7044,35 @@
 		)
 	)
 	(symbol
-		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:R-US_0603-C-NOSILK")
-		(at 156.21 68.58 90)
+		(lib_name "GND_1")
+		(lib_id "power:GND")
+		(at 120.65 105.41 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "4c4495af-41db-4a37-bb1b-d069f994c36d")
-		(property "Reference" "R2"
-			(at 154.7114 72.39 0)
+		(fields_autoplaced yes)
+		(uuid "45c2eebf-03aa-49c6-8688-fdb508995638")
+		(property "Reference" "#PWR07"
+			(at 120.65 111.76 0)
 			(effects
 				(font
-					(size 1.778 1.5113)
+					(size 1.27 1.27)
 				)
-				(justify left bottom)
+				(hide yes)
 			)
 		)
-		(property "Value" "50"
-			(at 159.512 72.39 0)
+		(property "Value" "GND"
+			(at 120.65 110.49 0)
 			(effects
 				(font
-					(size 1.778 1.5113)
+					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:.0603-C-NOSILK"
-			(at 156.21 68.58 0)
+		(property "Footprint" ""
+			(at 120.65 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6100,7 +7081,73 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 156.21 68.58 0)
+			(at 120.65 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 120.65 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6d04f354-170d-4a4c-8dee-3da7bd4873ef")
+		)
+		(instances
+			(project "proves_canted_turnstile"
+				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
+					(reference "#PWR07")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:R-US_0603-C-NOSILK")
+		(at 241.3 74.93 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4c4495af-41db-4a37-bb1b-d069f994c36d")
+		(property "Reference" "R2"
+			(at 239.8014 78.74 0)
+			(effects
+				(font
+					(size 1.778 1.5113)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "50"
+			(at 244.602 78.74 0)
+			(effects
+				(font
+					(size 1.778 1.5113)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:.0603-C-NOSILK"
+			(at 241.3 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 241.3 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6109,7 +7156,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 156.21 68.58 0)
+			(at 241.3 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6200,7 +7247,7 @@
 	)
 	(symbol
 		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:GND")
-		(at 41.91 83.82 0)
+		(at 105.41 86.36 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6208,7 +7255,7 @@
 		(dnp no)
 		(uuid "59e702eb-e547-46d9-b6fd-13fb29c61564")
 		(property "Reference" "#GND014"
-			(at 41.91 83.82 0)
+			(at 105.41 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6217,7 +7264,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 39.37 86.36 0)
+			(at 102.87 88.9 0)
 			(effects
 				(font
 					(size 1.778 1.5113)
@@ -6226,7 +7273,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 41.91 83.82 0)
+			(at 105.41 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6235,7 +7282,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 41.91 83.82 0)
+			(at 105.41 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6244,7 +7291,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 41.91 83.82 0)
+			(at 105.41 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6266,7 +7313,7 @@
 	)
 	(symbol
 		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0")
-		(at 374.65 76.2 0)
+		(at 508 93.98 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6274,7 +7321,7 @@
 		(dnp no)
 		(uuid "5ea96345-dd93-4807-9bfb-deed6ebd5c6c")
 		(property "Reference" "FIDUCIAL1"
-			(at 374.65 76.2 0)
+			(at 508 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6283,7 +7330,7 @@
 			)
 		)
 		(property "Value" "FIDUCIAL-1.0X2.0"
-			(at 374.65 76.2 0)
+			(at 508 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6292,7 +7339,7 @@
 			)
 		)
 		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0"
-			(at 374.65 76.2 0)
+			(at 508 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6301,7 +7348,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 374.65 76.2 0)
+			(at 508 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6310,7 +7357,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 374.65 76.2 0)
+			(at 508 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6445,16 +7492,16 @@
 		)
 	)
 	(symbol
-		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0")
-		(at 361.95 76.2 0)
+		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:GND")
+		(at 85.09 86.36 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "6326e8ec-3b9f-4df4-9f95-31fed58f0375")
-		(property "Reference" "FIDUCIAL7"
-			(at 361.95 76.2 0)
+		(uuid "62b966e3-3bf8-4cdb-a0df-357f7ba5dc54")
+		(property "Reference" "#GND015"
+			(at 85.09 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6462,17 +7509,17 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "FIDUCIAL-1.0X2.0"
-			(at 361.95 76.2 0)
+		(property "Value" "GND"
+			(at 82.55 88.9 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.778 1.5113)
 				)
-				(hide yes)
+				(justify left bottom)
 			)
 		)
-		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0"
-			(at 361.95 76.2 0)
+		(property "Footprint" ""
+			(at 85.09 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6481,7 +7528,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 361.95 76.2 0)
+			(at 85.09 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6490,7 +7537,73 @@
 			)
 		)
 		(property "Description" ""
-			(at 361.95 76.2 0)
+			(at 85.09 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "de8e118d-8e2b-4480-b893-1933f61c9a78")
+		)
+		(instances
+			(project "proves_canted_turnstile"
+				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
+					(reference "#GND015")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0")
+		(at 495.3 93.98 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6326e8ec-3b9f-4df4-9f95-31fed58f0375")
+		(property "Reference" "FIDUCIAL7"
+			(at 495.3 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "FIDUCIAL-1.0X2.0"
+			(at 495.3 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0"
+			(at 495.3 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 495.3 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 495.3 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6579,7 +7692,7 @@
 	)
 	(symbol
 		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0")
-		(at 323.85 76.2 0)
+		(at 457.2 93.98 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6587,7 +7700,7 @@
 		(dnp no)
 		(uuid "701b64f5-0605-4186-8422-460308855fb7")
 		(property "Reference" "FIDUCIAL3"
-			(at 323.85 76.2 0)
+			(at 457.2 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6596,7 +7709,7 @@
 			)
 		)
 		(property "Value" "FIDUCIAL-1.0X2.0"
-			(at 323.85 76.2 0)
+			(at 457.2 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6605,7 +7718,7 @@
 			)
 		)
 		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0"
-			(at 323.85 76.2 0)
+			(at 457.2 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6614,7 +7727,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 323.85 76.2 0)
+			(at 457.2 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6623,7 +7736,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 323.85 76.2 0)
+			(at 457.2 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6644,8 +7757,140 @@
 		)
 	)
 	(symbol
+		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:GND")
+		(at 115.57 87.63 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "701ca25d-f40b-4d78-8354-ed20cd0450dd")
+		(property "Reference" "#GND016"
+			(at 115.57 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 113.03 90.17 0)
+			(effects
+				(font
+					(size 1.778 1.5113)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Footprint" ""
+			(at 115.57 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8e621e3c-5370-4807-be63-f207b097e664")
+		)
+		(instances
+			(project "proves_canted_turnstile"
+				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
+					(reference "#GND016")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 142.24 72.39 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "73fe0d97-3e04-490c-bfdb-18ac64b4e794")
+		(property "Reference" "#PWR02"
+			(at 142.24 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 142.24 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 142.24 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 142.24 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 142.24 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "dfa40507-21d3-4a40-9e97-68cbd7592675")
+		)
+		(instances
+			(project ""
+				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
+					(reference "#PWR02")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 302.26 49.53 0)
+		(at 435.61 67.31 0)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom no)
@@ -6654,7 +7899,7 @@
 		(fields_autoplaced yes)
 		(uuid "7828802d-c82a-4a86-8f4f-aa00f1dc4f34")
 		(property "Reference" "H1"
-			(at 304.8 48.2599 0)
+			(at 438.15 66.0399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6663,7 +7908,7 @@
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 304.8 50.7999 0)
+			(at 438.15 68.5799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6672,7 +7917,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_Pad"
-			(at 302.26 49.53 0)
+			(at 435.61 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6681,7 +7926,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 302.26 49.53 0)
+			(at 435.61 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6690,7 +7935,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
-			(at 302.26 49.53 0)
+			(at 435.61 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6777,7 +8022,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 331.47 49.53 0)
+		(at 464.82 67.31 0)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom no)
@@ -6786,7 +8031,7 @@
 		(fields_autoplaced yes)
 		(uuid "79be83fe-7451-4afe-b969-1df8efadef93")
 		(property "Reference" "H2"
-			(at 334.01 48.2599 0)
+			(at 467.36 66.0399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6795,7 +8040,7 @@
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 334.01 50.7999 0)
+			(at 467.36 68.5799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6804,7 +8049,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_Pad"
-			(at 331.47 49.53 0)
+			(at 464.82 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6813,7 +8058,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 331.47 49.53 0)
+			(at 464.82 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6822,7 +8067,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
-			(at 331.47 49.53 0)
+			(at 464.82 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6841,7 +8086,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 365.76 49.53 0)
+		(at 499.11 67.31 0)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom no)
@@ -6850,7 +8095,7 @@
 		(fields_autoplaced yes)
 		(uuid "7d889fcd-6c7c-4ed8-90f8-bc638b04a285")
 		(property "Reference" "H3"
-			(at 368.3 48.2599 0)
+			(at 501.65 66.0399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6859,7 +8104,7 @@
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 368.3 50.7999 0)
+			(at 501.65 68.5799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6868,7 +8113,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_Pad"
-			(at 365.76 49.53 0)
+			(at 499.11 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6877,7 +8122,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 365.76 49.53 0)
+			(at 499.11 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6886,7 +8131,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
-			(at 365.76 49.53 0)
+			(at 499.11 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7090,7 +8335,7 @@
 	)
 	(symbol
 		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:GND")
-		(at 100.33 96.52 0)
+		(at 185.42 102.87 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7098,7 +8343,7 @@
 		(dnp no)
 		(uuid "90761d7d-bd30-4ba6-ad05-374ba28b0020")
 		(property "Reference" "#GND01"
-			(at 100.33 96.52 0)
+			(at 185.42 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7107,7 +8352,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 97.79 99.06 0)
+			(at 182.88 105.41 0)
 			(effects
 				(font
 					(size 1.778 1.5113)
@@ -7116,7 +8361,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 100.33 96.52 0)
+			(at 185.42 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7125,7 +8370,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 100.33 96.52 0)
+			(at 185.42 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7134,7 +8379,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 100.33 96.52 0)
+			(at 185.42 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7225,7 +8470,7 @@
 	)
 	(symbol
 		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:GND")
-		(at 156.21 129.54 0)
+		(at 241.3 135.89 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7233,7 +8478,7 @@
 		(dnp no)
 		(uuid "96065892-2bb5-4e92-804a-db9f0d47dc62")
 		(property "Reference" "#GND06"
-			(at 156.21 129.54 0)
+			(at 241.3 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7242,7 +8487,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 153.67 132.08 0)
+			(at 238.76 138.43 0)
 			(effects
 				(font
 					(size 1.778 1.5113)
@@ -7251,7 +8496,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 156.21 129.54 0)
+			(at 241.3 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7260,7 +8505,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 156.21 129.54 0)
+			(at 241.3 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7269,7 +8514,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 156.21 129.54 0)
+			(at 241.3 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7291,7 +8536,7 @@
 	)
 	(symbol
 		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:QBA-07+")
-		(at 179.07 55.88 0)
+		(at 264.16 62.23 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7299,7 +8544,7 @@
 		(dnp no)
 		(uuid "9936d479-3eb1-4074-b316-2bad5ff46104")
 		(property "Reference" "U2"
-			(at 186.69 66.04 0)
+			(at 271.78 72.39 0)
 			(effects
 				(font
 					(size 1.778 1.5113)
@@ -7308,7 +8553,7 @@
 			)
 		)
 		(property "Value" "QBA-07+"
-			(at 166.37 66.04 0)
+			(at 251.46 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7317,7 +8562,7 @@
 			)
 		)
 		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:QBA-07+"
-			(at 179.07 55.88 0)
+			(at 264.16 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7326,7 +8571,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 179.07 55.88 0)
+			(at 264.16 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7335,7 +8580,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 179.07 55.88 0)
+			(at 264.16 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7524,7 +8769,7 @@
 	)
 	(symbol
 		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:R-US_0603-C-NOSILK")
-		(at 156.21 119.38 90)
+		(at 241.3 125.73 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7532,7 +8777,7 @@
 		(dnp no)
 		(uuid "a85f4bda-6fd7-48ce-a4b3-30faf39e0edc")
 		(property "Reference" "R3"
-			(at 154.7114 123.19 0)
+			(at 239.8014 129.54 0)
 			(effects
 				(font
 					(size 1.778 1.5113)
@@ -7541,7 +8786,7 @@
 			)
 		)
 		(property "Value" "50"
-			(at 159.512 123.19 0)
+			(at 244.602 129.54 0)
 			(effects
 				(font
 					(size 1.778 1.5113)
@@ -7550,7 +8795,7 @@
 			)
 		)
 		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:.0603-C-NOSILK"
-			(at 156.21 119.38 0)
+			(at 241.3 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7559,7 +8804,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 156.21 119.38 0)
+			(at 241.3 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7568,7 +8813,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 156.21 119.38 0)
+			(at 241.3 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7659,7 +8904,7 @@
 	)
 	(symbol
 		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:GND")
-		(at 77.47 96.52 0)
+		(at 162.56 102.87 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7667,7 +8912,7 @@
 		(dnp no)
 		(uuid "aa892eb3-2064-43f2-9720-26c9665e0d95")
 		(property "Reference" "#GND04"
-			(at 77.47 96.52 0)
+			(at 162.56 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7676,7 +8921,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 74.93 99.06 0)
+			(at 160.02 105.41 0)
 			(effects
 				(font
 					(size 1.778 1.5113)
@@ -7685,7 +8930,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 77.47 96.52 0)
+			(at 162.56 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7694,7 +8939,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 77.47 96.52 0)
+			(at 162.56 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7703,7 +8948,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 77.47 96.52 0)
+			(at 162.56 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7926,7 +9171,7 @@
 	)
 	(symbol
 		(lib_id "Device:Antenna")
-		(at 232.41 106.68 0)
+		(at 317.5 113.03 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7935,7 +9180,7 @@
 		(fields_autoplaced yes)
 		(uuid "bd85561f-1025-4324-a4d1-91bfd7e2b820")
 		(property "Reference" "AE4"
-			(at 234.95 106.0449 0)
+			(at 320.04 112.3949 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7944,7 +9189,7 @@
 			)
 		)
 		(property "Value" "Antenna"
-			(at 234.95 108.5849 0)
+			(at 320.04 114.9349 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7953,7 +9198,7 @@
 			)
 		)
 		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:Singular Tape Measure"
-			(at 232.41 106.68 0)
+			(at 317.5 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7962,7 +9207,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 232.41 106.68 0)
+			(at 317.5 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7971,7 +9216,7 @@
 			)
 		)
 		(property "Description" "Antenna"
-			(at 232.41 106.68 0)
+			(at 317.5 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7993,7 +9238,7 @@
 	)
 	(symbol
 		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0")
-		(at 336.55 76.2 0)
+		(at 469.9 93.98 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8001,7 +9246,7 @@
 		(dnp no)
 		(uuid "bea9be19-559a-42cb-b144-19693c4343b8")
 		(property "Reference" "FIDUCIAL4"
-			(at 336.55 76.2 0)
+			(at 469.9 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8010,7 +9255,7 @@
 			)
 		)
 		(property "Value" "FIDUCIAL-1.0X2.0"
-			(at 336.55 76.2 0)
+			(at 469.9 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8019,7 +9264,7 @@
 			)
 		)
 		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0"
-			(at 336.55 76.2 0)
+			(at 469.9 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8028,7 +9273,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 336.55 76.2 0)
+			(at 469.9 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8037,7 +9282,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 336.55 76.2 0)
+			(at 469.9 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8195,7 +9440,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 302.26 58.42 0)
+		(at 435.61 76.2 0)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom no)
@@ -8204,7 +9449,7 @@
 		(fields_autoplaced yes)
 		(uuid "c5126e6e-6c07-4e20-ab03-152b966ebf29")
 		(property "Reference" "H4"
-			(at 304.8 57.1499 0)
+			(at 438.15 74.9299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8213,7 +9458,7 @@
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 304.8 59.6899 0)
+			(at 438.15 77.4699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8222,7 +9467,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_Pad"
-			(at 302.26 58.42 0)
+			(at 435.61 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8231,7 +9476,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 302.26 58.42 0)
+			(at 435.61 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8240,7 +9485,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
-			(at 302.26 58.42 0)
+			(at 435.61 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8259,7 +9504,7 @@
 	)
 	(symbol
 		(lib_id "Device:Antenna")
-		(at 232.41 38.1 0)
+		(at 317.5 44.45 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8268,7 +9513,7 @@
 		(fields_autoplaced yes)
 		(uuid "c62b83e1-e0aa-41a7-914d-948a37db31a9")
 		(property "Reference" "AE1"
-			(at 234.95 37.4649 0)
+			(at 320.04 43.8149 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8277,7 +9522,7 @@
 			)
 		)
 		(property "Value" "Antenna"
-			(at 234.95 40.0049 0)
+			(at 320.04 46.3549 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8286,7 +9531,7 @@
 			)
 		)
 		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:Singular Tape Measure"
-			(at 232.41 38.1 0)
+			(at 317.5 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8295,7 +9540,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 232.41 38.1 0)
+			(at 317.5 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8304,7 +9549,7 @@
 			)
 		)
 		(property "Description" "Antenna"
-			(at 232.41 38.1 0)
+			(at 317.5 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8461,7 +9706,7 @@
 	)
 	(symbol
 		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:GND")
-		(at 179.07 78.74 0)
+		(at 264.16 85.09 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8469,7 +9714,7 @@
 		(dnp no)
 		(uuid "d18d31af-10a5-48ab-8850-7012cf514365")
 		(property "Reference" "#GND02"
-			(at 179.07 78.74 0)
+			(at 264.16 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8478,7 +9723,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 176.53 81.28 0)
+			(at 261.62 87.63 0)
 			(effects
 				(font
 					(size 1.778 1.5113)
@@ -8487,7 +9732,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 179.07 78.74 0)
+			(at 264.16 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8496,7 +9741,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 179.07 78.74 0)
+			(at 264.16 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8505,7 +9750,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 179.07 78.74 0)
+			(at 264.16 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8527,7 +9772,7 @@
 	)
 	(symbol
 		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:QBA-07+")
-		(at 179.07 106.68 0)
+		(at 264.16 113.03 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8535,7 +9780,7 @@
 		(dnp no)
 		(uuid "d8458433-61d6-4889-8168-28fb1f0023b1")
 		(property "Reference" "U3"
-			(at 186.69 116.84 0)
+			(at 271.78 123.19 0)
 			(effects
 				(font
 					(size 1.778 1.5113)
@@ -8544,7 +9789,7 @@
 			)
 		)
 		(property "Value" "QBA-07+"
-			(at 166.37 116.84 0)
+			(at 251.46 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8553,7 +9798,7 @@
 			)
 		)
 		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:QBA-07+"
-			(at 179.07 106.68 0)
+			(at 264.16 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8562,7 +9807,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 179.07 106.68 0)
+			(at 264.16 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8571,7 +9816,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 179.07 106.68 0)
+			(at 264.16 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8693,7 +9938,7 @@
 	)
 	(symbol
 		(lib_id "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0")
-		(at 349.25 76.2 0)
+		(at 482.6 93.98 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8701,7 +9946,7 @@
 		(dnp no)
 		(uuid "e4da06d3-59b1-414a-a844-a798a7ba53eb")
 		(property "Reference" "FIDUCIAL6"
-			(at 349.25 76.2 0)
+			(at 482.6 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8710,7 +9955,7 @@
 			)
 		)
 		(property "Value" "FIDUCIAL-1.0X2.0"
-			(at 349.25 76.2 0)
+			(at 482.6 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8719,7 +9964,7 @@
 			)
 		)
 		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:FIDUCIAL-1.0X2.0"
-			(at 349.25 76.2 0)
+			(at 482.6 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8728,7 +9973,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 349.25 76.2 0)
+			(at 482.6 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8737,7 +9982,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 349.25 76.2 0)
+			(at 482.6 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8759,7 +10004,7 @@
 	)
 	(symbol
 		(lib_id "Device:Antenna")
-		(at 232.41 83.82 0)
+		(at 317.5 90.17 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8768,7 +10013,7 @@
 		(fields_autoplaced yes)
 		(uuid "e7ef5f3c-707c-48a2-8685-f1ec541760dd")
 		(property "Reference" "AE3"
-			(at 234.95 83.1849 0)
+			(at 320.04 89.5349 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8777,7 +10022,7 @@
 			)
 		)
 		(property "Value" "Antenna"
-			(at 234.95 85.7249 0)
+			(at 320.04 92.0749 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8786,7 +10031,7 @@
 			)
 		)
 		(property "Footprint" "plusz-end-card-with-turnstile-mezzanine-eagle-import:Singular Tape Measure"
-			(at 232.41 83.82 0)
+			(at 317.5 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8795,7 +10040,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 232.41 83.82 0)
+			(at 317.5 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8804,7 +10049,7 @@
 			)
 		)
 		(property "Description" "Antenna"
-			(at 232.41 83.82 0)
+			(at 317.5 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
