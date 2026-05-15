@@ -6059,7 +6059,7 @@
 		)
 		(uuid "65dbcf75-524c-4967-b126-2e93e9722636")
 	)
-	(label "RF_PORT_CTRL"
+	(label "CTRL"
 		(at 143.51 85.09 270)
 		(effects
 			(font
