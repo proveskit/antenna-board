@@ -1881,144 +1881,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:R_Small_US"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0.254)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "R"
-				(at 0.762 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "R_Small_US"
-				(at 0.762 -1.016 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Resistor, small US symbol"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "r resistor"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "R_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "R_Small_US_1_1"
-				(polyline
-					(pts
-						(xy 0 1.524) (xy 1.016 1.143) (xy 0 0.762) (xy -1.016 0.381) (xy 0 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0) (xy 1.016 -0.381) (xy 0 -0.762) (xy -1.016 -1.143) (xy 0 -1.524)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at 0 2.54 270)
-					(length 1.016)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 90)
-					(length 1.016)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "GND_1"
 			(power)
 			(pin_numbers
@@ -4237,16 +4099,6 @@
 		)
 		(uuid "f32f5693-9700-412b-888c-03c88a47e5d1")
 	)
-	(text "Burnwire"
-		(exclude_from_sim no)
-		(at 342.9 175.006 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "ffbb5dac-dd89-40a8-a986-20f38df119e7")
-	)
 	(junction
 		(at 134.62 114.3)
 		(diameter 0)
@@ -4534,16 +4386,6 @@
 			(type default)
 		)
 		(uuid "31ab88f8-126f-4aa3-bd18-f4702edba83a")
-	)
-	(wire
-		(pts
-			(xy 361.95 185.42) (xy 361.95 189.23)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "32e68966-b9a2-45c2-add9-f78480d42da8")
 	)
 	(wire
 		(pts
@@ -5467,16 +5309,6 @@
 	)
 	(wire
 		(pts
-			(xy 359.41 185.42) (xy 361.95 185.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d47f7cc4-3256-4612-a13d-0509aa7375e9")
-	)
-	(wire
-		(pts
 			(xy 208.28 217.17) (xy 208.28 220.98)
 		)
 		(stroke
@@ -5574,16 +5406,6 @@
 			(type default)
 		)
 		(uuid "e7e69abd-005d-4004-98d9-646e5fd712fe")
-	)
-	(wire
-		(pts
-			(xy 334.01 185.42) (xy 354.33 185.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e955f1a5-4456-45fb-9afb-d82ed1d1e561")
 	)
 	(wire
 		(pts
@@ -6309,28 +6131,6 @@
 			)
 		)
 	)
-	(global_label "BURN"
-		(shape input)
-		(at 334.01 185.42 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "89f4a9c3-1a01-423e-b8bb-cf3c0202a1fc")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 325.8238 185.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "FC_USBBOOT"
 		(shape output)
 		(at 223.52 229.87 180)
@@ -6722,7 +6522,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6_Handsoldering"
 			(at 120.65 83.82 0)
 			(effects
 				(font
@@ -8395,74 +8195,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small_US")
-		(at 356.87 185.42 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "78912026-1451-4fb3-b676-3ae39c1c6b20")
-		(property "Reference" "R4"
-			(at 356.87 179.07 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "R_Small_US"
-			(at 356.87 181.61 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal"
-			(at 356.87 185.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 356.87 185.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, small US symbol"
-			(at 356.87 185.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e3e85172-83b8-4457-a5f0-97f5f69f9fd4")
-		)
-		(pin "2"
-			(uuid "a3f945b5-9c7d-4ee1-8ae8-0a9097defcc0")
-		)
-		(instances
-			(project ""
-				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
-					(reference "R4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Mechanical:MountingHole")
 		(at 72.39 135.89 0)
 		(unit 1)
@@ -9354,72 +9086,6 @@
 			(project "proves_canted_turnstile"
 				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
 					(reference "R3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 361.95 189.23 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a932013d-413d-4a97-9674-e2ef1805ecf6")
-		(property "Reference" "#PWR01"
-			(at 361.95 195.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 361.95 194.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 361.95 189.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 361.95 189.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 361.95 189.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "cd121613-da6e-4b64-a8de-2acb270fbb89")
-		)
-		(instances
-			(project ""
-				(path "/b0a1b345-df47-405c-b751-07790b55dab3"
-					(reference "#PWR01")
 					(unit 1)
 				)
 			)
