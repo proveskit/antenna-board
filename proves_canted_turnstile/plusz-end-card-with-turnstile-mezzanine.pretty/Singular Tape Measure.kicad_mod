@@ -1,0 +1,168 @@
+(footprint "Singular Tape Measure"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at -8.707997 3.643199 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "5725abf9-7be4-4cf7-8923-75e25260e2ba")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "Singular Tape Measure"
+		(at -0.0508 -11.684 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "54c90bab-653f-4639-b3bf-72e86167e0be")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "374cbdc5-7d9e-4753-b721-6e1669c6b7ee")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "b44c85ab-0461-41d4-a6fc-ca120941cd6f")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_line
+		(start 4.652403 -5.045204)
+		(end 4.652407 5.114796)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "792d8c1c-3571-42f1-a432-1eda3138934f")
+	)
+	(fp_line
+		(start 4.652407 5.114796)
+		(end 7.192404 5.114799)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "27c0878d-806d-4214-86b2-fe038390a54e")
+	)
+	(fp_line
+		(start 7.192399 -5.045213)
+		(end 4.652403 -5.045204)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "0eeffb8a-aaa4-49d9-8830-a85fed725816")
+	)
+	(fp_line
+		(start 7.192404 5.114799)
+		(end 7.192399 -5.045213)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "1e00d8cf-8f44-4096-ab72-5c00f3ade721")
+	)
+	(fp_line
+		(start 4.652401 6.284803)
+		(end 7.192403 6.284799)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "Edge.Cuts")
+		(uuid "e204acbd-5e92-4969-934d-3a643168b1d4")
+	)
+	(fp_line
+		(start 4.652403 -6.215206)
+		(end 4.652401 6.284803)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "Edge.Cuts")
+		(uuid "07217786-68fc-4dc7-83c3-4afe7cfe93c3")
+	)
+	(fp_line
+		(start 7.192403 -6.215202)
+		(end 4.652403 -6.215206)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "Edge.Cuts")
+		(uuid "0f8fad83-85a3-48e7-b8a8-353ef9c51a91")
+	)
+	(fp_line
+		(start 7.192403 6.284799)
+		(end 7.192403 -6.215202)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "Edge.Cuts")
+		(uuid "540a7abb-229c-42e7-a131-925b95aab0df")
+	)
+	(fp_text user "${REFERENCE}"
+		(at -0.307597 -7.885203 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "bb51adb3-4a69-48b6-8179-7920e592567f")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_text user "${REFERENCE}"
+		(at -0.0508 -10.184 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "e86c7169-e947-4bd9-a273-6d6917ecec40")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at 0 0)
+		(size 4 11.3)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "e364d99d-d626-467a-9667-a6354d55e1a5")
+	)
+	(embedded_fonts no)
+)
