@@ -2376,112 +2376,6 @@
 			)
 		)
 	)
-	(footprint "MountingHole:MountingHole_2.7mm_M2.5_Pad"
-		(layer "F.Cu")
-		(uuid "23dc5144-5ae5-4ebd-86b1-c7ef929d4d6f")
-		(at 150.2758 70.1194 90)
-		(descr "Mounting Hole 2.7mm, M2.5")
-		(tags "mounting hole 2.7mm m2.5")
-		(property "Reference" "TP3"
-			(at 0.3 4.07 90)
-			(layer "F.SilkS")
-			(uuid "e406b484-c2f7-4792-bb95-95785076ae02")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 0 3.7 90)
-			(layer "F.Fab")
-			(uuid "6ec1425a-ca22-481a-879f-262af1033ad4")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "222d8df6-a049-41b8-a1b1-cc6b9c7ca318")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "72eb8eae-5d66-43bf-abe5-8a5604435523")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property ki_fp_filters "Pin* Test*")
-		(path "/f81b83cc-fc16-4653-b3d0-6a8360217a93")
-		(sheetname "/")
-		(sheetfile "antenna_top_cap_v2c.kicad_sch")
-		(attr exclude_from_pos_files exclude_from_bom)
-		(duplicate_pad_numbers_are_jumpers no)
-		(fp_circle
-			(center 0 0)
-			(end 2.7 0)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(fill no)
-			(layer "Cmts.User")
-			(uuid "25e24e89-b3b1-4159-ade8-f1e202ec6631")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 2.95 0)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "F.CrtYd")
-			(uuid "16436c24-2c32-41b4-9260-f2df9a751e2e")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 0 90)
-			(layer "F.Fab")
-			(uuid "6de5ce2a-d364-4056-991d-5a4f475b38aa")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(pad "1" thru_hole circle
-			(at 0 0 90)
-			(size 5.4 5.4)
-			(drill 2.7)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net "unconnected-(TP3-Pad1)")
-			(pinfunction "1")
-			(pintype "passive+no_connect")
-			(uuid "abbb2663-00c2-49a3-abf5-e1138fdd9581")
-		)
-		(embedded_fonts no)
-	)
 	(footprint "Connector_Hirose:Hirose_DF11-4DP-2DSA_2x02_P2.00mm_Vertical"
 		(layer "F.Cu")
 		(uuid "2c6ae2fc-4919-43bc-9d31-fa675c6eef33")
@@ -5110,112 +5004,6 @@
 			)
 		)
 	)
-	(footprint "MountingHole:MountingHole_2.7mm_M2.5_Pad"
-		(layer "F.Cu")
-		(uuid "75cd7009-9a96-4a7c-92d2-0c6b42a5d6e4")
-		(at 142.693713 79.756113 90)
-		(descr "Mounting Hole 2.7mm, M2.5")
-		(tags "mounting hole 2.7mm m2.5")
-		(property "Reference" "TP7"
-			(at 0 -3.7 90)
-			(layer "F.SilkS")
-			(uuid "3f3a3b2d-72a0-47b4-ae4d-5d7ad6d263c2")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 0 3.7 90)
-			(layer "F.Fab")
-			(uuid "64f3b75c-6d8a-4444-8e2c-5df775ab77d3")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "a7554446-e29f-487f-a193-e9c2a3434d71")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "c5b2a807-6a03-4ca0-bcca-e3bf0b8c2c88")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property ki_fp_filters "Pin* Test*")
-		(path "/e8ccfc4e-5e00-4501-aea2-f8c39939131c")
-		(sheetname "/")
-		(sheetfile "antenna_top_cap_v2c.kicad_sch")
-		(attr exclude_from_pos_files exclude_from_bom)
-		(duplicate_pad_numbers_are_jumpers no)
-		(fp_circle
-			(center 0 0)
-			(end 2.7 0)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(fill no)
-			(layer "Cmts.User")
-			(uuid "781ff7a4-0981-4d87-b53f-8d642b51260f")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 2.95 0)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "F.CrtYd")
-			(uuid "cc564fae-7a9d-4eac-a0de-379e85c2c234")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 0 90)
-			(layer "F.Fab")
-			(uuid "24c0f23a-247b-4ca1-b105-f6a19d6a4d2c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(pad "1" thru_hole circle
-			(at 0 0 90)
-			(size 5.4 5.4)
-			(drill 2.7)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net "unconnected-(TP7-Pad1)")
-			(pinfunction "1")
-			(pintype "passive+no_connect")
-			(uuid "75f59e1a-f7e1-4be5-b1ab-fb12c675ce1a")
-		)
-		(embedded_fonts no)
-	)
 	(footprint "Antenna_board:Tape_Measure_Antenna"
 		(layer "F.Cu")
 		(uuid "807e48ab-980c-4426-9045-3e66ff1ca252")
@@ -5748,112 +5536,6 @@
 			(pinfunction "tape_2")
 			(pintype "bidirectional")
 			(uuid "f6148331-62a5-40fe-9865-018e1ea5e99e")
-		)
-		(embedded_fonts no)
-	)
-	(footprint "MountingHole:MountingHole_2.7mm_M2.5_Pad"
-		(layer "F.Cu")
-		(uuid "8b0d0fed-e376-4904-855b-18260bb0fda9")
-		(at 152.2158 79.7694 90)
-		(descr "Mounting Hole 2.7mm, M2.5")
-		(tags "mounting hole 2.7mm m2.5")
-		(property "Reference" "TP2"
-			(at 0 -3.7 90)
-			(layer "F.SilkS")
-			(uuid "a364f073-acfe-445d-a80e-c565134c8af8")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 0 3.7 90)
-			(layer "F.Fab")
-			(uuid "be2aaa82-a73e-46c9-a41a-6a79e9adf50a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "e7fbc206-4b75-46c9-a49b-e3b767dabea5")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "5939b2cb-589e-4f45-87e2-c5933f28db75")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property ki_fp_filters "Pin* Test*")
-		(path "/c7654020-af8f-4071-ba51-fc62e2d49af9")
-		(sheetname "/")
-		(sheetfile "antenna_top_cap_v2c.kicad_sch")
-		(attr exclude_from_pos_files exclude_from_bom)
-		(duplicate_pad_numbers_are_jumpers no)
-		(fp_circle
-			(center 0 0)
-			(end 2.7 0)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(fill no)
-			(layer "Cmts.User")
-			(uuid "1309f917-4886-44e6-baf8-240fbd03edaf")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 2.95 0)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "F.CrtYd")
-			(uuid "5801bea1-f8e2-4205-b5b9-f9714404afcc")
-		)
-		(fp_text user "${REFERENCE}"
-			(at -0.14 -0.09 90)
-			(layer "F.Fab")
-			(uuid "e041ca06-779d-4588-acb4-a395a285023e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(pad "1" thru_hole circle
-			(at 0 0 90)
-			(size 5.4 5.4)
-			(drill 2.7)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net "unconnected-(TP2-Pad1)")
-			(pinfunction "1")
-			(pintype "passive+no_connect")
-			(uuid "ecbfae7b-c2e7-43ad-b7e8-05ed45046377")
 		)
 		(embedded_fonts no)
 	)
@@ -59507,7 +59189,7 @@
 		(layer "Edge.Cuts")
 		(uuid "2ddaff65-94e9-44f7-9467-44c3865b24de")
 	)
-	(gr_text "3PySquared Antenna Board \nV2b\nMichael Pham | Nicole Maggard | Ernesto Montes\n"
+	(gr_text "3PySquared Antenna Board \nV2c\nMichael Pham | Nicole Maggard | Ernesto Montes\n"
 		(at 146.8258 158.2994 0)
 		(layer "F.Cu")
 		(uuid "649f62b6-80b6-4d00-a33b-a1aa72ded2a6")
@@ -59518,7 +59200,7 @@
 			)
 		)
 	)
-	(gr_text "3PySquared Antenna Board \nV2b\nMichael Pham | Nicole Maggard | Ernesto Montes\n"
+	(gr_text "3PySquared Antenna Board \nV2c\nMichael Pham | Nicole Maggard | Ernesto Montes\n"
 		(at 146.8258 158.2994 0)
 		(layer "F.Mask")
 		(uuid "f7c05f30-c09a-45e2-9745-de6d8f2c7df4")

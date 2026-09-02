@@ -5504,24 +5504,12 @@
 		(uuid "ffc9794c-a0f8-4d58-b361-85fd03a2ddae")
 	)
 	(no_connect
-		(at 105.41 190.5)
-		(uuid "0633f2b9-3abd-4a0a-91bb-003d114ee9e2")
-	)
-	(no_connect
-		(at 92.71 190.5)
-		(uuid "2417d430-a97a-480c-b571-df83a72be227")
-	)
-	(no_connect
 		(at 135.89 190.5)
 		(uuid "2a46f73c-aed9-438d-9adc-9ab1c7ab442e")
 	)
 	(no_connect
 		(at 120.65 190.5)
 		(uuid "3989f6d6-3605-41c5-8318-bb78c968c8b1")
-	)
-	(no_connect
-		(at 165.1 190.5)
-		(uuid "398b44c1-ac3d-47bb-9031-12e56815087f")
 	)
 	(no_connect
 		(at 80.01 190.5)
@@ -5713,7 +5701,7 @@
 	)
 	(wire
 		(pts
-			(xy 307.34 116.84) (xy 307.34 119.38)
+			(xy 153.67 57.15) (xy 153.67 59.69)
 		)
 		(stroke
 			(width 0)
@@ -6763,7 +6751,7 @@
 	)
 	(wire
 		(pts
-			(xy 307.34 99.06) (xy 307.34 97.79)
+			(xy 153.67 39.37) (xy 153.67 38.1)
 		)
 		(stroke
 			(width 0)
@@ -6793,7 +6781,7 @@
 	)
 	(polyline
 		(pts
-			(xy 138.43 92.71) (xy 246.38 92.71)
+			(xy 138.43 92.71) (xy 284.48 92.71)
 		)
 		(stroke
 			(width 0)
@@ -8649,7 +8637,7 @@
 	)
 	(symbol
 		(lib_id "Adafruit ItsyBitsy RP2040-eagle-import:+3V3")
-		(at 307.34 95.25 0)
+		(at 153.67 35.56 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8660,7 +8648,7 @@
 		(fields_autoplaced yes)
 		(uuid "42589d9e-02db-4a0f-86dc-45d67956db2d")
 		(property "Reference" "#+3V01"
-			(at 307.34 95.25 0)
+			(at 153.67 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8671,7 +8659,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 307.34 92.71 0)
+			(at 153.67 33.02 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8681,7 +8669,7 @@
 			)
 		)
 		(property "Footprint" "Adafruit ItsyBitsy RP2040:"
-			(at 307.34 95.25 0)
+			(at 153.67 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8692,7 +8680,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 307.34 95.25 0)
+			(at 153.67 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8703,7 +8691,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 307.34 95.25 0)
+			(at 153.67 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9602,7 +9590,7 @@
 	)
 	(symbol
 		(lib_id "Adafruit ItsyBitsy RP2040-eagle-import:RESISTOR_0402NO")
-		(at 307.34 104.14 270)
+		(at 153.67 44.45 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9612,7 +9600,7 @@
 		(dnp no)
 		(uuid "6e48daaa-2c44-4e92-8338-e60cfcabf9e1")
 		(property "Reference" "R1"
-			(at 309.88 104.14 0)
+			(at 156.21 44.45 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9622,7 +9610,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 307.34 104.14 0)
+			(at 153.67 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9634,7 +9622,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 307.34 104.14 0)
+			(at 153.67 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9645,7 +9633,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 307.34 104.14 0)
+			(at 153.67 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9656,7 +9644,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 307.34 104.14 0)
+			(at 153.67 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11612,85 +11600,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 92.71 190.5 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "c7654020-af8f-4071-ba51-fc62e2d49af9")
-		(property "Reference" "TP2"
-			(at 94.234 185.928 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 94.234 188.468 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_Pad"
-			(at 97.79 190.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 97.79 190.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 92.71 190.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "e87d6025-ce77-48fb-bc0e-348947cd278c")
-		)
-		(instances
-			(project "antenna_top_cap_v2c"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-					(reference "TP2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "mainboard:RESISTOR0603")
 		(at 60.96 73.66 180)
 		(unit 1)
@@ -12009,7 +11918,7 @@
 	)
 	(symbol
 		(lib_id "Adafruit ItsyBitsy RP2040-eagle-import:LED0603_NOOUTLINE")
-		(at 307.34 114.3 270)
+		(at 153.67 54.61 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12019,7 +11928,7 @@
 		(dnp no)
 		(uuid "e67b7bbb-6c99-4acc-a2ff-da9d1a1bb6ce")
 		(property "Reference" "D1"
-			(at 311.785 113.03 0)
+			(at 158.115 53.34 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12029,7 +11938,7 @@
 			)
 		)
 		(property "Value" "Blue"
-			(at 304.546 113.03 0)
+			(at 150.876 53.34 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12039,7 +11948,7 @@
 			)
 		)
 		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
-			(at 303.53 115.316 0)
+			(at 149.86 55.626 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12050,7 +11959,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 307.34 114.3 0)
+			(at 153.67 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12061,7 +11970,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 307.34 114.3 0)
+			(at 153.67 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12081,85 +11990,6 @@
 			(project "antenna_top_cap_v2c"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "D1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 165.1 190.5 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e8ccfc4e-5e00-4501-aea2-f8c39939131c")
-		(property "Reference" "TP7"
-			(at 166.624 185.928 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 166.624 188.468 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_Pad"
-			(at 170.18 190.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 170.18 190.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 165.1 190.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "08b7f100-d777-44b8-9be4-433f9787d3b9")
-		)
-		(instances
-			(project "antenna_top_cap_v2c"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-					(reference "TP7")
 					(unit 1)
 				)
 			)
@@ -12646,85 +12476,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 105.41 190.5 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f81b83cc-fc16-4653-b3d0-6a8360217a93")
-		(property "Reference" "TP3"
-			(at 106.934 185.928 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 106.934 188.468 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_Pad"
-			(at 110.49 190.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 110.49 190.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 105.41 190.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "3fb9ddfa-4b04-4bab-850f-c662252978f2")
-		)
-		(instances
-			(project "antenna_top_cap_v2c"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-					(reference "TP3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 170.18 115.57 0)
 		(mirror y)
@@ -12988,7 +12739,7 @@
 	)
 	(symbol
 		(lib_id "Adafruit ItsyBitsy RP2040-eagle-import:GND")
-		(at 307.34 121.92 0)
+		(at 153.67 62.23 0)
 		(mirror y)
 		(unit 1)
 		(body_style 1)
@@ -12999,7 +12750,7 @@
 		(dnp no)
 		(uuid "fc1a829a-f8f7-4116-9f1c-7151882327d4")
 		(property "Reference" "#GND01"
-			(at 307.34 121.92 0)
+			(at 153.67 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13010,7 +12761,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 309.88 124.46 0)
+			(at 156.21 64.77 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13021,7 +12772,7 @@
 			)
 		)
 		(property "Footprint" "Adafruit ItsyBitsy RP2040:"
-			(at 307.34 121.92 0)
+			(at 153.67 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13032,7 +12783,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 307.34 121.92 0)
+			(at 153.67 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13043,7 +12794,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 307.34 121.92 0)
+			(at 153.67 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
