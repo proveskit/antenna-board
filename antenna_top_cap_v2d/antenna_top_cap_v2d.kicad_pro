@@ -595,7 +595,7 @@
     "netclass_patterns": [
       {
         "netclass": "Charger_Power",
-        "pattern": "/FC_USB_VBUS"
+        "pattern": "/Charger & SWD/VBUS_CHG"
       },
       {
         "netclass": "Charger_Power",

@@ -5542,6 +5542,10 @@
 		(at 49.53 101.6)
 		(uuid "c3bb7e9a-43a7-45d8-99af-f0d571f97c2d")
 	)
+	(no_connect
+		(at 49.53 73.66)
+		(uuid "f0bead9a-9b3e-4a74-9bce-ca0bf6e6b3ce")
+	)
 	(wire
 		(pts
 			(xy 45.72 144.78) (xy 50.8 144.78)
@@ -12900,37 +12904,6 @@
 			)
 		)
 	)
-	(wire
-		(pts
-			(xy 49.53 73.66) (xy 49.53 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "821196b6-d5b7-55bd-ab78-a8e795f1fd92")
-	)
-	(label "FC_USB_VBUS"
-		(at 49.53 63.5 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "c8249130-d247-56cd-a31f-b0779c8b99e5")
-	)
-	(text "V2d: VBUS now feeds the USB charger\n(Charger & SWD sheet). 5 V only."
-		(exclude_from_sim no)
-		(at 52.07 64.77 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left top)
-		)
-		(uuid "01baf399-4a00-57bf-af83-e8d9bb3d9829")
-	)
 	(sheet
 		(at 85.09 160.02)
 		(size 33.02 12.7)
@@ -12969,16 +12942,6 @@
 				(justify left top)
 			)
 		)
-		(pin "FC_USB_VBUS" input
-			(at 85.09 165.1 180)
-			(uuid "83128686-0581-58cb-a3dc-69f0db16741a")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
 		(pin "Dir_Chrg_In" passive
 			(at 118.11 165.1 0)
 			(uuid "01098f09-6b49-5ff3-a173-ce22f81140bf")
@@ -12996,26 +12959,6 @@
 				)
 			)
 		)
-	)
-	(wire
-		(pts
-			(xy 85.09 165.1) (xy 77.47 165.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "51cd2e21-06a7-5e69-b371-02a4b39ff2d2")
-	)
-	(label "FC_USB_VBUS"
-		(at 77.47 165.1 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "3b7749eb-aa49-529d-9820-739f88267ac7")
 	)
 	(wire
 		(pts

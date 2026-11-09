@@ -1,6 +1,6 @@
 # Antenna Board V2d: decision log
 
-V2d is V2c plus two features: USB charging of the 2S pack from the J12 "FC USB" port, and an SWD pass-through so the FC's SWD port is reachable on an assembled cube. Everything else is V2c unchanged (netlist diff below).
+V2d is V2c plus two features: USB charging of the 2S pack from a new charge-only USB-C port (J204), and an SWD pass-through so the FC's SWD port is reachable on an assembled cube. Everything else is V2c unchanged (netlist diff below). J12 "FC USB" stays data-only, as in V2c.
 
 The layout was done overnight on 2026-11-09 without the hardware lead available. Every call below that he has not ruled on is marked **at risk**.
 
@@ -20,39 +20,45 @@ tools/jlc_production.py ...       # BOM + CPL, see jlcpcb/production_files
 | # | Decision | Why | Source |
 |---|---|---|---|
 | 1 | **At risk.** Charger is the BQ25886 from `debug_board_v1`, used as a 5 V-only USB-C sink (5.1k Rd on CC, no PD controller). | A sink that never negotiates PD only ever gets 5 V, so nothing on the board sees more than 6.2 V in normal use. BQ25886 VBUS is rated 20 V abs max with 6.2 V OVP, so a non-compliant high-voltage source stops the charger instead of damaging it. A PD design (9 V plus a buck charger) charges faster but adds a PD controller and a 9 to 20 V input stage. | BQ25886 DS SLUSD88A §7.1, §7.5 |
-| 2 | **At risk.** Charge input is J12 "FC USB" VBUS (unused through V2c), not a new third USB-C port. | No structure drawing was available to place another edge connector. One cable now gives FC data and charging. | V2c netlist: J12 VBUS unconnected |
+| 2 | Charge input is a new charge-only USB-C, J204, on the outer face's top edge (data pins not connected). J12 stays data-only. | Michael 2026-11-09: a third port needs no structure cutout. Sharing J12 would pull up to 1.35 A from a laptop port during FC debug and can trip port current limiters, dropping the FC's USB link. | Michael in thread |
 | 3 | **At risk.** Float voltage 8.2 V (R203 = 0 Ohm on VSET). DNP R203 for 8.4 V. | 4.1 V/cell leaves margin because no cell balancing was found in the pack path. Never fit 39k or 75k (8.8 V / 8.7 V). The debug board's 150k sat on the 8.4/8.7 V decode boundary. | DS pin table, VSET |
-| 4 | ICHG = 3.9k / 3810 = 1.02 A; IINDPM = 1110 / 820 = 1.35 A. | 1.35 A stays inside a Type-C 1.5 A source with the ILIM tolerance. With 1.35 A at 5 V the boost delivers about 0.75 A at 7.4 V, so the input limit sets the real charge rate. Debug board had ILIM 383k (about 3 mA, below the 500 mA minimum). | DS §7.5 KILIM, KICHGSET |
-| 5 | D+ tied to D- at the charger only. | BC1.2 then sees a DCP and ILIM sets the limit. The FC's USB data lines on J12 never reach the charger, so RP2350 enumeration is unaffected. | DS Table 3 |
+| 4 | ICHG = 3.9k / 3810 = 1.02 A; IINDPM = 1110 / 820 = 1.35 A. | Dir_Chrg_In reaches the FC on one 24 AWG harness conductor (J1 pin 6), so charge current stays at or under about 1 A (Michael's limit). 1.35 A stays inside a Type-C 1.5 A source with the ILIM tolerance. At 1.35 A in, about 0.75 A reaches the pack, so the input limit sets the real rate. Debug board had ILIM 383k (about 3 mA, below the 500 mA minimum). | DS §7.5 KILIM, KICHGSET |
+| 5 | D+ tied to D- at the charger only. | BC1.2 then sees a DCP and ILIM sets the limit. J204's data pins are not connected. | DS Table 3 |
 | 6 | OTG and /CE hard tied to GND. | OTG high boosts the battery back out of VBUS. The debug board left OTG floating. | DS pin table |
 | 7 | **At risk.** TS is a fixed 10k/12k divider (54.5 % of REGN, inside the 10 to 45 C window). | No cell thermistor reaches the antenna board. IC thermal shutdown and the 12 h safety timer still apply. Same exposure as today's bench-supply method. | DS JEITA thresholds |
-| 8 | **At risk.** F201 2 A fast fuse (0466002.NRHF, 63 V, 50 A interrupt) and J203 "CHG LINK" 2-pin header between the charger and Dir_Chrg_In. | Dir_Chrg_In is the raw pack + upstream of every positive inhibit. The fuse clears a shorted charger or cap. With J203 removed no charger part hangs on the pack in flight (14 uA drain otherwise). | FC V5e netlist: J14, R109, J7/J10 |
-| 9 | Green LED = USB 5 V present (VBUS through 2.2k). Red LED = STAT (REGN pull-up). PG pin left open. | Moving the green LED off PG freed a routing lane next to the QFN. Both LEDs on the outer face. | |
+| 8 | **At risk.** F201 2 A fast fuse (0466002.NRHF, 63 V, 50 A interrupt) and J203 "CHG LINK" between the charger and Dir_Chrg_In. J203 is a **2.0 mm** pitch header so its shunt cannot be pushed onto J2 (2.54 mm, pack + to GND), which would dead-short the pack. | Dir_Chrg_In is the raw pack + upstream of every positive inhibit. The fuse clears a shorted charger or cap. With J203 removed no charger part hangs on the pack in flight (12 uA typ, 20 uA max drain otherwise). Open: is 50 A interrupt enough for a hard short through the harness? Needs the pack-to-J1 loop resistance (below about 0.17 Ohm the prospective current exceeds 50 A). | FC V5e netlist; review F4, F5 |
+| 9 | Green LED = USB 5 V present (VBUS through 4.7k, 85 mW at a 20 V fault). Red LED = STAT (REGN pull-up). PG pin left open. | Moving the green LED off PG freed a routing lane next to the QFN. Both LEDs on the outer face. | review F6 |
 | 10 | SWD: J201 (inner face) wired 1:1 to J202 (outer face), JST-SH BM03B-SRSS-TB, pinout 1 SWCLK, 2 GND, 3 SWDIO, same as FC J22 and the Raspberry Pi Debug Probe. Needs a 1:1 (pin 1 to pin 1) 3-pin JST-SH jumper from FC J22 to J201. | J1 DEBUG has no spare pins (all 12 used). | FC V5e J22 netlist |
-| 11 | **At risk (house rule).** Two 0.3 mm GND vias inside the U201 thermal pad. | TI requires thermal vias under the pad. House default is no via in pad. Without them the EP reaches GND only through pin stubs. | DS §11.1 item 6; proves-pcb-design "Via-in-pad: none" |
+| 11 | **At risk (house rule).** Four 0.3 mm GND vias inside the U201 thermal pad, untented. Consider JLC via filling (POFV) to stop solder wicking. | TI requires thermal vias under the pad. House default is no via in pad. Without them the EP reaches GND only through pin stubs. | DS §11.1 item 6; proves-pcb-design "Via-in-pad: none"; review F7 |
 | 12 | Charger sits on the inner face at x 151 to 168, y 79 to 93, clear of the B.Cu USB pair and the outer-face art. A few REGN hops use short In2.Cu (+3V3 plane) tracks. | Vias are kept off the mask openings of the "Pleiades Five" box art. | |
 | 13 | R201 to R205 are 0402 (two extended parts: C51721 3.9k, C25135 820). | 0603 does not fit the 0.5 mm-pitch QFN fan-out. | |
-| 14 | Only one PMID cap (C202, 22 uF). | VBUS + PMID minimum is 10 uF after derating; 22 uF X5R at 5 V gives about 13 uF. TI's "optimal" 44 uF did not fit. | DS pin table, PMID |
+| 14 | Only one PMID cap (C202, 22 uF 0805). | VBUS + PMID minimum is 10 uF after derating; 22 uF X5R at 5 V gives about 13 uF. TI's "optimal" 44 uF did not fit. | DS pin table, PMID |
+| 16 | SYS caps C204 to C206 and BAT cap C207 are 22 uF 25 V X5R **1206** (C12891, Basic). C207 sits on the outer face under the BAT via. | 0805 parts derate to about 7 to 8 uF at 8.2 V. 1206 gives about 14 uF each, 42 uF on SYS against TI's 2 x 22 uF after derating, and about 14 uF on BAT. | review F1 |
+| 17 | SYS cap GND pads tie together with 0.6 mm copper, each has its own via to In1, and they and the EP use solid (not thermal-spoke) zone connections. | Shortens the boost hot loop. | review F2 |
+| 18 | C208 (bootstrap) moved to the outer face directly under the SW and BTST pins: one via each, about 4 mm of loop. | It sat about 10 mm away next to the inductor. | review F3 |
+| 19 | No VBUS TVS. | A 5 V TVS would conduct hard on a non-compliant 9 to 20 V source. BQ25886 VBUS is rated to 20 V and its OVP is 6.2 V. | review F6 |
 | 15 | The bee_movie_script.txt silk moved up 0.3 mm. | Clears J203. Not removed. | |
 
 ## Gates (2026-11-09)
 
 - ERC: 23 violations, same as V2c (0 new). 3 errors, all V2c heritage.
-- DRC with schematic parity: 4 errors, all V2c heritage (In1 zone overlap, three U4 pad clearances). V2c had 8; the 4 that went away were J12 VBUS pads now on a real net. 0 unconnected. Parity: 19 warnings, all the V2c "exclude from BOM" mismatches.
+- DRC with schematic parity: 8 errors, exactly the V2c set (In1 zone overlap, three U4 pad clearances, J12 VBUS pad pairs). 0 new violations of any severity from V2d copper or parts. 0 unconnected. Parity: 19 warnings, all the V2c "exclude from BOM" mismatches.
 - `sch_lint.py --strict` on charger_swd.kicad_sch: 0 errors, 0 warnings.
-- Netlist diff V2c to V2d: 23 parts added, 18 nets added, 0 removed; only Dir_Chrg_In (+J203.2) and GND (+20 pins) changed.
+- Netlist diff V2c to V2d: 26 parts added, 0 removed; nets only added, except Dir_Chrg_In (+J203.2) and GND (+charger pins). J12 is unchanged.
+- Independent review (2026-11-09): 4 major, 2 minor findings fixed (F1 to F4, F6 VBUS LED resistor, F7 more EP vias, F8 VBUS now 1 mm on B.Cu). F5 is open.
 
 ## Before you order
 
-- Check U201 (QFN, +270 assumed) and J201/J202 (+180, from FC J22) in the JLC placement preview. Also check the bottom-side LEDs' polarity marks.
+- Check U201 (QFN, +270 assumed) and J201/J202 (+180, from FC J22) in the JLC placement preview. Also check J204 (bottom, same as J12), the bottom-side LEDs' polarity marks and C207/C208 on the bottom.
 - Confirm the inner-face height above J201 for a JST-SH plug plus cable bend, and that J202 (4.25 mm tall) on the outer face is inside the +Z envelope.
 - Buy or make a 1:1 3-pin JST-SH cable (FC J22 to J201).
-- J203 is hand-fitted (excluded from BOM/CPL like J2/J3/J4/J10). Add a 2.54 mm shunt to the kit.
+- J203 is hand-fitted (excluded from BOM/CPL like J2/J3/J4/J10). Add a **2.0 mm** shunt to the kit.
 
 ## ATP lines
 
 - J203 out: Dir_Chrg_In to GND leakage with USB unplugged < 1 uA.
-- J203 in, USB 5 V in, 7.4 V electronic load on Dir_Chrg_In: green on, red on, charge current 0.9 to 1.05 A or the input-limited value, input current <= 1.45 A.
+- J203 in, 5 V into J204, 7.4 V electronic load on Dir_Chrg_In: green on, red on, charge current 0.7 to 1.05 A, input current <= 1.45 A.
+- Charge only between 10 and 45 C: the fixed TS divider does not stop a cold-cell charge. The FC's LT3652 can charge the same pack at the same time.
 - Float: with the load removed, Dir_Chrg_In settles to 8.16 to 8.24 V (R203 fitted).
-- OTG check: battery on Dir_Chrg_In, USB unplugged: J12 VBUS < 0.1 V.
+- OTG check: battery on Dir_Chrg_In, USB unplugged: J204 VBUS < 0.1 V.
 - SWD: Pi Debug Probe on J202 reaches the FC through J201 (`openocd ... -c "init; targets"`).

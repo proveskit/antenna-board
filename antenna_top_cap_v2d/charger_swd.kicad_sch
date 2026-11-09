@@ -566,6 +566,974 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Connector:USB_C_Receptacle_USB2.0_16P"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "J"
+				(at 0 22.225 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "USB_C_Receptacle_USB2.0_16P"
+				(at 0 19.685 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 3.81 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.usb.org/sites/default/files/documents/usb_type-c.zip"
+				(at 3.81 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "USB 2.0-only 16P Type-C Receptacle connector"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "usb universal serial bus type-C USB2.0"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "USB*C*Receptacle*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "USB_C_Receptacle_USB2.0_16P_0_0"
+				(rectangle
+					(start -0.254 -17.78)
+					(end 0.254 -16.764)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 10.16 15.494)
+					(end 9.144 14.986)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 10.16 10.414)
+					(end 9.144 9.906)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 10.16 7.874)
+					(end 9.144 7.366)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 10.16 2.794)
+					(end 9.144 2.286)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 10.16 0.254)
+					(end 9.144 -0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 10.16 -2.286)
+					(end 9.144 -2.794)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 10.16 -4.826)
+					(end 9.144 -5.334)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 10.16 -12.446)
+					(end 9.144 -12.954)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 10.16 -14.986)
+					(end 9.144 -15.494)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "USB_C_Receptacle_USB2.0_16P_0_1"
+				(rectangle
+					(start -10.16 17.78)
+					(end 10.16 -17.78)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy -8.89 -3.81) (xy -8.89 3.81)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -7.62 -3.81)
+					(end -6.35 3.81)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(arc
+					(start -7.62 3.81)
+					(mid -6.985 4.4423)
+					(end -6.35 3.81)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -7.62 3.81)
+					(mid -6.985 4.4423)
+					(end -6.35 3.81)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(arc
+					(start -8.89 3.81)
+					(mid -6.985 5.7067)
+					(end -5.08 3.81)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -5.08 -3.81)
+					(mid -6.985 -5.7067)
+					(end -8.89 -3.81)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -6.35 -3.81)
+					(mid -6.985 -4.4423)
+					(end -7.62 -3.81)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -6.35 -3.81)
+					(mid -6.985 -4.4423)
+					(end -7.62 -3.81)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy -5.08 3.81) (xy -5.08 -3.81)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center -2.54 1.143)
+					(radius 0.635)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 4.318) (xy 0 6.858) (xy 1.27 4.318) (xy -1.27 4.318)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.032) (xy 2.54 0.508) (xy 2.54 1.778)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -3.302) (xy -2.54 -0.762) (xy -2.54 0.508)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -5.842) (xy 0 4.318)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0 -5.842)
+					(radius 1.27)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 1.905 1.778)
+					(end 3.175 3.048)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+			)
+			(symbol "USB_C_Receptacle_USB2.0_16P_1_1"
+				(pin passive line
+					(at 0 -22.86 90)
+					(length 5.08)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 15.24 15.24 180)
+					(length 5.08)
+					(name "VBUS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 15.24 10.16 180)
+					(length 5.08)
+					(name "CC1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 15.24 -2.54 180)
+					(length 5.08)
+					(name "D+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 15.24 2.54 180)
+					(length 5.08)
+					(name "D-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 15.24 -12.7 180)
+					(length 5.08)
+					(name "SBU1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 15.24 15.24 180)
+					(length 5.08)
+					(hide yes)
+					(name "VBUS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -22.86 90)
+					(length 5.08)
+					(hide yes)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A12"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -22.86 90)
+					(length 5.08)
+					(hide yes)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "B1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 15.24 15.24 180)
+					(length 5.08)
+					(hide yes)
+					(name "VBUS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "B4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 15.24 7.62 180)
+					(length 5.08)
+					(name "CC2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "B5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 15.24 -5.08 180)
+					(length 5.08)
+					(name "D+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "B6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 15.24 0 180)
+					(length 5.08)
+					(name "D-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "B7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 15.24 -15.24 180)
+					(length 5.08)
+					(name "SBU2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "B8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 15.24 15.24 180)
+					(length 5.08)
+					(hide yes)
+					(name "VBUS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "B9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -22.86 90)
+					(length 5.08)
+					(hide yes)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "B12"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -7.62 -22.86 90)
+					(length 5.08)
+					(name "SHIELD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "SH"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:GND"
+			(power global)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 -6.35 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "GND"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "GND_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "GND_1_1"
+				(pin power_in line
+					(at 0 0 270)
+					(length 0)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Device:R"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R"
+				(at 0 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at -1.778 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Resistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "R_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Device:C"
 			(pin_numbers
 				(hide yes)
@@ -721,121 +1689,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "power:GND"
-			(power global)
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "#PWR"
-				(at 0 -6.35 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "GND"
-				(at 0 -3.81 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "global power"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "GND_0_1"
-				(polyline
-					(pts
-						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "GND_1_1"
-				(pin power_in line
-					(at 0 0 270)
-					(length 0)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "power:PWR_FLAG"
 			(power global)
 			(pin_numbers
@@ -946,146 +1799,6 @@
 					)
 					(fill
 						(type none)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "Device:R"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "R"
-				(at 2.032 0 90)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "R"
-				(at 0 0 90)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at -1.778 0 90)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Resistor"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "R res resistor"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "R_*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "R_0_1"
-				(rectangle
-					(start -1.016 -2.54)
-					(end 1.016 2.54)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "R_1_1"
-				(pin passive line
-					(at 0 3.81 270)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -3.81 90)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
 					)
 				)
 			)
@@ -2129,26 +2842,729 @@
 			)
 		)
 	)
-	(hierarchical_label "FC_USB_VBUS"
-		(shape input)
-		(at 40.64 71.12 180)
-		(effects
-			(font
-				(size 1.27 1.27)
+	(symbol
+		(lib_id "Connector:USB_C_Receptacle_USB2.0_16P")
+		(at 30.48 60.96 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "cdc300cc-2c11-54b8-bb76-3e095610f9ab")
+		(property "Reference" "J204"
+			(at 22.86 35.56 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
-			(justify right)
 		)
-		(uuid "05b8374f-525b-5904-a165-473034f2d7f4")
+		(property "Value" "CHARGE"
+			(at 22.86 33.02 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12"
+			(at 30.48 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 30.48 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Charge-only USB-C on the outer face; data pins not connected"
+			(at 30.48 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C165948"
+			(at 30.48 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "TYPE-C-31-M-12"
+			(at 30.48 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "A1"
+			(uuid "92f1c557-aeb1-55b3-a23c-53e94db1a667")
+		)
+		(pin "A4"
+			(uuid "9211067c-4c68-5363-8036-c54d2954895a")
+		)
+		(pin "A5"
+			(uuid "056984ed-4d2f-505c-96c2-53545c67f08d")
+		)
+		(pin "A6"
+			(uuid "67bbf737-1d5d-5443-b8bc-816b5214c180")
+		)
+		(pin "A7"
+			(uuid "9ec63ad5-d92e-525f-b6c5-5971d9a1d2f0")
+		)
+		(pin "A8"
+			(uuid "8ac1904c-d37f-527c-a9a5-fa11c97fe482")
+		)
+		(pin "A9"
+			(uuid "0a62ef06-4ce8-5fd7-a36d-a1349d5184d0")
+		)
+		(pin "A12"
+			(uuid "5a3de18b-f0f3-5316-b3f2-f1b1da0306fb")
+		)
+		(pin "B1"
+			(uuid "0bf369b9-e237-5383-b600-14c0a43a5dc5")
+		)
+		(pin "B4"
+			(uuid "25006841-ea1c-51cf-8f25-4529d056dc8f")
+		)
+		(pin "B5"
+			(uuid "d90d7071-d494-51b5-bef4-3083bc5c5548")
+		)
+		(pin "B6"
+			(uuid "e0c594a4-9cb8-5ad7-a944-ce3ae2653517")
+		)
+		(pin "B7"
+			(uuid "7a6b3803-07d7-5578-bdde-fe1d604b4d8a")
+		)
+		(pin "B8"
+			(uuid "0dd92fb0-70ec-589b-8a87-dc29995c3fe4")
+		)
+		(pin "B9"
+			(uuid "6d96b783-9e30-50ba-9f87-f15c165d0e33")
+		)
+		(pin "B12"
+			(uuid "b889122e-83ce-5bf0-925a-ae5637d3c711")
+		)
+		(pin "SH"
+			(uuid "13cbae05-7c60-5854-8b51-c287c7d71075")
+		)
+		(instances
+			(project "antenna_top_cap_v2d"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
+					(reference "J204")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 30.48 83.82 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board no)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "fb6f8709-e57a-51aa-9d08-3246f666fd11")
+		(property "Reference" "#PWR0201"
+			(at 33.02 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 30.48 87.63 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 30.48 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 30.48 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 30.48 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7639617d-fe20-5b4a-8f4a-1283fc29645f")
+		)
+		(instances
+			(project "antenna_top_cap_v2d"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
+					(reference "#PWR0201")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 22.86 83.82 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board no)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "39b3c26f-1736-5a08-b34b-770a0ad9fba8")
+		(property "Reference" "#PWR0202"
+			(at 25.4 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 22.86 87.63 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 22.86 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 22.86 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 22.86 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b4364d7a-04f5-516c-a7ca-2d64a53da2a7")
+		)
+		(instances
+			(project "antenna_top_cap_v2d"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
+					(reference "#PWR0202")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(wire
 		(pts
-			(xy 40.64 71.12) (xy 76.2 71.12)
+			(xy 45.72 45.72) (xy 60.96 45.72)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7b720fb2-d4b7-5977-b14f-bc5bab1a2e50")
+		(uuid "a03e66e0-5530-5056-af51-a7468ef6cb08")
+	)
+	(wire
+		(pts
+			(xy 60.96 45.72) (xy 60.96 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "346df2a5-4974-584f-bdfb-58f7caedaaa0")
+	)
+	(label "VBUS_CHG"
+		(at 60.96 71.12 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "74a4f846-775e-56e3-b454-8b09f93e015c")
+	)
+	(wire
+		(pts
+			(xy 45.72 50.8) (xy 55.88 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "daa601fd-63b4-50a6-89e5-5ba3e299372d")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 55.88 54.61 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "652b2846-5add-53ca-b217-6d51e81adcb1")
+		(property "Reference" "R208"
+			(at 58.42 53.34 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "5.1k"
+			(at 58.42 55.88 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 55.88 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CC pull-down Rd: USB-C sink, 5 V only"
+			(at 55.88 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C23186"
+			(at 55.88 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1fe9d29f-0105-5cca-af9e-50a7e9719061")
+		)
+		(pin "2"
+			(uuid "a4972b17-5ad2-53f5-a2c1-1b16e89cd6b4")
+		)
+		(instances
+			(project "antenna_top_cap_v2d"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
+					(reference "R208")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 55.88 58.42 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board no)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "da2b9ec0-1770-5f3d-a168-ea51bc896d37")
+		(property "Reference" "#PWR0203"
+			(at 58.42 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 55.88 62.23 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 55.88 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 55.88 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "648cd158-daa1-5701-92b9-76a01ae2125a")
+		)
+		(instances
+			(project "antenna_top_cap_v2d"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
+					(reference "#PWR0203")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 45.72 53.34) (xy 50.8 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "80d48f8f-f72a-5d59-907b-993ee7b4fdf6")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 50.8 57.15 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "5b1351bc-e2f9-5b11-a988-517f6e91f576")
+		(property "Reference" "R209"
+			(at 53.34 55.88 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "5.1k"
+			(at 53.34 58.42 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 50.8 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 50.8 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CC pull-down Rd: USB-C sink, 5 V only"
+			(at 50.8 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C23186"
+			(at 50.8 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a518881d-9aed-5169-b148-690577c4ed8b")
+		)
+		(pin "2"
+			(uuid "cd6422d7-ab1b-516c-b721-a1f5a482de60")
+		)
+		(instances
+			(project "antenna_top_cap_v2d"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
+					(reference "R209")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 50.8 60.96 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board no)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "c7fab101-c44e-5430-8fbc-503f92a3d80c")
+		(property "Reference" "#PWR0204"
+			(at 53.34 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 50.8 64.77 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 50.8 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 50.8 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 50.8 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c83df379-013c-5bd3-a7f7-1c6c71a3fc42")
+		)
+		(instances
+			(project "antenna_top_cap_v2d"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
+					(reference "#PWR0204")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(no_connect
+		(at 45.72 63.5)
+		(uuid "01e87f5e-3bf9-549b-866b-ae8f46b44362")
+	)
+	(no_connect
+		(at 45.72 66.04)
+		(uuid "008a6e9a-b1a7-5e74-971b-27236349788b")
+	)
+	(no_connect
+		(at 45.72 58.42)
+		(uuid "cb4cf838-c564-5951-9b7a-8428899e914d")
+	)
+	(no_connect
+		(at 45.72 60.96)
+		(uuid "8b9bd3de-e3ae-57af-a553-86325d6cd11e")
+	)
+	(no_connect
+		(at 45.72 73.66)
+		(uuid "6c637cc1-10d8-52e3-a305-794fc79d73d7")
+	)
+	(no_connect
+		(at 45.72 76.2)
+		(uuid "734d5367-d49f-5af7-a323-a39de8771764")
+	)
+	(wire
+		(pts
+			(xy 60.96 71.12) (xy 76.2 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0dc2c5ce-d7d9-51a3-ad05-6a90f9620f90")
 	)
 	(wire
 		(pts
@@ -2268,8 +3684,8 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "e7bf2f21-3eb7-5dcd-acce-92415c697805")
-		(property "Reference" "#PWR0201"
+		(uuid "c028702e-cfd1-5d33-ba27-4b7fb1be0a9a")
+		(property "Reference" "#PWR0205"
 			(at 78.74 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -2324,12 +3740,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "7639617d-fe20-5b4a-8f4a-1283fc29645f")
+			(uuid "c20891a9-b37e-5b90-9f1e-125392bdf92b")
 		)
 		(instances
 			(project "antenna_top_cap_v2d"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
-					(reference "#PWR0201")
+					(reference "#PWR0205")
 					(unit 1)
 				)
 			)
@@ -2337,7 +3753,7 @@
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
-		(at 55.88 71.12 0)
+		(at 68.58 71.12 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2345,9 +3761,9 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "766a3db6-cd39-55c8-b52e-257983749392")
+		(uuid "522c931b-b458-5a14-930d-c47e5ed98d37")
 		(property "Reference" "#FLG0201"
-			(at 58.42 69.85 0)
+			(at 71.12 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2358,7 +3774,7 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 58.42 72.39 0)
+			(at 71.12 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2369,7 +3785,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 55.88 71.12 0)
+			(at 68.58 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2380,7 +3796,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 55.88 71.12 0)
+			(at 68.58 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2391,7 +3807,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 55.88 71.12 0)
+			(at 68.58 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2414,10 +3830,10 @@
 		)
 	)
 	(junction
-		(at 55.88 71.12)
+		(at 68.58 71.12)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "9238419f-e336-5e04-9a7f-9af298bb968d")
+		(uuid "31387346-8fa2-5664-a069-6f30929c998f")
 	)
 	(wire
 		(pts
@@ -2495,8 +3911,8 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "44ed463e-5f26-5de9-8e35-c58f34c8a218")
-		(property "Reference" "#PWR0202"
+		(uuid "067fedd1-5969-5a41-9063-cfbd2f591610")
+		(property "Reference" "#PWR0206"
 			(at 88.9 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -2552,12 +3968,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "b4364d7a-04f5-516c-a7ca-2d64a53da2a7")
+			(uuid "5b840c64-f3cd-5a2e-ad8e-111d66ec5ebc")
 		)
 		(instances
 			(project "antenna_top_cap_v2d"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
-					(reference "#PWR0202")
+					(reference "#PWR0206")
 					(unit 1)
 				)
 			)
@@ -2685,8 +4101,8 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "f1f91aac-6208-5cdc-a8f3-90d537b069cd")
-		(property "Reference" "#PWR0203"
+		(uuid "a12dd35d-e4ad-5065-ab5d-bff70e70dda5")
+		(property "Reference" "#PWR0207"
 			(at 68.58 120.65 0)
 			(hide yes)
 			(show_name no)
@@ -2741,12 +4157,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "648cd158-daa1-5701-92b9-76a01ae2125a")
+			(uuid "4561d5d1-d1ee-5739-b0b1-0f35086eb38b")
 		)
 		(instances
 			(project "antenna_top_cap_v2d"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
-					(reference "#PWR0203")
+					(reference "#PWR0207")
 					(unit 1)
 				)
 			)
@@ -2874,8 +4290,8 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "1ed550ae-7c2e-53aa-946c-43f5be84c5c0")
-		(property "Reference" "#PWR0204"
+		(uuid "c756c470-df9d-59af-872e-26850c8af873")
+		(property "Reference" "#PWR0208"
 			(at 78.74 120.65 0)
 			(hide yes)
 			(show_name no)
@@ -2930,12 +4346,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "c83df379-013c-5bd3-a7f7-1c6c71a3fc42")
+			(uuid "901d8b13-f5cd-5f06-845f-27c01de053a4")
 		)
 		(instances
 			(project "antenna_top_cap_v2d"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
-					(reference "#PWR0204")
+					(reference "#PWR0208")
 					(unit 1)
 				)
 			)
@@ -3063,8 +4479,8 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "47f2df83-7e33-5586-a4b8-ec78443b25f8")
-		(property "Reference" "#PWR0205"
+		(uuid "fa9e668b-c35a-5897-883a-bba8ac2a1a15")
+		(property "Reference" "#PWR0209"
 			(at 88.9 120.65 0)
 			(hide yes)
 			(show_name no)
@@ -3119,12 +4535,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "c20891a9-b37e-5b90-9f1e-125392bdf92b")
+			(uuid "7c9a2f5e-5f73-5d9f-abd8-9b00ce4377bd")
 		)
 		(instances
 			(project "antenna_top_cap_v2d"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
-					(reference "#PWR0205")
+					(reference "#PWR0209")
 					(unit 1)
 				)
 			)
@@ -3140,8 +4556,8 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "4b679da2-0821-5bfe-a4a9-7d18ea26eaa7")
-		(property "Reference" "#PWR0206"
+		(uuid "425a2062-971e-5b61-b9a4-5fd5080cd7f0")
+		(property "Reference" "#PWR0210"
 			(at 104.14 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -3196,12 +4612,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "5b840c64-f3cd-5a2e-ad8e-111d66ec5ebc")
+			(uuid "dc5be7c5-80d2-5d41-880e-d03f01197a46")
 		)
 		(instances
 			(project "antenna_top_cap_v2d"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
-					(reference "#PWR0206")
+					(reference "#PWR0210")
 					(unit 1)
 				)
 			)
@@ -3509,8 +4925,8 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "c221e339-055a-58a6-9d01-2927d7c4ce8b")
-		(property "Reference" "#PWR0207"
+		(uuid "887f0219-dc6a-5f08-96a9-8005cdbe7c9b")
+		(property "Reference" "#PWR0211"
 			(at 142.24 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -3565,12 +4981,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "4561d5d1-d1ee-5739-b0b1-0f35086eb38b")
+			(uuid "32a8910b-a918-5f6b-9c72-f6a66ca69fc5")
 		)
 		(instances
 			(project "antenna_top_cap_v2d"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
-					(reference "#PWR0207")
+					(reference "#PWR0211")
 					(unit 1)
 				)
 			)
@@ -4004,7 +5420,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 139.7 80.01 0)
 			(hide yes)
 			(show_name no)
@@ -4026,7 +5442,7 @@
 				)
 			)
 		)
-		(property "Description" "SYS output cap, 25 V X5R (2x22uF after derating)"
+		(property "Description" "SYS output cap, 25 V X5R 1206: about 14 uF each at 8.2 V, 3 x 14 = 42 uF vs 44 uF"
 			(at 139.7 80.01 0)
 			(hide yes)
 			(show_name no)
@@ -4037,7 +5453,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C45783"
+		(property "LCSC" "C12891"
 			(at 139.7 80.01 0)
 			(hide yes)
 			(show_name no)
@@ -4073,8 +5489,8 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "d70d8733-8790-5b58-b3db-756556ffd07f")
-		(property "Reference" "#PWR0208"
+		(uuid "16ecd7c2-1714-517c-a576-7e5dc95fdd36")
+		(property "Reference" "#PWR0212"
 			(at 142.24 82.55 0)
 			(hide yes)
 			(show_name no)
@@ -4129,12 +5545,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "901d8b13-f5cd-5f06-845f-27c01de053a4")
+			(uuid "ad23affe-c6d7-5d89-a9a9-648403a956c4")
 		)
 		(instances
 			(project "antenna_top_cap_v2d"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
-					(reference "#PWR0208")
+					(reference "#PWR0212")
 					(unit 1)
 				)
 			)
@@ -4179,7 +5595,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 149.86 80.01 0)
 			(hide yes)
 			(show_name no)
@@ -4201,7 +5617,7 @@
 				)
 			)
 		)
-		(property "Description" "SYS output cap, 25 V X5R (2x22uF after derating)"
+		(property "Description" "SYS output cap, 25 V X5R 1206: about 14 uF each at 8.2 V, 3 x 14 = 42 uF vs 44 uF"
 			(at 149.86 80.01 0)
 			(hide yes)
 			(show_name no)
@@ -4212,7 +5628,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C45783"
+		(property "LCSC" "C12891"
 			(at 149.86 80.01 0)
 			(hide yes)
 			(show_name no)
@@ -4248,8 +5664,8 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "d4bc741d-c576-58b1-8d74-19d8aa76227b")
-		(property "Reference" "#PWR0209"
+		(uuid "c57f65f3-dfff-525b-afbe-809605d042af")
+		(property "Reference" "#PWR0213"
 			(at 152.4 82.55 0)
 			(hide yes)
 			(show_name no)
@@ -4304,12 +5720,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "7c9a2f5e-5f73-5d9f-abd8-9b00ce4377bd")
+			(uuid "b4cdd796-3e7e-5697-8305-55e29f8d55f6")
 		)
 		(instances
 			(project "antenna_top_cap_v2d"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
-					(reference "#PWR0209")
+					(reference "#PWR0213")
 					(unit 1)
 				)
 			)
@@ -4348,7 +5764,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 160.02 80.01 0)
 			(hide yes)
 			(show_name no)
@@ -4370,7 +5786,7 @@
 				)
 			)
 		)
-		(property "Description" "SYS output cap, 25 V X5R (2x22uF after derating)"
+		(property "Description" "SYS output cap, 25 V X5R 1206: about 14 uF each at 8.2 V, 3 x 14 = 42 uF vs 44 uF"
 			(at 160.02 80.01 0)
 			(hide yes)
 			(show_name no)
@@ -4381,7 +5797,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C45783"
+		(property "LCSC" "C12891"
 			(at 160.02 80.01 0)
 			(hide yes)
 			(show_name no)
@@ -4417,8 +5833,8 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "64dfc9e6-375a-5879-b5f1-ae4b9c118054")
-		(property "Reference" "#PWR0210"
+		(uuid "7bdd8b89-ce73-59bd-a151-9cac0ee2360a")
+		(property "Reference" "#PWR0214"
 			(at 162.56 82.55 0)
 			(hide yes)
 			(show_name no)
@@ -4473,12 +5889,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "dc5be7c5-80d2-5d41-880e-d03f01197a46")
+			(uuid "74d007bc-e314-5d35-b588-e33d645d4bd4")
 		)
 		(instances
 			(project "antenna_top_cap_v2d"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
-					(reference "#PWR0210")
+					(reference "#PWR0214")
 					(unit 1)
 				)
 			)
@@ -4553,7 +5969,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 139.7 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -4575,7 +5991,7 @@
 				)
 			)
 		)
-		(property "Description" "BAT cap, 25 V X5R"
+		(property "Description" "BAT cap, 25 V X5R 1206: about 14 uF at 8.2 V (>= 10 uF)"
 			(at 139.7 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -4586,7 +6002,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C45783"
+		(property "LCSC" "C12891"
 			(at 139.7 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -4622,8 +6038,8 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "98367b94-1631-5a5d-94a8-7f268fbf91f0")
-		(property "Reference" "#PWR0211"
+		(uuid "0ad06f46-73a3-58d2-9995-d1c78c87c6ae")
+		(property "Reference" "#PWR0215"
 			(at 142.24 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -4678,12 +6094,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "32a8910b-a918-5f6b-9c72-f6a66ca69fc5")
+			(uuid "49d55e27-ea87-5c75-a3d6-cbe044b4104b")
 		)
 		(instances
 			(project "antenna_top_cap_v2d"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
-					(reference "#PWR0211")
+					(reference "#PWR0215")
 					(unit 1)
 				)
 			)
@@ -4855,7 +6271,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
+		(property "Footprint" "Connector_PinHeader_2.00mm:PinHeader_1x02_P2.00mm_Vertical"
 			(at 172.72 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -4877,7 +6293,7 @@
 				)
 			)
 		)
-		(property "Description" "Charger to battery link, remove for flight"
+		(property "Description" "Charger to battery link, 2.0 mm pitch so its shunt cannot fit J2; remove for flight"
 			(at 172.72 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -5102,8 +6518,8 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "1499b6c8-30db-5bbe-a5f5-82a4f96e1c22")
-		(property "Reference" "#PWR0212"
+		(uuid "ffaaaed2-eed7-5bd2-aabe-e911f49ad9dd")
+		(property "Reference" "#PWR0216"
 			(at 142.24 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -5158,12 +6574,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "ad23affe-c6d7-5d89-a9a9-648403a956c4")
+			(uuid "6a041ecc-a7a7-538b-8950-461e4dedf7d4")
 		)
 		(instances
 			(project "antenna_top_cap_v2d"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
-					(reference "#PWR0212")
+					(reference "#PWR0216")
 					(unit 1)
 				)
 			)
@@ -5369,8 +6785,8 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "d11e317c-a6ed-51de-b3be-6c246045dfe7")
-		(property "Reference" "#PWR0213"
+		(uuid "0959300f-3fb4-5ad6-82ab-e907339bcad1")
+		(property "Reference" "#PWR0217"
 			(at 152.4 135.89 0)
 			(hide yes)
 			(show_name no)
@@ -5425,12 +6841,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "b4cdd796-3e7e-5697-8305-55e29f8d55f6")
+			(uuid "692e47bd-8a55-520e-b105-cde762197fc7")
 		)
 		(instances
 			(project "antenna_top_cap_v2d"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
-					(reference "#PWR0213")
+					(reference "#PWR0217")
 					(unit 1)
 				)
 			)
@@ -5462,7 +6878,7 @@
 		)
 		(uuid "ec39f305-6e75-5fa4-9c2d-16456f86d98b")
 	)
-	(label "FC_USB_VBUS"
+	(label "VBUS_CHG"
 		(at 167.64 114.3 0)
 		(effects
 			(font
@@ -5470,7 +6886,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "a30103ea-c5ad-548a-baf0-1e37a6dff4bc")
+		(uuid "b91dd841-a816-5264-9a09-b1af7b7b6f4f")
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -5494,7 +6910,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "2.2k"
+		(property "Value" "4.7k"
 			(at 170.18 119.38 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5527,7 +6943,7 @@
 				)
 			)
 		)
-		(property "Description" "USB 5 V present: (5 - 2.8) / 2.2k = 1 mA"
+		(property "Description" "USB 5 V present: (5 - 2.8) / 4.7k = 0.5 mA; 85 mW at a 20 V fault"
 			(at 167.64 118.11 0)
 			(hide yes)
 			(show_name no)
@@ -5538,7 +6954,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C4190"
+		(property "LCSC" "C23162"
 			(at 167.64 118.11 0)
 			(hide yes)
 			(show_name no)
@@ -5676,8 +7092,8 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "ba34d77b-371c-5260-9b6c-6694a4799688")
-		(property "Reference" "#PWR0214"
+		(uuid "3fe708a2-7dcf-5ddf-b2b0-d13e843beb36")
+		(property "Reference" "#PWR0218"
 			(at 170.18 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -5732,12 +7148,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "74d007bc-e314-5d35-b588-e33d645d4bd4")
+			(uuid "c058131d-5785-5555-a125-c858a5fbeb5a")
 		)
 		(instances
 			(project "antenna_top_cap_v2d"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
-					(reference "#PWR0214")
+					(reference "#PWR0218")
 					(unit 1)
 				)
 			)
@@ -6246,8 +7662,8 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "773bc19e-ed7c-55dc-b254-02717592ced5")
-		(property "Reference" "#PWR0215"
+		(uuid "10910803-8e8b-55d6-b1d9-d51bfb1f9b7d")
+		(property "Reference" "#PWR0219"
 			(at 76.2 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -6302,12 +7718,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "49d55e27-ea87-5c75-a3d6-cbe044b4104b")
+			(uuid "487b6e0c-fece-519d-925e-9e43782d2749")
 		)
 		(instances
 			(project "antenna_top_cap_v2d"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
-					(reference "#PWR0215")
+					(reference "#PWR0219")
 					(unit 1)
 				)
 			)
@@ -6325,7 +7741,7 @@
 		)
 		(uuid "d5b1b276-304e-54ed-b29d-eab33bf8c82e")
 	)
-	(text "Input = J12 FC USB VBUS, 5 V only. CC1/CC2 have 5.1k Rd on the root sheet, so a USB-PD source never offers more than 5 V.\nVBUS operating 4.3 to 6.2 V, OVP 6.2 V, abs max 20 V. VINDPM 4.3 V backs the charger off on a weak port.\nIINDPM = KILIM / RILIM = 1110 / 820 = 1.35 A (Type-C 1.5 A level). ICHG = 3.9k / 3810 = 1.02 A.\nVBUS = (4.3, 5.0, 6.2) V @ (0, 1.2, 1.35) A. CHG_BAT = (6.0, 7.4, 8.2) V @ (0, 0.7, 1.02) A."
+	(text "Input = J204 CHARGE USB-C, 5 V only. CC1/CC2 have 5.1k Rd (R208/R209), so a USB-PD source never offers more than 5 V.\nVBUS operating 4.3 to 6.2 V, OVP 6.2 V, abs max 20 V. VINDPM 4.3 V backs the charger off on a weak port.\nIINDPM = KILIM / RILIM = 1110 / 820 = 1.35 A (Type-C 1.5 A level). ICHG = 3.9k / 3810 = 1.02 A max; at 1.35 A in, about 0.75 A reaches the pack.\nVBUS = (4.3, 5.0, 6.2) V @ (0, 1.2, 1.35) A. CHG_BAT = (6.0, 7.4, 8.2) V @ (0, 0.7, 1.02) A.\nICHG stays at or under 1.02 A: Dir_Chrg_In reaches the FC on one 24 AWG harness conductor (J1 pin 6)."
 		(exclude_from_sim no)
 		(at 25.4 27.94 0)
 		(effects
@@ -6334,29 +7750,29 @@
 			)
 			(justify left top)
 		)
-		(uuid "99c13dba-8854-5c21-af47-f15c0228eaed")
+		(uuid "30ffefce-cfa9-5e90-967d-17bfa96ffa09")
 	)
-	(text "D+ tied to D-: BC1.2 detects a DCP (3 A), so ILIM governs.\nThe FC USB data lines on J12 never reach this IC."
+	(text "D+ tied to D-: BC1.2 detects a DCP (3 A), so ILIM governs.\nJ204 data pins are not connected (charge only)."
 		(exclude_from_sim no)
-		(at 25.4 83.82 0)
+		(at 25.4 90.17 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left top)
 		)
-		(uuid "22467531-973d-5aba-87fa-441a12b5b035")
+		(uuid "fa00302e-4d44-559d-87e6-591bae1e1fe4")
 	)
 	(text "OTG and ~{CE} hard tied to GND.\nOTG high would boost the battery back\nout of VBUS: never leave it floating."
 		(exclude_from_sim no)
-		(at 25.4 96.52 0)
+		(at 25.4 99.06 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left top)
 		)
-		(uuid "d78c844b-fccc-5e59-8590-790fc77b3604")
+		(uuid "a6c027c9-e615-5578-be9d-465de336cf5b")
 	)
 	(text "VSET: 0 Ohm = 8.2 V (4.1 V/cell, chosen for\nmargin with no cell balancing).\nDNP R203 (> 150k) = 8.4 V. Never fit 75k or 39k\n(8.7 V / 8.8 V would overcharge Molicel cells)."
 		(exclude_from_sim no)
@@ -6392,7 +7808,7 @@
 		)
 		(uuid "a9731664-9907-5faf-b716-767bf56ba0d6")
 	)
-	(text "Dir_Chrg_In is the raw pack + (upstream of every\npositive inhibit). Charge current returns through\nFC GND and the ground-side inhibit, as with J2.\nF201 opens on a charger or cap short.\nJ203 CHG LINK: fit for bench charging; REMOVE FOR\nFLIGHT so no charger part hangs on the pack.\nBattery-only drain with link fitted: 14 uA typ.\nATP: link out, Dir_Chrg_In to GND leakage < 1 uA.\nATP: 5 V in, 7.4 V load, PG green, STAT red, 1 A."
+	(text "Dir_Chrg_In is the raw pack + (upstream of every\npositive inhibit). Charge current returns through\nFC GND and the ground-side inhibit, as with J2.\nF201 opens on a charger or cap short.\nJ203 CHG LINK: fit for bench charging; REMOVE FOR\nFLIGHT so no charger part hangs on the pack.\nBattery-only drain with link fitted: 12 uA typ, 20 uA max.\nATP: link out, Dir_Chrg_In to GND leakage < 1 uA.\nATP: 5 V in, 7.4 V load: green on, red on,\ncharge 0.7 to 1.0 A (input-limited at 1.35 A in).\nJ2 and J203 use different pitches (2.54 / 2.0 mm):\na shunt on J2 would short the pack."
 		(exclude_from_sim no)
 		(at 198.12 90.17 0)
 		(effects

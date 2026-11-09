@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """Apply the V2d root-sheet edits to antenna_top_cap_v2d.kicad_sch (run once on the V2c copy).
 
-- J12 VBUS: drop the no-connect flag, wire it to local label FC_USB_VBUS.
-- Add the "Charger & SWD" hierarchical sheet with pins FC_USB_VBUS and Dir_Chrg_In.
+- Add the "Charger & SWD" hierarchical sheet with its one pin, Dir_Chrg_In.
 - Fill the title block.
 """
 import re
@@ -14,10 +13,6 @@ NS = uuid.UUID(SHEET_UUID)
 uid = lambda *p: str(uuid.uuid5(NS, "root/" + "/".join(map(str, p))))
 t = open(SCH).read()
 assert "charger_swd.kicad_sch" not in t, "already applied"
-
-nc = re.search(r'\t\(no_connect\n\t\t\(at 49\.53 73\.66\)\n\t\t\(uuid "[^"]+"\)\n\t\)\n', t)
-assert nc, "J12 VBUS no_connect not found"
-t = t[:nc.start()] + t[nc.end():]
 
 root_uuid = re.search(r'\(generator_version "10.0"\)\n\t\(uuid "([^"]+)"\)', t).group(1)
 
@@ -47,11 +42,6 @@ def text(s, x, y):
 
 
 add = ""
-# J12 VBUS pin end (49.53, 73.66): wire up clear of R26's value text, then the label.
-add += wire((49.53, 73.66), (49.53, 63.5))
-add += label("FC_USB_VBUS", (49.53, 63.5), 0, "left bottom")
-add += text("V2d: VBUS now feeds the USB charger\n(Charger & SWD sheet). 5 V only.", 52.07, 64.77)
-
 # Sheet symbol in the empty lower-middle area.
 sx, sy, sw, sh = 85.09, 160.02, 33.02, 12.7
 py = 165.1
@@ -62,13 +52,9 @@ add += (f'\t(sheet\n\t\t(at {sx} {sy})\n\t\t(size {sw} {sh})\n\t\t(exclude_from_
         f'\t\t\t(effects\n\t\t\t\t(font\n\t\t\t\t\t(size 1.27 1.27)\n\t\t\t\t)\n\t\t\t\t(justify left bottom)\n\t\t\t)\n\t\t)\n'
         f'\t\t(property "Sheetfile" "charger_swd.kicad_sch"\n\t\t\t(at {sx} {round(sy + sh + 0.5846, 4)} 0)\n\t\t\t(show_name no)\n\t\t\t(do_not_autoplace no)\n'
         f'\t\t\t(effects\n\t\t\t\t(font\n\t\t\t\t\t(size 1.27 1.27)\n\t\t\t\t)\n\t\t\t\t(justify left top)\n\t\t\t)\n\t\t)\n'
-        f'\t\t(pin "FC_USB_VBUS" input\n\t\t\t(at {sx} {py} 180)\n\t\t\t(uuid "{uid("pin", "vbus")}")\n'
-        f'\t\t\t(effects\n\t\t\t\t(font\n\t\t\t\t\t(size 1.27 1.27)\n\t\t\t\t)\n\t\t\t\t(justify left)\n\t\t\t)\n\t\t)\n'
         f'\t\t(pin "Dir_Chrg_In" passive\n\t\t\t(at {round(sx + sw, 4)} {py} 0)\n\t\t\t(uuid "{uid("pin", "bat")}")\n'
         f'\t\t\t(effects\n\t\t\t\t(font\n\t\t\t\t\t(size 1.27 1.27)\n\t\t\t\t)\n\t\t\t\t(justify right)\n\t\t\t)\n\t\t)\n'
         f'\t\t(instances\n\t\t\t(project "antenna_top_cap_v2d"\n\t\t\t\t(path "/{root_uuid}"\n\t\t\t\t\t(page "2")\n\t\t\t\t)\n\t\t\t)\n\t\t)\n\t)\n')
-add += wire((sx, py), (round(sx - 7.62, 4), py))
-add += label("FC_USB_VBUS", (round(sx - 7.62, 4), py), 0, "left bottom")
 ex = round(sx + sw + 5.08, 4)
 add += wire((round(sx + sw, 4), py), (ex, py))
 add += glabel("Dir_Chrg_In", (ex, py), "bidirectional")

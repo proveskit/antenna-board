@@ -166,6 +166,7 @@ R0603 = "Resistor_SMD:R_0603_1608Metric"
 R0402 = "Resistor_SMD:R_0402_1005Metric"
 C0603 = "Capacitor_SMD:C_0603_1608Metric"
 C0805 = "Capacitor_SMD:C_0805_2012Metric"
+C1206 = "Capacitor_SMD:C_1206_3216Metric"
 TI_DS = "https://www.ti.com/lit/ds/symlink/bq25886.pdf"
 
 
@@ -191,15 +192,28 @@ U = Sym("Battery_Management:BQ25886RGE", "U201", "BQ25886RGER", 101.6, 88.9,
 P = {n: U.p(n) for n in ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "15", "17", "21", "23", "24"]}
 
 # VBUS input from the sheet pin, with C201 at the pin.
-vin = (40.64, P["23"][1])
-hlabel("FC_USB_VBUS", vin, "input")
+# J204: charge-only USB-C. 5.1k Rd on each CC makes it a sink, so a PD source stays at 5 V.
+JC = Sym("Connector:USB_C_Receptacle_USB2.0_16P", "J204", "CHARGE", 30.48, 60.96,
+         fp="Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12", lcsc="C165948", mpn="TYPE-C-31-M-12",
+         desc="Charge-only USB-C on the outer face; data pins not connected", ref_at=(22.86, 35.56), val_at=(22.86, 33.02))
+gnd(JC.p("A1"))
+gnd(JC.p("SH"))
+vin = (60.96, P["23"][1])
+wire(JC.p("A4"), (60.96, JC.p("A4")[1]), vin)
+label("VBUS_CHG", vin)
+for pin, x, ref in (("A5", 55.88, "R208"), ("B5", 50.8, "R209")):
+    wire(JC.p(pin), (x, JC.p(pin)[1]))
+    t, b = res(ref, "5.1k", x, JC.p(pin)[1], "C23186", "CC pull-down Rd: USB-C sink, 5 V only")
+    gnd(b)
+for pin in ("A6", "B6", "A7", "B7", "A8", "B8"):
+    noconnect(JC.p(pin))
 cx = 76.2
 wire(vin, (cx, vin[1]))
 wire((cx, vin[1]), P["23"])
 junction((cx, vin[1]))
 cap("C201", "1uF", cx, vin[1], "C15849", "VBUS bypass, 50 V", fp=C0603)
-flag("#FLG0201", (55.88, vin[1]))
-junction((55.88, vin[1]))
+flag("#FLG0201", (68.58, vin[1]))
+junction((68.58, vin[1]))
 
 # D+ tied to D- locally: BC1.2 sees a DCP, ILIM then sets the input limit.
 xd = 86.36
@@ -267,14 +281,14 @@ wire((134.62, ys), (139.7, ys), (149.86, ys), (160.02, ys))
 for i, x in enumerate([139.7, 149.86, 160.02]):
     if x != 160.02:
         junction((x, ys))
-    cap(f"C20{4 + i}", "22uF", x, ys, "C45783", "SYS output cap, 25 V X5R (2x22uF after derating)")
+    cap(f"C20{4 + i}", "22uF", x, ys, "C12891", "SYS output cap, 25 V X5R 1206: about 14 uF each at 8.2 V, 3 x 14 = 42 uF vs 44 uF", fp=C1206)
 
 # BAT: C207, F201, CHG LINK J203 to the battery tap.
 ybat = 101.6
 label("CHG_BAT", (134.62, ybat))
 wire((134.62, ybat), (139.7, ybat), (144.78, ybat))
 junction((139.7, ybat))
-cap("C207", "22uF", 139.7, ybat, "C45783", "BAT cap, 25 V X5R")
+cap("C207", "22uF", 139.7, ybat, "C12891", "BAT cap, 25 V X5R 1206: about 14 uF at 8.2 V (>= 10 uF)", fp=C1206)
 F = Sym("Device:Fuse", "F201", "2A", 148.59, ybat, rot=90, fp="Fuse:Fuse_1206_3216Metric", lcsc="C3105",
         mpn="0466002.NRHF", desc="2 A fast fuse, 63 V, 50 A interrupt", ref_at=(146.05, ybat - 3.81), val_at=(146.05, ybat - 6.35))
 fa, fb = sorted([F.p(1), F.p(2)])
@@ -282,7 +296,7 @@ wire((144.78, ybat), fa)
 wire(fb, (154.94, ybat))
 label("CHG_FUSED", (154.94, ybat))
 J3 = Sym("Connector_Generic:Conn_01x02", "J203", "CHG LINK", 172.72, ybat,
-         fp="Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical", desc="Charger to battery link, remove for flight",
+         fp="Connector_PinHeader_2.00mm:PinHeader_1x02_P2.00mm_Vertical", desc="Charger to battery link, 2.0 mm pitch so its shunt cannot fit J2; remove for flight",
          ref_at=(172.72, ybat - 2.54), val_at=(172.72, ybat + 5.08))
 wire((154.94, ybat), J3.p(1))
 p2 = J3.p(2)
@@ -302,12 +316,13 @@ gnd(r5b)
 junction(b)
 wire(b, (157.48, b[1]))
 label("TS", (157.48, b[1]))
-label("FC_USB_VBUS", (167.64, yr - 7.62))
+label("VBUS_CHG", (167.64, yr - 7.62))
 for x, ytop, rref, dref, col, net, dlcsc, dfp, rdesc in [
-    (167.64, yr - 7.62, "R206", "D201", "Green", None, "C2297", "LED_SMD:LED_0805_2012Metric", "USB 5 V present: (5 - 2.8) / 2.2k = 1 mA"),
+    (167.64, yr - 7.62, "R206", "D201", "Green", None, "C2297", "LED_SMD:LED_0805_2012Metric", "USB 5 V present: (5 - 2.8) / 4.7k = 0.5 mA; 85 mW at a 20 V fault"),
     (180.34, yr, "R207", "D202", "Red", "CHG_STAT", "C2286", "LED_SMD:LED_0603_1608Metric", "STAT LED: (REGN - 2) / 2.2k = 1.4 mA"),
 ]:
-    t, b = res(rref, "2.2k", x, ytop, "C4190", rdesc)
+    rval, rlcsc = ("4.7k", "C23162") if rref == "R206" else ("2.2k", "C4190")
+    t, b = res(rref, rval, x, ytop, rlcsc, rdesc)
     D = Sym("Device:LED", dref, col, x, b[1] + 3.81, rot=90, fp=dfp, lcsc=dlcsc, desc=f"{col} status LED",
             ref_at=(x + 5.08, b[1] + 2.54), val_at=(x + 5.08, b[1] + 5.08))
     k, a = D.p(1), D.p(2)
@@ -337,15 +352,16 @@ gnd((73.66, J1.p("2")[1] + 5.08))
 
 # ---------------------------------------------------------------- notes
 text("V2d USB charger (BQ25886, standalone 2S boost)", 25.4, 22.86, size=2.0, bold=True)
-text("Input = J12 FC USB VBUS, 5 V only. CC1/CC2 have 5.1k Rd on the root sheet, so a USB-PD source never offers more than 5 V.\n"
+text("Input = J204 CHARGE USB-C, 5 V only. CC1/CC2 have 5.1k Rd (R208/R209), so a USB-PD source never offers more than 5 V.\n"
      "VBUS operating 4.3 to 6.2 V, OVP 6.2 V, abs max 20 V. VINDPM 4.3 V backs the charger off on a weak port.\n"
-     "IINDPM = KILIM / RILIM = 1110 / 820 = 1.35 A (Type-C 1.5 A level). ICHG = 3.9k / 3810 = 1.02 A.\n"
-     "VBUS = (4.3, 5.0, 6.2) V @ (0, 1.2, 1.35) A. CHG_BAT = (6.0, 7.4, 8.2) V @ (0, 0.7, 1.02) A.", 25.4, 27.94)
+     "IINDPM = KILIM / RILIM = 1110 / 820 = 1.35 A (Type-C 1.5 A level). ICHG = 3.9k / 3810 = 1.02 A max; at 1.35 A in, about 0.75 A reaches the pack.\n"
+     "VBUS = (4.3, 5.0, 6.2) V @ (0, 1.2, 1.35) A. CHG_BAT = (6.0, 7.4, 8.2) V @ (0, 0.7, 1.02) A.\n"
+     "ICHG stays at or under 1.02 A: Dir_Chrg_In reaches the FC on one 24 AWG harness conductor (J1 pin 6).", 25.4, 27.94)
 text("D+ tied to D-: BC1.2 detects a DCP (3 A), so ILIM governs.\n"
-     "The FC USB data lines on J12 never reach this IC.", 25.4, 78.74 - 0.0 + 5.08)
+     "J204 data pins are not connected (charge only).", 25.4, 90.17)
 text("OTG and ~{CE} hard tied to GND.\n"
      "OTG high would boost the battery back\n"
-     "out of VBUS: never leave it floating.", 25.4, 96.52)
+     "out of VBUS: never leave it floating.", 25.4, 99.06)
 text("VSET: 0 Ohm = 8.2 V (4.1 V/cell, chosen for\n"
      "margin with no cell balancing).\n"
      "DNP R203 (> 150k) = 8.4 V. Never fit 75k or 39k\n"
@@ -361,9 +377,12 @@ text("Dir_Chrg_In is the raw pack + (upstream of every\n"
      "F201 opens on a charger or cap short.\n"
      "J203 CHG LINK: fit for bench charging; REMOVE FOR\n"
      "FLIGHT so no charger part hangs on the pack.\n"
-     "Battery-only drain with link fitted: 14 uA typ.\n"
+     "Battery-only drain with link fitted: 12 uA typ, 20 uA max.\n"
      "ATP: link out, Dir_Chrg_In to GND leakage < 1 uA.\n"
-     "ATP: 5 V in, 7.4 V load, PG green, STAT red, 1 A.", 198.12, 90.17)
+     "ATP: 5 V in, 7.4 V load: green on, red on,\n"
+     "charge 0.7 to 1.0 A (input-limited at 1.35 A in).\n"
+     "J2 and J203 use different pitches (2.54 / 2.0 mm):\n"
+     "a shunt on J2 would short the pack.", 198.12, 90.17)
 text("Status LEDs (outer side): green = USB 5 V present;\n"
      "red on = charging, off = done, 1 Hz blink = fault.", 198.12, 148.59)
 text("SWD pass-through", 25.4, 144.78, size=2.0, bold=True)
