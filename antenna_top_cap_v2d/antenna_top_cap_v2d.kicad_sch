@@ -4,6 +4,13 @@
 	(generator_version "10.0")
 	(uuid "e63e39d7-6ac0-4ffd-8aa3-1841a4541b55")
 	(paper "A4")
+	(title_block
+		(title "PROVES Antenna Board V2d")
+		(date "2026-11-09")
+		(rev "V2d")
+		(company "PROVES Kit / Open Source Space Foundation")
+		(comment 1 "Harness: J1 DEBUG to FC V5e J16; SWD J201 to FC J22")
+	)
 	(lib_symbols
 		(symbol "+3V3_1"
 			(power global)
@@ -5534,10 +5541,6 @@
 	(no_connect
 		(at 49.53 101.6)
 		(uuid "c3bb7e9a-43a7-45d8-99af-f0d571f97c2d")
-	)
-	(no_connect
-		(at 49.53 73.66)
-		(uuid "f0bead9a-9b3e-4a74-9bce-ca0bf6e6b3ce")
 	)
 	(wire
 		(pts
@@ -12894,6 +12897,157 @@
 					(reference "R10")
 					(unit 1)
 				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 49.53 73.66) (xy 49.53 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "821196b6-d5b7-55bd-ab78-a8e795f1fd92")
+	)
+	(label "FC_USB_VBUS"
+		(at 49.53 63.5 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c8249130-d247-56cd-a31f-b0779c8b99e5")
+	)
+	(text "V2d: VBUS now feeds the USB charger\n(Charger & SWD sheet). 5 V only."
+		(exclude_from_sim no)
+		(at 52.07 64.77 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "01baf399-4a00-57bf-af83-e8d9bb3d9829")
+	)
+	(sheet
+		(at 85.09 160.02)
+		(size 33.02 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b")
+		(property "Sheetname" "Charger & SWD"
+			(at 85.09 159.3084 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "charger_swd.kicad_sch"
+			(at 85.09 173.3046 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "FC_USB_VBUS" input
+			(at 85.09 165.1 180)
+			(uuid "83128686-0581-58cb-a3dc-69f0db16741a")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "Dir_Chrg_In" passive
+			(at 118.11 165.1 0)
+			(uuid "01098f09-6b49-5ff3-a173-ce22f81140bf")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(instances
+			(project "antenna_top_cap_v2d"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
+					(page "2")
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 85.09 165.1) (xy 77.47 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "51cd2e21-06a7-5e69-b371-02a4b39ff2d2")
+	)
+	(label "FC_USB_VBUS"
+		(at 77.47 165.1 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3b7749eb-aa49-529d-9820-739f88267ac7")
+	)
+	(wire
+		(pts
+			(xy 118.11 165.1) (xy 123.19 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8201c701-bc51-519d-8e06-f7fc933ce5a5")
+	)
+	(global_label "Dir_Chrg_In"
+		(shape bidirectional)
+		(at 123.19 165.1 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "4d13f400-7e8d-568e-817d-fd13d68d443b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 123.19 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 	)
