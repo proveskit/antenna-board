@@ -6127,7 +6127,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "2A"
+		(property "Value" "1.5A"
 			(at 146.05 95.25 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6160,7 +6160,7 @@
 				)
 			)
 		)
-		(property "Description" "2 A fast fuse, 63 V, 50 A interrupt"
+		(property "Description" "1.5 A fast fuse (1.02 A charge = 68 % of rating), 63 V, 50 A interrupt"
 			(at 148.59 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -6171,7 +6171,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C3105"
+		(property "LCSC" "C187598"
 			(at 148.59 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -6182,7 +6182,7 @@
 				)
 			)
 		)
-		(property "MPN" "0466002.NRHF"
+		(property "MPN" "046601.5NRHF"
 			(at 148.59 101.6 0)
 			(hide yes)
 			(show_name no)

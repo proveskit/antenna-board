@@ -289,8 +289,8 @@ label("CHG_BAT", (134.62, ybat))
 wire((134.62, ybat), (139.7, ybat), (144.78, ybat))
 junction((139.7, ybat))
 cap("C207", "22uF", 139.7, ybat, "C12891", "BAT cap, 25 V X5R 1206: about 14 uF at 8.2 V (>= 10 uF)", fp=C1206)
-F = Sym("Device:Fuse", "F201", "2A", 148.59, ybat, rot=90, fp="Fuse:Fuse_1206_3216Metric", lcsc="C3105",
-        mpn="0466002.NRHF", desc="2 A fast fuse, 63 V, 50 A interrupt", ref_at=(146.05, ybat - 3.81), val_at=(146.05, ybat - 6.35))
+F = Sym("Device:Fuse", "F201", "1.5A", 148.59, ybat, rot=90, fp="Fuse:Fuse_1206_3216Metric", lcsc="C187598",
+        mpn="046601.5NRHF", desc="1.5 A fast fuse (1.02 A charge = 68 % of rating), 63 V, 50 A interrupt", ref_at=(146.05, ybat - 3.81), val_at=(146.05, ybat - 6.35))
 fa, fb = sorted([F.p(1), F.p(2)])
 wire((144.78, ybat), fa)
 wire(fb, (154.94, ybat))
