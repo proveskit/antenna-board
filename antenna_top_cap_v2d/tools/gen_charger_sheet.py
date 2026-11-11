@@ -78,7 +78,7 @@ def prop(name, value, x, y, hide=False, size=1.27, justify=None, angle=0):
 
 class Sym:
     def __init__(self, lib_id, ref, value, x, y, rot=0, mirror=False, fp="", lcsc="", mpn="", desc="", ds="",
-                 in_bom=True, ref_at=None, val_at=None, hide_value=False, power=False):
+                 in_bom=True, ref_at=None, val_at=None, hide_value=False, power=False, fjust="left"):
         self.lib_id, self.ref, self.x, self.y, self.rot, self.mirror = lib_id, ref, x, y, rot, mirror
         block, self.libpins = lib_symbol(lib_id)
         if lib_id not in used_libs:
@@ -91,8 +91,8 @@ class Sym:
         rx, ry = ref_at or (x + 2.54, y - 1.27)
         vx, vy = val_at or (x + 2.54, y + 1.27)
         ang = 90 if rot in (90, 270) else 0
-        s += prop("Reference", ref, rx, ry, hide=power, justify=None if power else "left", angle=ang)
-        s += prop("Value", value, vx, vy, hide=hide_value, justify=None if power else "left", angle=ang)
+        s += prop("Reference", ref, rx, ry, hide=power, justify=None if power else fjust, angle=ang)
+        s += prop("Value", value, vx, vy, hide=hide_value, justify=None if power else fjust, angle=ang)
         s += prop("Footprint", fp, x, y, hide=True)
         s += prop("Datasheet", ds, x, y, hide=True)
         s += prop("Description", desc, x, y, hide=True)
@@ -170,10 +170,11 @@ C1206 = "Capacitor_SMD:C_1206_3216Metric"
 TI_DS = "https://www.ti.com/lit/ds/symlink/bq25886.pdf"
 
 
-def res(ref, val, x, ytop, lcsc, desc, fp=R0603):
+def res(ref, val, x, ytop, lcsc, desc, fp=R0603, left=False):
     """Vertical resistor whose top pin ends at (x, ytop). Returns (top, bottom)."""
+    tx = x - 7.62 if left else x + 2.54
     r = Sym("Device:R", ref, val, x, ytop + 3.81, fp=fp, lcsc=lcsc, desc=desc,
-            ref_at=(x + 2.54, ytop + 2.54), val_at=(x + 2.54, ytop + 5.08))
+            ref_at=(tx, ytop + 2.54), val_at=(tx, ytop + 5.08))
     return r.p(1), r.p(2)
 
 
@@ -195,13 +196,13 @@ P = {n: U.p(n) for n in ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"
 # J204: charge-only USB-C. 5.1k Rd on each CC makes it a sink, so a PD source stays at 5 V.
 JC = Sym("Connector:USB_C_Receptacle_USB2.0_16P", "J204", "CHARGE", 30.48, 60.96,
          fp="Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12", lcsc="C165948", mpn="TYPE-C-31-M-12",
-         desc="Charge-only USB-C on the outer face; data pins not connected", ref_at=(22.86, 35.56), val_at=(22.86, 33.02))
+         desc="Charge-only USB-C on the outer face; data pins not connected", ref_at=(40.64, 85.09), val_at=(40.64, 87.63))
 gnd(JC.p("A1"))
 gnd(JC.p("SH"))
-vin = (60.96, P["23"][1])
-wire(JC.p("A4"), (60.96, JC.p("A4")[1]), vin)
+vin = (71.12, P["23"][1])
+wire(JC.p("A4"), (71.12, JC.p("A4")[1]), (71.12, 58.42), vin)
 label("VBUS_CHG", vin)
-for pin, x, ref in (("A5", 55.88, "R208"), ("B5", 50.8, "R209")):
+for pin, x, ref in (("A5", 60.96, "R208"), ("B5", 50.8, "R209")):
     wire(JC.p(pin), (x, JC.p(pin)[1]))
     t, b = res(ref, "5.1k", x, JC.p(pin)[1], "C23186", "CC pull-down Rd: USB-C sink, 5 V only")
     gnd(b)
@@ -212,8 +213,8 @@ wire(vin, (cx, vin[1]))
 wire((cx, vin[1]), P["23"])
 junction((cx, vin[1]))
 cap("C201", "1uF", cx, vin[1], "C15849", "VBUS bypass, 50 V", fp=C0603)
-flag("#FLG0201", (68.58, vin[1]))
-junction((68.58, vin[1]))
+flag("#FLG0201", (71.12, 58.42))
+junction((71.12, 58.42))
 
 # D+ tied to D- locally: BC1.2 sees a DCP, ILIM then sets the input limit.
 xd = 86.36
@@ -324,7 +325,7 @@ for x, ytop, rref, dref, col, net, dlcsc, dfp, rdesc in [
     rval, rlcsc = ("4.7k", "C23162") if rref == "R206" else ("2.2k", "C4190")
     t, b = res(rref, rval, x, ytop, rlcsc, rdesc)
     D = Sym("Device:LED", dref, col, x, b[1] + 3.81, rot=90, fp=dfp, lcsc=dlcsc, desc=f"{col} status LED",
-            ref_at=(x + 5.08, b[1] + 2.54), val_at=(x + 5.08, b[1] + 5.08))
+            ref_at=(x + 2.54, b[1] + 2.54), val_at=(x + 2.54, b[1] + 5.08), fjust="right")
     k, a = D.p(1), D.p(2)
     top, bot = (a, k) if a[1] < k[1] else (k, a)
     wire(b, top)

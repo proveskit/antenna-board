@@ -2854,7 +2854,7 @@
 		(dnp no)
 		(uuid "cdc300cc-2c11-54b8-bb76-3e095610f9ab")
 		(property "Reference" "J204"
-			(at 22.86 35.56 0)
+			(at 40.64 85.09 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2865,7 +2865,7 @@
 			)
 		)
 		(property "Value" "CHARGE"
-			(at 22.86 33.02 0)
+			(at 40.64 87.63 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3146,47 +3146,57 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 45.72) (xy 60.96 45.72)
+			(xy 45.72 45.72) (xy 71.12 45.72)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a03e66e0-5530-5056-af51-a7468ef6cb08")
+		(uuid "02557a4a-4a9e-5f5e-8639-dc4fe2475da1")
 	)
 	(wire
 		(pts
-			(xy 60.96 45.72) (xy 60.96 71.12)
+			(xy 71.12 45.72) (xy 71.12 58.42)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "346df2a5-4974-584f-bdfb-58f7caedaaa0")
+		(uuid "4a8a00f4-782c-5830-9b2c-3e4a4d0cd1ce")
+	)
+	(wire
+		(pts
+			(xy 71.12 58.42) (xy 71.12 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "17ec37a0-4c25-55af-a0e0-4f3cc0072994")
 	)
 	(label "VBUS_CHG"
-		(at 60.96 71.12 0)
+		(at 71.12 71.12 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "74a4f846-775e-56e3-b454-8b09f93e015c")
+		(uuid "b497aa1e-f25b-525e-9fd0-069a5506d971")
 	)
 	(wire
 		(pts
-			(xy 45.72 50.8) (xy 55.88 50.8)
+			(xy 45.72 50.8) (xy 60.96 50.8)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "daa601fd-63b4-50a6-89e5-5ba3e299372d")
+		(uuid "d1fb1311-d957-58b3-af57-b1f98f99a834")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 55.88 54.61 0)
+		(at 60.96 54.61 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3194,9 +3204,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "652b2846-5add-53ca-b217-6d51e81adcb1")
+		(uuid "84f19f04-887f-5208-8bad-53304507793f")
 		(property "Reference" "R208"
-			(at 58.42 53.34 0)
+			(at 63.5 53.34 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3207,7 +3217,7 @@
 			)
 		)
 		(property "Value" "5.1k"
-			(at 58.42 55.88 0)
+			(at 63.5 55.88 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3218,7 +3228,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 55.88 54.61 0)
+			(at 60.96 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3229,7 +3239,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 55.88 54.61 0)
+			(at 60.96 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3240,7 +3250,7 @@
 			)
 		)
 		(property "Description" "CC pull-down Rd: USB-C sink, 5 V only"
-			(at 55.88 54.61 0)
+			(at 60.96 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3251,7 +3261,7 @@
 			)
 		)
 		(property "LCSC" "C23186"
-			(at 55.88 54.61 0)
+			(at 60.96 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3278,7 +3288,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 55.88 58.42 0)
+		(at 60.96 58.42 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3286,9 +3296,9 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "da2b9ec0-1770-5f3d-a168-ea51bc896d37")
+		(uuid "44cab46a-dd4d-509c-8767-a5afe5e5568b")
 		(property "Reference" "#PWR0203"
-			(at 58.42 57.15 0)
+			(at 63.5 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3299,7 +3309,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 55.88 62.23 0)
+			(at 60.96 62.23 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3309,7 +3319,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 55.88 58.42 0)
+			(at 60.96 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3320,7 +3330,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 55.88 58.42 0)
+			(at 60.96 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3331,7 +3341,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 55.88 58.42 0)
+			(at 60.96 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3558,13 +3568,13 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 71.12) (xy 76.2 71.12)
+			(xy 71.12 71.12) (xy 76.2 71.12)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "0dc2c5ce-d7d9-51a3-ad05-6a90f9620f90")
+		(uuid "720af8e2-fc7d-57a3-a610-9f2f23c8724b")
 	)
 	(wire
 		(pts
@@ -3753,7 +3763,7 @@
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
-		(at 68.58 71.12 0)
+		(at 71.12 58.42 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3761,9 +3771,9 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "522c931b-b458-5a14-930d-c47e5ed98d37")
+		(uuid "e683672a-487e-584b-a01b-cb0cb84da356")
 		(property "Reference" "#FLG0201"
-			(at 71.12 69.85 0)
+			(at 73.66 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3774,7 +3784,7 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 71.12 72.39 0)
+			(at 73.66 59.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3785,7 +3795,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 68.58 71.12 0)
+			(at 71.12 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3796,7 +3806,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 68.58 71.12 0)
+			(at 71.12 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3807,7 +3817,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 68.58 71.12 0)
+			(at 71.12 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3830,10 +3840,10 @@
 		)
 	)
 	(junction
-		(at 68.58 71.12)
+		(at 71.12 58.42)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "31387346-8fa2-5664-a069-6f30929c998f")
+		(uuid "f4de9c2c-3f04-536a-be6b-5ec305d6ff17")
 	)
 	(wire
 		(pts
@@ -6992,25 +7002,25 @@
 		(dnp no)
 		(uuid "d9b3f5a6-2fc7-5195-8fc3-7694756e2e66")
 		(property "Reference" "D201"
-			(at 172.72 124.46 90)
+			(at 170.18 124.46 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Value" "Green"
-			(at 172.72 127 90)
+			(at 170.18 127 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
@@ -7263,25 +7273,25 @@
 		(dnp no)
 		(uuid "13475cad-e622-5805-9e2a-eb0a2601b030")
 		(property "Reference" "D202"
-			(at 185.42 132.08 90)
+			(at 182.88 132.08 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Value" "Red"
-			(at 185.42 134.62 90)
+			(at 182.88 134.62 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
