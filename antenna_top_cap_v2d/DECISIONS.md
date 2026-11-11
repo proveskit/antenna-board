@@ -29,7 +29,7 @@ tools/jlc_production.py ...       # BOM + CPL, see jlcpcb/production_files
 | 8 | F201 1.5 A fast fuse (046601.5NRHF, C187598, 63 V, 50 A interrupt) and J203 "CHG LINK" between the charger and Dir_Chrg_In. J203 is a **2.0 mm** pitch header so its shunt cannot be pushed onto J2 (2.54 mm, pack + to GND), which would dead-short the pack. | Dir_Chrg_In is the raw pack + upstream of every positive inhibit. 1.02 A charge is 68 % of the 1.5 A rating (Littelfuse derates to 75 %), and 1.5 A protects one 24 AWG conductor. Estimated fault loop (pack, 150 mm 22 AWG battery harness, DF11 contacts, 150 mm 24 AWG Dir_Chrg_In + 2 GND, ground inhibit, board copper, fuse): about 150 to 250 mOhm, so 34 to 56 A prospective at 8.4 V, at or under the 50 A interrupt rating. Measure on the first assembled cube. | Michael 2026-11-11; proves-wiring-harness FC_Antenna.yml |
 | 9 | Green LED = USB 5 V present (VBUS through 4.7k, 85 mW at a 20 V fault). Red LED = STAT (REGN pull-up). PG pin left open. | Moving the green LED off PG freed a routing lane next to the QFN. Both LEDs on the outer face. | review F6 |
 | 10 | SWD: J201 (inner face) wired 1:1 to J202 (outer face), JST-SH BM03B-SRSS-TB, pinout 1 SWCLK, 2 GND, 3 SWDIO, same as FC J22 and the Raspberry Pi Debug Probe. Needs a 1:1 (pin 1 to pin 1) 3-pin JST-SH jumper from FC J22 to J201. | J1 DEBUG has no spare pins (all 12 used). | FC V5e J22 netlist |
-| 11 | **At risk (house rule).** Four 0.3 mm GND vias inside the U201 thermal pad, untented. Consider JLC via filling (POFV) to stop solder wicking. | TI requires thermal vias under the pad. House default is no via in pad. Without them the EP reaches GND only through pin stubs. | DS §11.1 item 6; proves-pcb-design "Via-in-pad: none"; review F7 |
+| 11 | Four 0.3 mm GND vias inside the U201 thermal pad, untented, not plugged. | TI requires thermal vias under the pad. Michael 2026-11-11: vias in a large exposed pad are fine, as on past boards; the no-via-in-pad rule is for small signal pads. | DS §11.1 item 6; Michael in thread |
 | 12 | Charger sits on the inner face at x 151 to 168, y 79 to 93, clear of the B.Cu USB pair and the outer-face art. A few REGN hops use short In2.Cu (+3V3 plane) tracks. | Vias are kept off the mask openings of the "Pleiades Five" box art. | |
 | 13 | R201 to R205 are 0402 (two extended parts: C51721 3.9k, C25135 820). | 0603 does not fit the 0.5 mm-pitch QFN fan-out. | |
 | 14 | Only one PMID cap (C202, 22 uF 0805). | VBUS + PMID minimum is 10 uF after derating; 22 uF X5R at 5 V gives about 13 uF. TI's "optimal" 44 uF did not fit. | DS pin table, PMID |
@@ -47,10 +47,28 @@ tools/jlc_production.py ...       # BOM + CPL, see jlcpcb/production_files
 - Netlist diff V2c to V2d: 26 parts added, 0 removed; nets only added, except Dir_Chrg_In (+J203.2) and GND (+charger pins). J12 is unchanged.
 - Independent review (2026-11-09): 4 major, 2 minor findings fixed (F1 to F4, F6 VBUS LED resistor, F7 more EP vias, F8 VBUS now 1 mm on B.Cu). F5 closed 2026-11-11 by the loop estimate and the 1.5 A fuse.
 
+## Fit check (Onshape Alcyone_Assem, 2026-11-11)
+
+Bounding boxes from the assembly API (Z up; the model carries antenna V2 and FC V5d, same outlines):
+
+| Item | Z range (mm) | Result |
+|---|---|---|
+| Antenna PCB | -32.0 to -30.5 | inner face = bottom (-32.0) |
+| Structure rails (Half U) top | -25.6 | rails stand 4.9 mm above the outer face; J202 (4.25 mm) and J204 (3.3 mm) sit below the rail tops |
+| FC V5d PCB | -60.6 to -59.0 | 27 mm free between the antenna inner face and the FC top: room for a JST-SH plug on J201 plus the cable bend |
+| Side brackets at TP4/TP5 | -56.1 to -32.0 | J201 courtyard ends 4.9 mm short of the TP4 bracket footprint; route the J201 cable away from it |
+
+## JLC dry run (2026-11-11, not ordered)
+
+- Gerber: 4 layers, 100 x 100 mm. ENIG, 0.2 mm min via, Standard PCBA both sides, 5 boards: **$263.23** before shipping (PCB $88.46, PCBA $174.77).
+- BOM is grouped by LCSC number: separate lines that share an LCSC part get unticked by JLC's matcher (J8/J12/J204 and J201/J202 did on the first pass).
+- Placement preview checked: J201/J202 +180 correct (pins on pads), J204 matches J8/J12, D201/D202 cathodes correct, L201 and the 1206 caps fine. U201 needed **0**, not +270: +270 put the model's pin-1 dot top-right. Fixed in tools/jlc_corrections.csv and the CPL.
+- Shortfalls are V2c parts, not V2d: J9/J11 DF11-4DP (10 short) and U4 TMP112 (5 short). J13 is DNP.
+
 ## Before you order
 
-- Check U201 (QFN, +270 assumed) and J201/J202 (+180, from FC J22) in the JLC placement preview. Also check J204 (bottom, same as J12), the bottom-side LEDs' polarity marks and C207/C208 on the bottom.
-- Confirm the inner-face height above J201 for a JST-SH plug plus cable bend, and that J202 (4.25 mm tall) on the outer face is inside the +Z envelope.
+- Rotations verified in the JLC preview (above). Re-check after any CPL regeneration.
+- Clearances checked against the Onshape assembly (above).
 - Buy or make a 1:1 3-pin JST-SH cable (FC J22 to J201).
 - J203 is hand-fitted (excluded from BOM/CPL like J2/J3/J4/J10). Add a **2.0 mm** shunt to the kit.
 

@@ -4,7 +4,7 @@
 Usage: jlc_production.py <board.kicad_pcb> <project.db> <corrections.csv> <out dir> <name>
 Mirrors fabrication.py from that release: CPL position = pad bounding-box centre, Y negated,
 bottom rotation = (180 - rot) % 360, then the first matching correction (reference, value,
-footprint name; anchored match before unanchored) is added. BOM groups by value/footprint/LCSC.
+footprint name; anchored match before unanchored) is added. BOM groups by LCSC number (value/footprint when there is none).
 """
 import csv
 import re
@@ -59,10 +59,12 @@ for fp in fps:
     r = rows.get(fp.GetReference())
     if not r or r[4] == 1 or fp.IsDNP():
         continue
-    groups.setdefault((r[1], r[2], r[3] or ""), []).append(r[0])
+    # One BOM line per LCSC part: JLC's matcher unticks lines that repeat an LCSC number.
+    key = r[3] or (r[1], r[2])
+    groups.setdefault(key, {"val": r[1], "fp": r[2], "lcsc": r[3] or "", "refs": []})["refs"].append(r[0])
 with open(f"{OUT}/BOM-{NAME}.csv", "w", newline="") as fh:
     w = csv.writer(fh)
     w.writerow(["Comment", "Designator", "Footprint", "LCSC", "Quantity"])
-    for (val, fpn, lcsc), refs in sorted(groups.items(), key=lambda kv: kv[1][0]):
-        w.writerow([val, ",".join(refs), fpn, lcsc, len(refs)])
+    for g in sorted(groups.values(), key=lambda g: g["refs"][0]):
+        w.writerow([g["val"], ",".join(g["refs"]), g["fp"], g["lcsc"], len(g["refs"])])
 print("wrote BOM and CPL for", NAME)

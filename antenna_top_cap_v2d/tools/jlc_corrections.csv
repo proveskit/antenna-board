@@ -64,5 +64,5 @@
 ^L_pol_2016,180
 # V2d: BM03B-SRSS-TB needs +180 (FC J22 uses the same part and carries a ^J22$ 180 row)
 ^JST_SH_BM03B-SRSS-TB,180
-# V2d: TI RGE VQFN-24 assumed to follow the generic QFN-24 rule (unverified)
-^Texas_RGE0024H_VQFN-24,270
+# V2d: TI RGE VQFN-24 needs no correction (JLC preview 2026-11-11: +270 put the model pin-1 dot top-right)
+^Texas_RGE0024H_VQFN-24,0
