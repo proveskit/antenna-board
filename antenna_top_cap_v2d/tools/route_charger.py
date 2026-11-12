@@ -112,7 +112,7 @@ for ref, num in (("U201", "25"), ("C204", "2"), ("C205", "2"), ("C206", "2"), ("
         if p.GetNumber() == num:
             p.SetLocalZoneConnection(pcbnew.ZONE_CONNECTION_FULL)
 
-# BAT: pins -> C207 -> F201 -> J203 (CHG LINK) -> Dir_Chrg_In (J203 pin 2 sits on the existing track).
+# BAT: pins -> C207 -> F201 -> R210 (CHG LINK, outer face) -> Dir_Chrg_In.
 track("CHG_BAT", "F", 0.25, U("14"), (160.2, 86.55), (160.2, 87.05), U("13"))
 track("CHG_BAT", "F", 0.5, (160.2, 86.8), (161.0, 86.8), (161.0, 91.1), (165.0, 91.1), pad("F201", "1"))
 VBAT = (162.0, 91.1)
@@ -121,7 +121,13 @@ track("CHG_BAT", "B", 0.5, VBAT, pad("C207", "1"))
 VG7 = (166.2, 92.4)
 track("GND", "B", 0.4, pad("C207", "2"), VG7)
 via("GND", VG7)
-track("CHG_FUSED", "F", 0.5, pad("F201", "2"), (167.8, 94.3), (167.3, 94.8), pad("J203", "1"))
+VF, VDIR = (163.94, 94.0), (166.86, 97.0)
+track("CHG_FUSED", "F", 0.5, pad("F201", "2"), (167.8, 93.4), (167.2, 94.0), VF)
+via("CHG_FUSED", VF, 0.8, 0.4)
+track("CHG_FUSED", "B", 0.5, VF, pad("R210", "1"))
+track("Dir_Chrg_In", "B", 0.5, pad("R210", "2"), VDIR)
+via("Dir_Chrg_In", VDIR, 0.8, 0.4)
+track("Dir_Chrg_In", "F", 0.6, VDIR, (166.86, 97.22))
 
 # Programming pins.
 track("Net-(U201-ILIM)", "F", 0.2, U("8"), (156.75, 88.6), (156.55, 88.8), pad("R202", "1"))
@@ -165,7 +171,7 @@ for n, x in (("1", 204.5), ("2", 205.5), ("3", 206.5)):
 
 
 
-for r in ("J201", "J202", "J203"):
+for r in ("J201", "J202"):
     b.FindFootprintByReference(r).Reference().SetVisible(False)
 
 
@@ -183,8 +189,8 @@ def silk(txt, at, layer, size=1.0):
 
 silk("J202 SWD", (205.5, 105.6), pcbnew.B_SilkS)
 silk("J201 SWD from FC J22", (205.5, 92.4), pcbnew.F_SilkS, 0.8)
-silk("CHG LINK", (162.2, 94.9), pcbnew.B_SilkS, 0.8)
-silk("NO FLIGHT", (162.2, 96.1), pcbnew.B_SilkS, 0.8)
+silk("R210 CHG LINK", (165.4, 93.9), pcbnew.B_SilkS, 0.8)
+silk("REMOVE FOR FLIGHT", (166.0, 97.6), pcbnew.B_SilkS, 0.8)
 silk("USB", (166.9, 83.6), pcbnew.B_SilkS, 0.8)
 silk("CHG", (157.2, 81.0), pcbnew.B_SilkS, 0.8)
 for d in b.GetDrawings():

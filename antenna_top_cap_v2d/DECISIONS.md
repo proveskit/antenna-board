@@ -26,7 +26,7 @@ tools/jlc_production.py ...       # BOM + CPL, see jlcpcb/production_files
 | 5 | D+ tied to D- at the charger only. | BC1.2 then sees a DCP and ILIM sets the limit. J204's data pins are not connected. | DS Table 3 |
 | 6 | OTG and /CE hard tied to GND. | OTG high boosts the battery back out of VBUS. The debug board left OTG floating. | DS pin table |
 | 7 | **At risk.** TS is a fixed 10k/12k divider (54.5 % of REGN, inside the 10 to 45 C window). | No cell thermistor reaches the antenna board. IC thermal shutdown and the 12 h safety timer still apply. Same exposure as today's bench-supply method. | DS JEITA thresholds |
-| 8 | F201 1.5 A fast fuse (046601.5NRHF, C187598, 63 V, 50 A interrupt) and J203 "CHG LINK" between the charger and Dir_Chrg_In. J203 is a **2.0 mm** pitch header so its shunt cannot be pushed onto J2 (2.54 mm, pack + to GND), which would dead-short the pack. | Dir_Chrg_In is the raw pack + upstream of every positive inhibit. 1.02 A charge is 68 % of the 1.5 A rating (Littelfuse derates to 75 %), and 1.5 A protects one 24 AWG conductor. Estimated fault loop (pack, 150 mm 22 AWG battery harness, DF11 contacts, 150 mm 24 AWG Dir_Chrg_In + 2 GND, ground inhibit, board copper, fuse): about 150 to 250 mOhm, so 34 to 56 A prospective at 8.4 V, at or under the 50 A interrupt rating. Measure on the first assembled cube. | Michael 2026-11-11; proves-wiring-harness FC_Antenna.yml |
+| 8 | F201 1.5 A fast fuse (046601.5NRHF, C187598) and R210 "CHG LINK", a 0 Ohm 1206 (C17888) on the outer face between the charger and Dir_Chrg_In. Teams hot-air R210 off before handoff (remove before flight); it is JLC-assembled, so charging works out of the box. | Michael 2026-11-11 chose a 0 Ohm link over a header: no shunt to lose or push onto J2. Dir_Chrg_In is the raw pack + upstream of every positive inhibit; with R210 off no charger part hangs on the pack (12 uA typ, 20 uA max drain otherwise). 1.02 A charge is 68 % of the fuse rating. Estimated fault loop 150 to 250 mOhm (34 to 56 A at 8.4 V), at or under the 50 A interrupt rating. | Michael in thread; proves-wiring-harness FC_Antenna.yml |
 | 9 | Green LED = USB 5 V present (VBUS through 4.7k, 85 mW at a 20 V fault). Red LED = STAT (REGN pull-up). PG pin left open. | Moving the green LED off PG freed a routing lane next to the QFN. Both LEDs on the outer face. | review F6 |
 | 10 | SWD: J201 (inner face) wired 1:1 to J202 (outer face), JST-SH BM03B-SRSS-TB, pinout 1 SWCLK, 2 GND, 3 SWDIO, same as FC J22 and the Raspberry Pi Debug Probe. Needs a 1:1 (pin 1 to pin 1) 3-pin JST-SH jumper from FC J22 to J201. | J1 DEBUG has no spare pins (all 12 used). | FC V5e J22 netlist |
 | 11 | Four 0.3 mm GND vias inside the U201 thermal pad, untented, not plugged. | TI requires thermal vias under the pad. Michael 2026-11-11: vias in a large exposed pad are fine, as on past boards; the no-via-in-pad rule is for small signal pads. | DS §11.1 item 6; Michael in thread |
@@ -37,14 +37,13 @@ tools/jlc_production.py ...       # BOM + CPL, see jlcpcb/production_files
 | 17 | SYS cap GND pads tie together with 0.6 mm copper, each has its own via to In1, and they and the EP use solid (not thermal-spoke) zone connections. | Shortens the boost hot loop. | review F2 |
 | 18 | C208 (bootstrap) moved to the outer face directly under the SW and BTST pins: one via each, about 4 mm of loop. | It sat about 10 mm away next to the inductor. | review F3 |
 | 19 | No VBUS TVS. | A 5 V TVS would conduct hard on a non-compliant 9 to 20 V source. BQ25886 VBUS is rated to 20 V and its OVP is 6.2 V. | review F6 |
-| 15 | The bee_movie_script.txt silk moved up 0.3 mm. | Clears J203. Not removed. | |
 
 ## Gates (2026-11-09)
 
 - ERC: 23 violations, same as V2c (0 new). 3 errors, all V2c heritage.
 - DRC with schematic parity: 8 errors, exactly the V2c set (In1 zone overlap, three U4 pad clearances, J12 VBUS pad pairs). 0 new violations of any severity from V2d copper or parts. 0 unconnected. Parity: 19 warnings, all the V2c "exclude from BOM" mismatches.
 - `sch_lint.py --strict` on charger_swd.kicad_sch: 0 errors, 0 warnings.
-- Netlist diff V2c to V2d: 26 parts added, 0 removed; nets only added, except Dir_Chrg_In (+J203.2) and GND (+charger pins). J12 is unchanged.
+- Netlist diff V2c to V2d: 26 parts added, 0 removed; nets only added, except Dir_Chrg_In (+R210.2) and GND (+charger pins). J12 is unchanged.
 - Independent review (2026-11-09): 4 major, 2 minor findings fixed (F1 to F4, F6 VBUS LED resistor, F7 more EP vias, F8 VBUS now 1 mm on B.Cu). F5 closed 2026-11-11 by the loop estimate and the 1.5 A fuse.
 
 ## Fit check (Onshape Alcyone_Assem, 2026-11-11)
@@ -70,12 +69,12 @@ Bounding boxes from the assembly API (Z up; the model carries antenna V2 and FC 
 - Rotations verified in the JLC preview (above). Re-check after any CPL regeneration.
 - Clearances checked against the Onshape assembly (above).
 - Buy or make a 1:1 3-pin JST-SH cable (FC J22 to J201).
-- J203 is hand-fitted (excluded from BOM/CPL like J2/J3/J4/J10). Add a **2.0 mm** shunt to the kit.
+- R210 (CHG LINK) comes assembled. Add "hot-air R210 off" to the pre-flight checklist.
 
 ## ATP lines
 
-- J203 out: Dir_Chrg_In to GND leakage with USB unplugged < 1 uA.
-- J203 in, 5 V into J204, 7.4 V electronic load on Dir_Chrg_In: green on, red on, charge current 0.7 to 1.05 A, input current <= 1.45 A.
+- R210 removed: Dir_Chrg_In to GND leakage with USB unplugged < 1 uA.
+- R210 fitted, 5 V into J204, 7.4 V electronic load on Dir_Chrg_In: green on, red on, charge current 0.7 to 1.05 A, input current <= 1.45 A.
 - Charge only between 10 and 45 C: the fixed TS divider does not stop a cold-cell charge. The FC's LT3652 can charge the same pack at the same time.
 - Float: with the load removed, Dir_Chrg_In settles to 8.16 to 8.24 V (R203 fitted).
 - OTG check: battery on Dir_Chrg_In, USB unplugged: J204 VBUS < 0.1 V.

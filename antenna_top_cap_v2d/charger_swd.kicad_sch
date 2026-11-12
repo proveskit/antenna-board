@@ -2134,164 +2134,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Connector_Generic:Conn_01x02"
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "J"
-				(at 0 2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "Conn_01x02"
-				(at 0 -5.08 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "connector"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "Connector*:*_1x??_*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "Conn_01x02_1_1"
-				(rectangle
-					(start -1.27 1.27)
-					(end 1.27 -3.81)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(rectangle
-					(start -1.27 0.127)
-					(end 0 -0.127)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -2.413)
-					(end 0 -2.667)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 3.81)
-					(name "Pin_1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -2.54 0)
-					(length 3.81)
-					(name "Pin_2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Device:LED"
 			(pin_numbers
 				(hide yes)
@@ -6249,8 +6091,8 @@
 		(uuid "06143e50-ec65-5d97-bf9b-a21034ae310a")
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
-		(at 172.72 101.6 0)
+		(lib_id "Device:R")
+		(at 162.56 101.6 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6258,9 +6100,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "ea31f56e-6d83-55ac-b69e-15f57a106260")
-		(property "Reference" "J203"
-			(at 172.72 99.06 0)
+		(uuid "f23a7a20-2d66-5f47-b239-123a6283920a")
+		(property "Reference" "R210"
+			(at 160.02 97.79 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6270,8 +6112,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "CHG LINK"
-			(at 172.72 106.68 0)
+		(property "Value" "0"
+			(at 160.02 95.25 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6281,8 +6123,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.00mm:PinHeader_1x02_P2.00mm_Vertical"
-			(at 172.72 101.6 0)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 162.56 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6293,7 +6135,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 172.72 101.6 0)
+			(at 162.56 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6303,8 +6145,19 @@
 				)
 			)
 		)
-		(property "Description" "Charger to battery link, 2.0 mm pitch so its shunt cannot fit J2; remove for flight"
-			(at 172.72 101.6 0)
+		(property "Description" "CHG LINK: 0 Ohm on the outer face; hot-air it off before handoff (remove before flight)"
+			(at 162.56 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C17888"
+			(at 162.56 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6315,15 +6168,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "cd20235e-9713-5398-ba57-f92bcf83a000")
+			(uuid "b034ad82-1a0c-53c4-8874-e5c4fbca8c7f")
 		)
 		(pin "2"
-			(uuid "446aa08b-6dc4-57e1-a101-6b1ccded87ab")
+			(uuid "9de2c25a-ea20-5479-b6e8-4e63d0717d61")
 		)
 		(instances
 			(project "antenna_top_cap_v2d"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/7b1e2f0a-5c3d-4e6f-9a8b-2d0c1e3f4a5b"
-					(reference "J203")
+					(reference "R210")
 					(unit 1)
 				)
 			)
@@ -6331,47 +6184,27 @@
 	)
 	(wire
 		(pts
-			(xy 154.94 101.6) (xy 167.64 101.6)
+			(xy 154.94 101.6) (xy 158.75 101.6)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "dcf3e498-58fe-5837-8681-e8f25547a5dd")
+		(uuid "6a17ca0f-bf38-541d-9f3f-65d78964c6a7")
 	)
 	(wire
 		(pts
-			(xy 167.64 104.14) (xy 165.1 104.14)
+			(xy 166.37 101.6) (xy 172.72 101.6)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5fcd0cc7-93ae-5cab-836f-f422d208e986")
-	)
-	(wire
-		(pts
-			(xy 165.1 104.14) (xy 165.1 109.22)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "085caf38-67a3-5f68-bedd-de2a993632cb")
-	)
-	(wire
-		(pts
-			(xy 165.1 109.22) (xy 177.8 109.22)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a8fc214a-f4d8-5a66-a47e-e91a57c5fe36")
+		(uuid "6368f7ae-6349-56ce-8eb2-b13678913279")
 	)
 	(hierarchical_label "Dir_Chrg_In"
 		(shape passive)
-		(at 177.8 109.22 0)
+		(at 172.72 101.6 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6379,6 +6212,17 @@
 			(justify left)
 		)
 		(uuid "0e1fa9dd-0077-5500-9cab-44790f92bcc5")
+	)
+	(text "CHG LINK (remove before flight)"
+		(exclude_from_sim no)
+		(at 156.21 105.41 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "6e69fa3e-a156-59bc-92bc-e480be11b04b")
 	)
 	(label "REGN"
 		(at 134.62 121.92 0)
@@ -7818,7 +7662,7 @@
 		)
 		(uuid "a9731664-9907-5faf-b716-767bf56ba0d6")
 	)
-	(text "Dir_Chrg_In is the raw pack + (upstream of every\npositive inhibit). Charge current returns through\nFC GND and the ground-side inhibit, as with J2.\nF201 opens on a charger or cap short.\nJ203 CHG LINK: fit for bench charging; REMOVE FOR\nFLIGHT so no charger part hangs on the pack.\nBattery-only drain with link fitted: 12 uA typ, 20 uA max.\nATP: link out, Dir_Chrg_In to GND leakage < 1 uA.\nATP: 5 V in, 7.4 V load: green on, red on,\ncharge 0.7 to 1.0 A (input-limited at 1.35 A in).\nJ2 and J203 use different pitches (2.54 / 2.0 mm):\na shunt on J2 would short the pack."
+	(text "Dir_Chrg_In is the raw pack + (upstream of every\npositive inhibit). Charge current returns through\nFC GND and the ground-side inhibit, as with J2.\nF201 opens on a charger or cap short.\nR210 CHG LINK (0 Ohm 1206, outer face): hot-air it off\nbefore handoff so no charger part hangs on the pack.\nBattery-only drain with R210 fitted: 12 uA typ, 20 uA max.\nATP: R210 off, Dir_Chrg_In to GND leakage < 1 uA.\nATP: 5 V in, 7.4 V load: green on, red on,\ncharge 0.7 to 1.0 A (input-limited at 1.35 A in)."
 		(exclude_from_sim no)
 		(at 198.12 90.17 0)
 		(effects

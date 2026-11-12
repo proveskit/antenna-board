@@ -284,7 +284,7 @@ for i, x in enumerate([139.7, 149.86, 160.02]):
         junction((x, ys))
     cap(f"C20{4 + i}", "22uF", x, ys, "C12891", "SYS output cap, 25 V X5R 1206: about 14 uF each at 8.2 V, 3 x 14 = 42 uF vs 44 uF", fp=C1206)
 
-# BAT: C207, F201, CHG LINK J203 to the battery tap.
+# BAT: C207, F201, CHG LINK R210 (0 Ohm) to the battery tap.
 ybat = 101.6
 label("CHG_BAT", (134.62, ybat))
 wire((134.62, ybat), (139.7, ybat), (144.78, ybat))
@@ -296,13 +296,14 @@ fa, fb = sorted([F.p(1), F.p(2)])
 wire((144.78, ybat), fa)
 wire(fb, (154.94, ybat))
 label("CHG_FUSED", (154.94, ybat))
-J3 = Sym("Connector_Generic:Conn_01x02", "J203", "CHG LINK", 172.72, ybat,
-         fp="Connector_PinHeader_2.00mm:PinHeader_1x02_P2.00mm_Vertical", desc="Charger to battery link, 2.0 mm pitch so its shunt cannot fit J2; remove for flight",
-         ref_at=(172.72, ybat - 2.54), val_at=(172.72, ybat + 5.08))
-wire((154.94, ybat), J3.p(1))
-p2 = J3.p(2)
-wire(p2, (p2[0] - 2.54, p2[1]), (p2[0] - 2.54, p2[1] + 5.08), (177.8, p2[1] + 5.08))
-hlabel("Dir_Chrg_In", (177.8, p2[1] + 5.08), "passive", rot=0)
+RL = Sym("Device:R", "R210", "0", 162.56, ybat, rot=90, fp="Resistor_SMD:R_1206_3216Metric", lcsc="C17888",
+         desc="CHG LINK: 0 Ohm on the outer face; hot-air it off before handoff (remove before flight)",
+         ref_at=(160.02, ybat - 3.81), val_at=(160.02, ybat - 6.35))
+ra, rb = sorted([RL.p(1), RL.p(2)])
+wire((154.94, ybat), ra)
+wire(rb, (172.72, ybat))
+hlabel("Dir_Chrg_In", (172.72, ybat), "passive", rot=0)
+text("CHG LINK (remove before flight)", 156.21, ybat + 3.81)
 
 # REGN: C209, TS divider, status LEDs.
 yr = 121.92
@@ -376,14 +377,12 @@ text("Dir_Chrg_In is the raw pack + (upstream of every\n"
      "positive inhibit). Charge current returns through\n"
      "FC GND and the ground-side inhibit, as with J2.\n"
      "F201 opens on a charger or cap short.\n"
-     "J203 CHG LINK: fit for bench charging; REMOVE FOR\n"
-     "FLIGHT so no charger part hangs on the pack.\n"
-     "Battery-only drain with link fitted: 12 uA typ, 20 uA max.\n"
-     "ATP: link out, Dir_Chrg_In to GND leakage < 1 uA.\n"
+     "R210 CHG LINK (0 Ohm 1206, outer face): hot-air it off\n"
+     "before handoff so no charger part hangs on the pack.\n"
+     "Battery-only drain with R210 fitted: 12 uA typ, 20 uA max.\n"
+     "ATP: R210 off, Dir_Chrg_In to GND leakage < 1 uA.\n"
      "ATP: 5 V in, 7.4 V load: green on, red on,\n"
-     "charge 0.7 to 1.0 A (input-limited at 1.35 A in).\n"
-     "J2 and J203 use different pitches (2.54 / 2.0 mm):\n"
-     "a shunt on J2 would short the pack.", 198.12, 90.17)
+     "charge 0.7 to 1.0 A (input-limited at 1.35 A in).", 198.12, 90.17)
 text("Status LEDs (outer side): green = USB 5 V present;\n"
      "red on = charging, off = done, 1 Hz blink = fault.", 198.12, 148.59)
 text("SWD pass-through", 25.4, 144.78, size=2.0, bold=True)
