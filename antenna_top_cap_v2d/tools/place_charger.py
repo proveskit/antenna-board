@@ -93,8 +93,8 @@ for ref, (x, y, rot, side) in PLACE.items():
         p.SetNet(net(nn) if nn else b.FindNet(""))
     fp.Reference().SetVisible(ref.startswith("J"))
 
-# V2c parts re-sourced for V2d: same footprint and pinout, different Hirose suffix code.
-for ref, lcsc in {"J9": "C506665", "J11": "C506665"}.items():
+# V2c parts re-sourced for V2d: J9/J11 same DF11 in another Hirose suffix; U4 the UMW TMP112AIDRLR second source.
+for ref, lcsc in {"J9": "C506665", "J11": "C506665", "U4": "C3019122"}.items():
     b.FindFootprintByReference(ref).GetField("LCSC").SetText(lcsc)
 
 b.Save(BOARD)
