@@ -199,6 +199,51 @@ for d in b.GetDrawings():
     elif isinstance(d, pcbnew.PCB_TEXT) and "\nV2c\n" in d.GetText():
         d.SetText(d.GetText().replace("\nV2c\n", "\nV2d\n"))
 
+# Heritage silk cleanup (V2c carried these): refs off pads and other silk, every label at least 0.8 mm tall.
+for ref, (x, y, ang) in {
+    "J7": (157.0, 113.6, 0), "U4": (148.4, 112.5, 0), "R11": (161.2, 100.9, 0), "B1": (165.8, 135.3, 0),
+    "R26": (193.7, 74.4, 0), "J13": (193.4, 78.8, 90), "R7": (196.8, 83.3, 0), "R1": (169.8, 103.6, 0),
+}.items():
+    t = b.FindFootprintByReference(ref).Reference()
+    t.SetPosition(pcbnew.VECTOR2I(mm(x), mm(y)))
+    t.SetTextAngleDegrees(ang)
+    h = mm(max(0.8, pcbnew.ToMM(t.GetTextHeight())))
+    t.SetTextSize(pcbnew.VECTOR2I(h, h))
+    t.SetTextThickness(max(t.GetTextThickness(), mm(0.15)))
+for it in b.FindFootprintByReference("J7").GraphicalItems():
+    if isinstance(it, pcbnew.PCB_TEXT) and it.GetText() in ("BURN", "GND"):
+        it.SetTextSize(pcbnew.VECTOR2I(mm(0.8), mm(0.8)))
+        it.SetTextThickness(mm(0.15))
+        if it.GetText() == "BURN":
+            it.SetPosition(pcbnew.VECTOR2I(mm(157.0), mm(115.0)))
+# Outer-face burn-wire box: a stray copy of J7's own outer-face outline, shifted onto J7's pads. J7 draws it already.
+for d in list(b.GetDrawings()):
+    if d.GetLayer() == pcbnew.B_SilkS and isinstance(d, pcbnew.PCB_SHAPE):
+        bb = d.GetBoundingBox()
+        if 152.9 < pcbnew.ToMM(bb.GetLeft()) and pcbnew.ToMM(bb.GetRight()) < 161.2 and 112.1 < pcbnew.ToMM(bb.GetTop()) and pcbnew.ToMM(bb.GetBottom()) < 125.4:
+            b.Remove(d)
+LABELS = {  # old text -> (new text, new centre or None)
+    "Batt Charging\nBypass": ("Batt Charging\nBypass", None),
+    "Remove Before Flight\nPin Port": ("Remove Before Flight\nPin Port", None),
+    "Circle is Ground": ("Circle is Ground", (133.2, 78.0)),
+    "FC Jumpers": ("FC Jumpers", (133.25, 64.5)),
+    "RESET": ("RESET", (129.25, 67.25)),
+    "BOOT\nSELECT": ("BOOT", (129.25, 71.5)),
+    "WDT\nDISABLE": ("WDT\nOFF", None),
+}
+for d in b.GetDrawings():
+    if not isinstance(d, pcbnew.PCB_TEXT):
+        continue
+    if d.GetText() in LABELS:
+        txt, at = LABELS[d.GetText()]
+        d.SetText(txt)
+        d.SetTextSize(pcbnew.VECTOR2I(mm(0.8), mm(0.8)))
+        d.SetTextThickness(mm(0.15))
+        if at:
+            d.SetPosition(pcbnew.VECTOR2I(mm(at[0]), mm(at[1])))
+    elif d.GetText().startswith("BEFORE FLIGHT:"):
+        d.SetText(d.GetText().replace("5.) Remove RBF Pin", "5.) Remove RBF Pin + R210"))
+
 pcbnew.ZONE_FILLER(b).Fill(b.Zones())
 b.Save(BOARD)
 print("routed")

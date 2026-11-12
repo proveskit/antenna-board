@@ -36,6 +36,7 @@ tools/jlc_production.py ...       # BOM + CPL, see jlcpcb/production_files
 | 16 | SYS caps C204 to C206 and BAT cap C207 are 22 uF 25 V X5R **1206** (C12891, Basic). C207 sits on the outer face under the BAT via. | 0805 parts derate to about 7 to 8 uF at 8.2 V. 1206 gives about 14 uF each, 42 uF on SYS against TI's 2 x 22 uF after derating, and about 14 uF on BAT. | review F1 |
 | 17 | SYS cap GND pads tie together with 0.6 mm copper, each has its own via to In1, and they and the EP use solid (not thermal-spoke) zone connections. | Shortens the boost hot loop. | review F2 |
 | 18 | C208 (bootstrap) moved to the outer face directly under the SW and BTST pins: one via each, about 4 mm of loop. | It sat about 10 mm away next to the inductor. | review F3 |
+| 20 | Silkscreen cleanup (V2c heritage, scripted at the end of route_charger.py). Pre-flight list line 5 now reads "Remove RBF Pin + R210". Refs moved off pads and other silk: J7, U4, R11, B1, R26, J13, R7, R1. J7 "BURN" moved under its pads. Outer-face jumper labels raised from 0.5 to 0.8 mm; to fit the 3.7 mm jumper pitch, "BOOT SELECT" is now "BOOT" and "WDT DISABLE" is "WDT OFF". A stray outer-face box that sat on J7's pads (a shifted copy of J7's own outline) is deleted. | DRC silk overlaps 30 to 0, silk on pads 12 to 4, text under 0.8 mm 11 to 1. Left: the BEFORE FLIGHT list stays 0.7 mm (0.8 mm overflows its frame; printed fine on V2c), and B1/RF1 outlines over the antenna mask window (clipped by the fab, art only). | Michael in thread 2026-11-11 |
 | 19 | No VBUS TVS. | A 5 V TVS would conduct hard on a non-compliant 9 to 20 V source. BQ25886 VBUS is rated to 20 V and its OVP is 6.2 V. | review F6 |
 
 ## Gates (2026-11-09)
@@ -69,7 +70,7 @@ Bounding boxes from the assembly API (Z up; the model carries antenna V2 and FC 
 - Rotations verified in the JLC preview (above). Re-check after any CPL regeneration.
 - Clearances checked against the Onshape assembly (above).
 - Buy or make a 1:1 3-pin JST-SH cable (FC J22 to J201).
-- R210 (CHG LINK) comes assembled. Add "hot-air R210 off" to the pre-flight checklist.
+- R210 (CHG LINK) comes assembled. The outer-face BEFORE FLIGHT list says to remove it (line 5).
 
 ## ATP lines
 
