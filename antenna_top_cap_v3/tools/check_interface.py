@@ -3,6 +3,7 @@
 
 usage: check_interface.py <v3 board> <v2d board>
 These are the parts a cable, a structure cutout, a jumper shunt or the firmware's I2C map depends on.
+Compares position, rotation, side and every pad (number, net, position), plus the Edge.Cuts outline drawings.
 """
 import sys
 
@@ -15,12 +16,15 @@ LOCKED = ["J1", "J2", "J3", "J4", "J8", "J9", "J10", "J11", "J12", "J13", "J201"
 def where(path):
     b = pcbnew.LoadBoard(path)
     c = b.GetBoardEdgesBoundingBox()
-    out = {"_outline": (pcbnew.ToMM(c.GetWidth()), pcbnew.ToMM(c.GetHeight()), 0, "")}
     cx, cy = c.GetCenter().x, c.GetCenter().y
+    rel = lambda q: (round(pcbnew.ToMM(q.x - cx), 3), round(pcbnew.ToMM(q.y - cy), 3))
+    edges = sorted((d.GetShape(), rel(d.GetStart()), rel(d.GetEnd())) for d in b.GetDrawings() if d.GetLayer() == pcbnew.Edge_Cuts)
+    out = {"_outline": (pcbnew.ToMM(c.GetWidth()), pcbnew.ToMM(c.GetHeight()), len(edges), hash(tuple(edges)))}
     for f in [x for x in b.Footprints()]:
         p = f.GetPosition()
+        pads = tuple(sorted((q.GetNumber(), q.GetNetname(), rel(q.GetPosition())) for q in f.Pads()))
         out[f.GetReference()] = (round(pcbnew.ToMM(p.x - cx), 3), round(pcbnew.ToMM(p.y - cy), 3),
-                                 round(f.GetOrientationDegrees(), 1), b.GetLayerName(f.GetLayer()))
+                                 round(f.GetOrientationDegrees(), 1), b.GetLayerName(f.GetLayer()), hash(pads))
     return out
 
 

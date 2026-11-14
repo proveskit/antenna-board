@@ -29,10 +29,13 @@ $KPY tools/check_interface.py antenna_top_cap_v3.kicad_pcb ../antenna_top_cap_v2
 | 5 | The hybrid loads R301 to R303 are 49.9 Ohm in 1206 (was 0603), rated 0.5 W or more. Each TERM pad stays where the 0603 TERM pad was. **LCSC part not chosen yet.** | With the tapes stowed and 1 W TX, about 0.33 W reaches each isolated port. That is three times an 0603's rating. | RF review finding 3 |
 | 6 | The charger block (U201 and its 20 passives, LEDs and R210) moves rigidly by (-11, -2) mm with its own copper. The VBUS trunk from J204 now runs on B.Cu at y = -35.2 mm. The "REMOVE FOR FLIGHT" label moves with R210. | The north element (AE2) and its slot sat on the charger. The old trunk at y = -32.7 mm crossed the slot. | A placement search over the board (0.5 mm grid, F and B copper) found this as the nearest free spot |
 | 7 | **At risk.** The J7 burn wire moves 8.5 mm south, and the BURN copper is bridged to it. The burn resistor body now spans the west end of the delay line. | Its pin-2 pads sat on the delay line. How four tapes stow and tie down to one FireLine loop is not settled. | Michael to confirm stow geometry |
+| 7a | **At risk.** Two FireLine lines (Michael 2026-11-14) are assumed to both loop over the one J7 burn resistor. Same BURN line and current. A second resistor in parallel would double the burn current. | | Michael to confirm |
 | 8 | SCL1/SDA1 to the VEML6031 drop to B.Cu at the pull-ups. | On F.Cu they crossed the west element feed (AE3). | |
 | 9 | 44 GND stitching vias are dropped where they landed on other copper, holes, slots or keepouts. The dipole-window keepouts, the balun ground island and the floating J7/B1 GND ties are removed. In1 is solid GND under the RF block. | | DRC: 0 new copper errors |
 | 10 | RF netclass: 0.3424 mm track, 0.4 mm gap for `/RF/UHF_*`. `/UHF` stays Default, as on the turnstile. The stackup stays V2d's JLC04161H-7628. | Keeps the 50 Ohm CPWG the turnstile was drawn for. The turnstile's declared 0.1 mm prepreg gave 35 Ohm. | RF review finding 5 |
-| 11 | Firmware: no change. BURN is on J1 pin 4, and the TMP112 (0x48) and VEML6031 (0x29) are on FC mux channel 7, as on V2d. | | |
+| 11 | Inner-face mask art over the RF block is removed: two shield logos, "NOT TODAY PROTON" and "In another life". The inner-face PDF logo moves to the free south-west corner. | That art opened the mask over U302's pads, R302, AE1 and the RF lines next to the GND pour, which is a reflow bridge risk. The inner face is not visible on an assembled cube. | DRC mask bridges 199 -> 19 |
+| 12 | **Open, Michael to choose.** The outer-face "Pleiades Five" panel (the Pegasus logo and the "THE PLEIADES FIVE" band) now opens the mask over the moved charger: R210, C207, C208, two REGN vias and a BTST track. That accounts for the other 17 mask-bridge errors. | A search found no free spot on the board for the panel, and the only clear charger spot is the far south-east, which needs a long VBUS reroute. | Options: trim the art around the charger, or move the charger south-east |
+| 13 | Firmware: no change. BURN is on J1 pin 4, and the TMP112 (0x48) and VEML6031 (0x29) are on FC mux channel 7, as on V2d. | | |
 
 ## Before ordering
 
@@ -45,5 +48,8 @@ $KPY tools/check_interface.py antenna_top_cap_v3.kicad_pcb ../antenna_top_cap_v2
 ## Gates (2026-11-14)
 
 - ERC: 3 errors, the same 3 as V2d (U3 INT pin, two power flags). No new types. 58 items in total vs 66 on V2d.
-- DRC with schematic parity: 0 unconnected. The errors are V2d's 2 J12 VBUS pad pairs plus 199 solder-mask bridges. The bridges come from the turnstile's mask-free RF traces (heritage). Parity: 18 warnings, all the V2c-heritage "exclude from BOM" flags.
-- `check_rf.py` PASS, `check_interface.py` PASS.
+- DRC with schematic parity: 0 unconnected. The errors are V2d's 2 J12 VBUS pad pairs plus 17 outer-face art mask bridges (decision 12). Parity: 18 warnings, all the V2c-heritage "exclude from BOM" flags.
+- `check_rf.py` PASS: 221 RF segments match the turnstile in layer, width and end points, and /UHF joins only RF1.5 and U301.1.
+- `check_interface.py` PASS: 21 locked parts match in position, rotation, side and every pad's net and position, and the Edge.Cuts outline is identical.
+- Independent review (2026-11-14) found both art blockers (fixed and open, decisions 11 and 12). It also found that the first versions of both check scripts passed on mutated boards: RF moved to In2 with vias deleted, and a cut in the outline. Both scripts now fail on those boards.
+- Known minor items: GND stitching near the RF lines dropped from 190 to 150 vias (worst gap 8.3 mm on UHF_270, vs 6.8 mm on the turnstile). B.Cu under the RF block is V2d's no-net art copper, with In1 as the reference. V2d's USB_D+/- on B.Cu runs under UHF_90 with In1 between. /UHF stays in the Default netclass because the RF class's 0.4 mm gap fails at the MMCX pins.

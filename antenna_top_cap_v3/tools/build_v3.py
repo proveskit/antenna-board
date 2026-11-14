@@ -208,6 +208,7 @@ if STAGE >= 3:
                 tr.Move(pcbnew.VECTOR2I(mm(CHG_OFF[0]), mm(CHG_OFF[1])))
     vd = (-9.15 + CHG_OFF[0], -32.72 + CHG_OFF[1])
     track(VB, pcbnew.B_Cu, 1.0, (7.4, -39.92), (7.4, -35.2), (vd[0] + 0.52, -35.2), vd)
+    track(VB, pcbnew.B_Cu, 0.3, (-2.77 + CHG_OFF[0], -32.72 + CHG_OFF[1]), (-2.77 + CHG_OFF[0], -35.2))  # R206 stub onto the trunk centreline
 
     # SCL1/SDA1 to the VEML6031 crossed the west element feed on F.Cu: drop them to B.Cu at the pull-ups.
     DEAD.append(seg("SCL1", (-13.5, 2.8), (-26.4, 15.7)))
@@ -381,7 +382,18 @@ if STAGE >= 7:
     for d in texts:
         if d.GetText() == "bee_movie_script.txt":
             d.Move(logo_off)
-
+    # Inner-face mask art (two shield logos, "NOT TODAY PROTON", "In another life") would open the mask over
+    # U302, R302, AE1 and the RF lines. The inner face is not visible on an assembled cube: drop it.
+    for f in [x for x in v.Footprints()]:
+        if f.GetReference() == "G***" and f.GetLayer() == pcbnew.F_Cu:
+            r = f.GetBoundingBox(False, False)
+            x, y = pcbnew.ToMM(r.GetX()) - CX, pcbnew.ToMM(r.GetY()) - CY
+            if (abs(x - 15.3) < 0.3 and abs(y + 27.4) < 0.3) or (abs(x - 15.3) < 0.3 and abs(y + 1.8) < 0.3):
+                DEAD.append(f)
+    for d in texts:
+        if d.GetLayer() == pcbnew.F_Mask and d.GetText().startswith(("{dblquote}In another life", "NOT TODAY PROTON")):
+            DEAD.append(d)
+    FP["RF1"].Reference().SetVisible(False)
 # ---- 1. drop the dipole (removals last)
 drop_nets = set()
 for ref in ("B1", "J6"):
