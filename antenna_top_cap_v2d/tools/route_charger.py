@@ -5,6 +5,7 @@ Usage: route_charger.py <board.kicad_pcb>
 Every segment is listed here so a reviewer can rerun and diff it. Rerun place_charger.py first: it starts
 from the V2c-derived base, so this script never sees its own earlier copper.
 """
+import math
 import sys
 
 import pcbnew
@@ -30,7 +31,22 @@ def netinfo(name):
     return n
 
 
+def chamfer(pts, size=0.5):
+    """Replace each 90-degree corner with a 45-degree one (house style), cutting up to `size` mm off each leg."""
+    out = [pts[0]]
+    for a, m, c in zip(pts, pts[1:], pts[2:]):
+        u, v = (m[0] - a[0], m[1] - a[1]), (c[0] - m[0], c[1] - m[1])
+        lu, lv = math.hypot(*u), math.hypot(*v)
+        k = min(size, 0.45 * lu, 0.45 * lv) if lu and lv else 0
+        if k < 0.1 or abs(u[0] * v[0] + u[1] * v[1]) > 1e-6 * lu * lv:
+            out.append(m)
+            continue
+        out += [(m[0] - u[0] / lu * k, m[1] - u[1] / lu * k), (m[0] + v[0] / lv * k, m[1] + v[1] / lv * k)]
+    return out + [pts[-1]]
+
+
 def track(net, layer, width, *pts):
+    pts = chamfer(pts)
     for a, c in zip(pts, pts[1:]):
         t = pcbnew.PCB_TRACK(b)
         t.SetStart(pcbnew.VECTOR2I(mm(a[0]), mm(a[1])))
