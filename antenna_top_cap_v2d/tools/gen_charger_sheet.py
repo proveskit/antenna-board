@@ -342,8 +342,8 @@ J1 = Sym("Connector_Generic:Conn_01x03", "J201", "SWD from FC", 50.8, ysw, mirro
          fp="Connector_JST:JST_SH_BM03B-SRSS-TB_1x03-1MP_P1.00mm_Vertical", lcsc="C160389", mpn="BM03B-SRSS-TB(LF)(SN)",
          desc="Inner side; 1:1 JST-SH cable to FC J22", ref_at=(45.72, ysw - 6.35), val_at=(45.72, ysw - 8.89))
 J2 = Sym("Connector_Generic:Conn_01x03", "J202", "SWD", 96.52, ysw,
-         fp="Connector_JST:JST_SH_BM03B-SRSS-TB_1x03-1MP_P1.00mm_Vertical", lcsc="C160389", mpn="BM03B-SRSS-TB(LF)(SN)",
-         desc="Outer side; Raspberry Pi Debug Probe pinout", ref_at=(93.98, ysw - 6.35), val_at=(93.98, ysw - 8.89))
+         fp="Connector_JST:JST_SH_SM03B-SRSS-TB_1x03-1MP_P1.00mm_Horizontal", lcsc="C160403", mpn="SM03B-SRSS-TB(LF)(SN)",
+         desc="Outer side, top edge next to the USB ports, right angle; Raspberry Pi Debug Probe pinout", ref_at=(93.98, ysw - 6.35), val_at=(93.98, ysw - 8.89))
 for pin, net in [("1", "SWCLK"), ("3", "SWDIO")]:
     wire(J1.p(pin), J2.p(pin))
     label(net, (J1.p(pin)[0] + 10.16, J1.p(pin)[1]))
@@ -387,8 +387,8 @@ text("Status LEDs (outer side): green = USB 5 V present;\n"
      "red on = charging, off = done, 1 Hz blink = fault.", 198.12, 148.59)
 text("SWD pass-through", 25.4, 144.78, size=2.0, bold=True)
 text("FC J22 is unreachable on an assembled cube. A 1:1 JST-SH 3-pin cable (pin 1 to pin 1)\n"
-     "runs from FC J22 to J201 on the inner side; J202 on the outer side takes the Raspberry Pi\n"
-     "Debug Probe cable. Pinout matches FC J22: 1 SWCLK, 2 GND, 3 SWDIO. No parts in series.", 25.4, 172.72)
+     "runs from FC J22 to J201 on the inner side; J202 (right angle, outer side top edge, next to\n"
+     "the USB ports) takes the Raspberry Pi Debug Probe cable. Pinout matches FC J22: 1 SWCLK, 2 GND, 3 SWDIO. No parts in series.", 25.4, 172.72)
 
 # ---------------------------------------------------------------- assemble
 libs = "".join("\t\t" + lib_symbol(l)[0].replace("\n\t", "\n\t\t") + "\n" for l in used_libs)

@@ -162,14 +162,20 @@ track("Net-(D201-A)", "B", 0.25, pad("R206", "2"), pad("D201", "2"))
 track("GND", "B", 0.3, pad("D201", "1"), (168.9, 81.6))
 via("GND", (168.9, 81.6))
 
-# SWD pass-through: J201 (inner) straight through to J202 (outer); GND via also lands on In1.
-for n, x in (("1", 204.5), ("2", 205.5), ("3", 206.5)):
-    net = {"1": "SWCLK", "2": "GND", "3": "SWDIO"}[n]
-    track(net, "F", 0.25, pad("J201", n), (x, 98.6))
-    via(net, (x, 98.6))
-    track(net, "B", 0.25, (x, 98.6), pad("J202", n))
-
-
+# SWD pass-through: J201 (inner face, near FC J22) to J202 (right angle, outer face top edge beside J204).
+# The inner face around TP6 is a copper keepout (standoff), and J204's VBUS trunk walls off the south and east
+# on B, so J202 leaves west on B, drops to F at x 151, runs south past the charger, east under the charger,
+# then through the 1.15 mm gap between the shield art and the PROTON text (both mask openings) to J201. J202's GND pad ties to J204's shell on B.
+VCLK, VDIO = (151.1, 68.9), (150.4, 69.6)
+track("SWCLK", "B", 0.2, pad("J202", "1"), (165.0, 68.9), VCLK)
+track("SWDIO", "B", 0.2, pad("J202", "3"), (167.0, 69.6), VDIO)
+track("GND", "B", 0.25, pad("J202", "2"), (166.0, 65.9), (170.8, 65.9))
+for v in (VCLK, VDIO):
+    via("SWCLK" if v == VCLK else "SWDIO", v)
+track("SWCLK", "F", 0.2, VCLK, (151.1, 95.1), (171.1, 95.1), (171.1, 99.95), (204.5, 99.95), pad("J201", "1"))
+track("SWDIO", "F", 0.2, VDIO, (150.4, 95.7), (170.4, 95.7), (170.4, 100.42), (206.5, 100.42), pad("J201", "3"))
+track("GND", "F", 0.25, pad("J201", "2"), (205.5, 98.6))
+via("GND", (205.5, 98.6))
 
 for r in ("J201", "J202"):
     b.FindFootprintByReference(r).Reference().SetVisible(False)
@@ -187,7 +193,7 @@ def silk(txt, at, layer, size=1.0):
     b.Add(t)
 
 
-silk("J202 SWD", (205.5, 105.6), pcbnew.B_SilkS)
+silk("SWD", (160.8, 65.4), pcbnew.B_SilkS)
 silk("J201 SWD from FC J22", (205.5, 92.4), pcbnew.F_SilkS, 0.8)
 silk("R210 CHG LINK", (165.4, 93.9), pcbnew.B_SilkS, 0.8)
 silk("REMOVE FOR FLIGHT", (166.0, 97.6), pcbnew.B_SilkS, 0.8)
