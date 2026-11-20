@@ -164,7 +164,7 @@ def text(s, x, y, size=1.27, bold=False):
                  f'\t\t\t(justify left top)\n\t\t)\n\t\t(uuid "{uid("t", s[:40], x, y)}")\n\t)\n')
 
 
-R_FP = "Resistor_SMD:R_1206_3216Metric"
+R_FP = "Resistor_SMD:R_2512_6332Metric"
 HYB_FP = "Antenna_board:MHC0410L03"
 TAPE_FP = "Antenna_board:Turnstile_Tape_Element"
 HYB_DS = "https://datasheet.lcsc.com/datasheet/pdf/46836830f8b0c6affe7c26a253a585e6.pdf"
@@ -187,7 +187,7 @@ def hybrid(ref, x, y, nets):
 
 def load(ref, x, y, term):
     r = Sym("Device:R", ref, "49.9", x, y, fp=R_FP,
-            desc="Hybrid isolated-port load, 49.9 Ohm 1 %, >= 0.5 W (stowed TX can dump ~0.33 W here)",
+            desc="Hybrid isolated-port load, 49.9 Ohm 1 %, 2512, 1 W or more (stowed 1 W TX puts about 0.5 W in R302 and R303)",
             ref_at=(x + 2.54, y - 1.27), val_at=(x + 2.54, y + 1.27))
     label(term, r.p("1"), 90)
     gnd(r.p("2"))
@@ -201,24 +201,25 @@ def element(ref, x, y, netname, phase):
 
 hybrid("U301", 76.2, 101.6, {"2": "UHF", "1": "TERM1", "3": "UHF_B", "4": "UHF_A"})
 load("R301", 76.2, 132.08, "TERM1")
-hybrid("U302", 147.32, 63.5, {"1": "UHF_A", "2": "TERM2", "4": "UHF_0", "3": "UHF_90"})
+hybrid("U302", 147.32, 63.5, {"2": "UHF_A", "1": "TERM2", "3": "UHF_0", "4": "UHF_90"})
 load("R302", 147.32, 93.98, "TERM2")
-hybrid("U303", 147.32, 139.7, {"1": "UHF_B", "2": "TERM3", "4": "UHF_180", "3": "UHF_270"})
+hybrid("U303", 147.32, 139.7, {"2": "UHF_B", "1": "TERM3", "3": "UHF_180", "4": "UHF_270"})
 load("R303", 147.32, 170.18, "TERM3")
-element("AE1", 220.98, 50.8, "UHF_0", "0 deg")
-element("AE2", 220.98, 76.2, "UHF_90", "90 deg")
-element("AE3", 220.98, 127.0, "UHF_180", "180 deg")
-element("AE4", 220.98, 152.4, "UHF_270", "270 deg")
+element("AE2", 220.98, 50.8, "UHF_0", "north, 0 deg")
+element("AE1", 220.98, 76.2, "UHF_90", "east, 90 deg")
+element("AE4", 220.98, 127.0, "UHF_180", "south, 180 deg")
+element("AE3", 220.98, 152.4, "UHF_270", "west, 270 deg")
 
 text("Circularly polarized turnstile feed", 25.4, 25.4, size=2.0, bold=True)
-text("Three MEGSINE MHC0410L03 hybrids (JLC C52139893). Port straight across from the input is coupled (0 deg),\n"
+text("Right-hand circular out of the outer face (B.Cu, the side with the USB ports).\n"
+     "Three MEGSINE MHC0410L03 hybrids (JLC C52139893). The port straight across from the input is coupled (0 deg),\n"
      "the diagonal port is direct (-90 deg), the port beside the input is isolated and takes the 49.9 Ohm load.\n"
-     "- U301 is fed on pin 2, so UHF_A (pin 4) is the -90 deg output and UHF_B (pin 3) the 0 deg output.\n"
+     "- All three are fed on pin 2: pin 3 is the 0 deg output and pin 4 the -90 deg output.\n"
      "- UHF_A is lambda_g/4 longer than UHF_B (94.1 mm at 437 MHz, e_eff 3.32): UHF_A arrives 180 deg behind UHF_B.\n"
-     "- U302 and U303 are fed on pin 1: pin 4 is 0 deg, pin 3 is -90 deg. Each element lags the one before it by\n"
-     "  90 deg in the order AE1, AE2, AE3, AE4 (the phase names are relative).\n"
+     "- The feed phase lags north (AE2), east (AE1), south (AE4), west (AE3) in 90 deg steps. That is clockwise\n"
+     "  seen from the inner face and counter-clockwise seen from the outer face.\n"
      "- UHF_0/90/180/270 are length-matched. RF netclass: 0.3424 mm CPWG, 0.4 mm gap to the GND pour.\n"
-     "- All RF corners are 45 deg. tools/check_rf.py checks the lengths, the pins and the corners.", 25.4, 30.48)
+     "- All RF corners are 45 deg. tools/check_rf.py checks the lengths, the pins, the corners and the sense.", 25.4, 30.48)
 # ---------------------------------------------------------------- assemble
 libs = "".join("\t\t" + lib_symbol(l)[0].replace("\n\t", "\n\t\t") + "\n" for l in used_libs)
 out = (f'(kicad_sch\n\t(version 20260306)\n\t(generator "eeschema")\n\t(generator_version "10.0")\n\t(uuid "{SHEET_UUID}")\n'

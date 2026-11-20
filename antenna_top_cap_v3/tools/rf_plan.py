@@ -3,6 +3,8 @@
 Three MHC0410L03 hybrids sit on the board diagonals with their output side facing out. Every corner is 45 degrees.
 UHF_A carries the quarter-wave delay as a one-sided serpentine east of centre; its run length is solved so that
 len(UHF_A) - len(UHF_B) is exactly a quarter guided wavelength.
+Sense: the feed phase lags north, east, south, west, which is clockwise seen from F.Cu (the inner face) and
+counter-clockwise seen from B.Cu (the outer face with the USB ports): right-hand circular out of the outer face.
 """
 import math
 
@@ -63,33 +65,31 @@ def element_feed(ref, pin, el, axis):
 
 
 def uhf_b():
+    """U301 pin 3 straight west to U303 pin 2."""
     p, d = leg("U301", "3", "v")
-    e, de = leg("U303", "1", "v")
-    y1 = 15.0  # south of the J7 ground pads (V2d position)
-    a = go(p, d, (p[1] - y1) * math.sqrt(2))
-    k = 1.0
-    f = go(e, de, k * math.sqrt(2))
-    b = (-13.0, y1)  # west of J7
-    c = (b[0] - (y1 - f[1]), f[1])
-    return [p, a, b, c, f, e]
+    e, de = leg("U303", "2", "v")
+    s = 0.7
+    a = go(p, d, s * math.sqrt(2))
+    f = go(e, de, (e[1] - a[1]) * math.sqrt(2))
+    return [p, a, f, e]
 
 
 def uhf_a(target):
+    """U301 pin 4 north through the serpentine, out of its west end, north again and into U302 pin 2."""
     p, d = leg("U301", "4", "v")
-    e, de = leg("U302", "1", "v")
-    s = 0.5
-    a, f = go(p, d, s * math.sqrt(2)), go(e, de, s * math.sqrt(2))
-    assert abs(a[0] - f[0]) < 1e-6
-    x0, runs, pitch = a[0], 12, 2.0  # 12 runs keep the west end clear of D1's GND via
-    ys = [pitch * (runs - 1) / 2 - i * pitch for i in range(runs)]  # south to north, centred on y 0
+    e, de = leg("U302", "2", "v")
+    a = go(p, d, 0.5 * math.sqrt(2))
+    x0, runs, pitch, y0 = a[0], 7, 2.0, 11.0  # odd, so the last run ends at the west end; clear of R302 to the north
+    ys = [y0 - i * pitch for i in range(runs)]
 
     def path(h):
         pts = [p, a]
         for i, y in enumerate(ys):
             pts += [(x0, y), (x0 - h, y)] if i % 2 == 0 else [(x0 - h, y), (x0, y)]
-        return chamfer(pts + [f, e])
+        k = e[0] - (x0 - h)
+        return chamfer(pts + [go(e, de, k * math.sqrt(2)), e])
 
-    lo, hi = 2.0, 14.0
+    lo, hi = 2.0, 16.0
     for _ in range(60):
         mid = (lo + hi) / 2
         lo, hi = (mid, hi) if length(path(mid)) < target else (lo, mid)
@@ -97,9 +97,9 @@ def uhf_a(target):
 
 
 def term(ref, pin):
-    """Short diagonal from the isolated port to its 1206 load: (track points, resistor centre, unit direction)."""
+    """Short diagonal from the isolated port towards its load: (track points, unit direction). The track ends on pad 1."""
     p, d = leg(ref, pin, "v")
-    return [p, go(p, d, 1.7)], go(p, d, 1.7 + 1.4625), d
+    return [p, go(p, d, 2.0)], d
 
 
 def plan():
@@ -107,17 +107,17 @@ def plan():
     nets = {
         "/RF/UHF_B": b,
         "/RF/UHF_A": uhf_a(length(b) + QUARTER),
-        "/RF/UHF_0": element_feed("U302", "4", "AE1", "y"),
-        "/RF/UHF_90": element_feed("U302", "3", "AE2", "x"),
-        "/RF/UHF_180": element_feed("U303", "4", "AE3", "y"),
-        "/RF/UHF_270": element_feed("U303", "3", "AE4", "x"),
+        "/RF/UHF_0": element_feed("U302", "3", "AE2", "x"),
+        "/RF/UHF_90": element_feed("U302", "4", "AE1", "y"),
+        "/RF/UHF_180": element_feed("U303", "3", "AE4", "x"),
+        "/RF/UHF_270": element_feed("U303", "4", "AE3", "y"),
     }
     p, d = leg("U301", "2", "v")
     nets["/UHF"] = [p, go(p, d, RF1_OUT * math.sqrt(2))]
     return nets
 
 
-LOADS = {"R301": ("U301", "1"), "R302": ("U302", "2"), "R303": ("U303", "2")}
+LOADS = {"R301": ("U301", "1"), "R302": ("U302", "1"), "R303": ("U303", "1")}
 
 if __name__ == "__main__":
     for n, pts in plan().items():

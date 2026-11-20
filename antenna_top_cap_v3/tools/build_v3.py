@@ -26,8 +26,6 @@ STAGE = int(sys.argv[6]) if len(sys.argv) > 6 else 9
 mm = pcbnew.FromMM
 
 RF_REFS = ["AE1", "AE2", "AE3", "AE4"]
-# turnstile net -> V3 schematic net
-NETMAP = {"/UHF_0": "/RF/UHF_0", "/UHF_90": "/RF/UHF_90", "/UHF_180": "/RF/UHF_180", "/UHF_270": "/RF/UHF_270"}
 CHG_REFS = ["U201", "L201", "C201", "C202", "C204", "C205", "C206", "C207", "C208", "C209", "F201",
             "R201", "R202", "R203", "R204", "R205", "R206", "R207", "R210", "D201", "D202"]
 CHG_OFF = (-11.0, -2.0)
@@ -86,20 +84,18 @@ def via(netname, at, dia=0.6, drill=0.3):
 
 
 # ---- 2. tape element pads from the turnstile (adds first: removing items before iterating others upsets SWIG)
+_root = ET.parse(NETLIST).getroot()
+COMPS = {c.get("ref"): c for c in _root.iter("comp")}
+PINNET = {(n2.get("ref"), n2.get("pin")): n.get("name") for n in _root.iter("net") for n2 in n.iter("node")}
 NEW_VIAS = []
 for f in T_FPS:
     if f.GetReference() not in RF_REFS:
         continue
     nf = pcbnew.FOOTPRINT(f)
     for p in nf.Pads():
-        if p.GetNetname():
-            p.SetNet(net(NETMAP[p.GetNetname()]))
+        p.SetNet(net(PINNET[(f.GetReference(), p.GetNumber())]))
     v.Add(nf)
     nf.Move(delta)
-
-_root = ET.parse(NETLIST).getroot()
-COMPS = {c.get("ref"): c for c in _root.iter("comp")}
-PINNET = {(n2.get("ref"), n2.get("pin")): n.get("name") for n in _root.iter("net") for n2 in n.iter("node")}
 IO = pcbnew.PCB_IO_MGR.FindPlugin(pcbnew.PCB_IO_MGR.KICAD_SEXP)
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -121,10 +117,13 @@ RF_PLAN = rf_plan.plan()
 for ref, (at, rot) in rf_plan.HYBRIDS.items():
     place(f"{HERE}/footprints.pretty", "MHC0410L03", ref, at, rot)
 for ref, (hyb, pin) in rf_plan.LOADS.items():
-    pts, centre, d = rf_plan.term(hyb, pin)
-    # pad 1 (TERM) faces the hybrid: the pad-1-to-pad-2 axis points along d
-    place(f"{FPDIR}/Resistor_SMD.pretty", "R_1206_3216Metric", ref, centre, math.degrees(math.atan2(-d[1], d[0])))
+    pts, d = rf_plan.term(hyb, pin)
+    # pad 1 (TERM) faces the hybrid and the stub ends on its centre; pad 2 (GND) gets its own via just past it
+    r = place(f"{FPDIR}/Resistor_SMD.pretty", "R_2512_6332Metric", ref, (0, 0), math.degrees(math.atan2(-d[1], d[0])))
+    half = math.dist(*[(pcbnew.ToMM(p.GetPosition().x), pcbnew.ToMM(p.GetPosition().y)) for p in r.Pads()]) / 2
+    r.SetPosition(P(*rf_plan.go(pts[-1], d, half)))
     track(PINNET[(ref, "1")], pcbnew.F_Cu, rf_plan.WIDTH, *pts)
+    via("GND", rf_plan.go(pts[-1], d, 2 * half + 1.3))
 for name, pts in RF_PLAN.items():
     if name != "/UHF":
         track(name, pcbnew.F_Cu, rf_plan.WIDTH, *pts)
@@ -236,20 +235,38 @@ def offset(pts, d):
     return out
 
 
-SWD_MID = [(-10.15, -42.0), (-10.15, -31.5), (-8.65, -30.0), (25.6, -30.0), (29.3, -26.3), (29.3, -14.3), (30.4, -13.2), (38.0, -13.2)]
-SWD = {"/Charger & SWD/SWCLK": ([(-1.046, -43.317), (-9.85, -43.317)],
-                                [(-9.85, -43.317)] + offset(SWD_MID, 0.3) + [(38.45, -13.5), (38.954, -14.004), (38.954, -15.292)]),
-       "/Charger & SWD/SWDIO": ([(0.954, -42.617), (-10.65, -42.617)],
-                                [(-10.65, -42.617), (-10.65, -42.4), (-10.45, -42.2)] + offset(SWD_MID, -0.3)
-                                + [(40.454, -12.9), (40.954, -13.4), (40.954, -15.292)])}
+# West of the TP6 keepout, then under the strip between AE2's pad and its slot on B.Cu (the tape lies on that strip
+# on F.Cu), back to F.Cu, around the outside of U302 and into J201 from the south.
+SWD_W = [(-10.15, -42.0), (-10.15, -31.5), (-8.65, -30.0), (-8.4, -30.0)]
+SWD_E = [(8.4, -30.0), (25.6, -30.0), (29.3, -26.3), (29.3, -14.3), (30.4, -13.2), (38.0, -13.2)]
+SWD = {"/Charger & SWD/SWCLK": ([(-1.046, -43.317), (-9.75, -43.317)],
+                                [(-9.75, -43.317)] + offset(SWD_W, 0.4)[:-1] + [(-7.3, -30.4)],
+                                [(8.9, -30.4)] + offset(SWD_E, 0.4)[1:] + [(38.354, -13.6), (38.954, -14.2), (38.954, -15.292)]),
+       "/Charger & SWD/SWDIO": ([(0.954, -42.617), (-10.75, -42.617)],
+                                [(-10.75, -42.617), (-10.75, -42.4), (-10.55, -42.2)] + offset(SWD_W, -0.4)[:-1] + [(-8.3, -29.6)],
+                                [(7.9, -29.6)] + offset(SWD_E, -0.4)[1:] + [(40.354, -12.8), (40.954, -13.4), (40.954, -15.292)])}
 if STAGE >= 3:
-    for name, (back, front) in SWD.items():
+    for name, (back, west, east) in SWD.items():
         for tr in V_TRACKS:  # keep only the B.Cu stub at J202
             if tr.GetNetname() == name and (tr.GetClass() == "PCB_VIA" or tr.GetLayer() == pcbnew.F_Cu or tr.GetLength() > mm(5)):
                 DEAD.append(tr)
         track(name, pcbnew.B_Cu, 0.2, *back)
-        via(name, front[0])
-        track(name, pcbnew.F_Cu, 0.2, *front)
+        track(name, pcbnew.F_Cu, 0.2, *west)
+        track(name, pcbnew.B_Cu, 0.2, west[-1], east[0])
+        track(name, pcbnew.F_Cu, 0.2, *east)
+        for q in (west[0], west[-1], east[0]):
+            via(name, q)
+
+    # The payload USB pair on B.Cu ran under AE2's pad, where In1 and In2 are now cleared: take it round the east end.
+    W = 0.267208
+    for name, drop, new in (
+            ("USB_D+", [((20.706, -29.63), (8.731, -29.63)), ((8.731, -29.63), (3.5, -24.398)), ((3.5, -24.398), (3.5, -12.612))],
+             [(20.706, -29.63), (12.4, -29.63), (11.6, -28.83), (11.6, -23.3), (3.5, -15.2), (3.5, -12.612)]),
+            ("USB_D-", [((8.4, -30.098), (20.9, -30.098)), ((2.6, -24.298), (8.4, -30.098)), ((2.6, -9.498), (2.6, -24.298))],
+             [(20.9, -30.098), (12.069, -30.098), (11.0, -29.029), (11.0, -23.5), (2.6, -15.1), (2.6, -9.498)])):
+        for a_, b_ in drop:
+            DEAD.append(seg(name, a_, b_))
+        track(name, pcbnew.B_Cu, W, *new)
 
 # ---- 4. MMCX next to U301
 def gnd_in(x0, y0, x1, y1):
@@ -421,6 +438,52 @@ if STAGE >= 7:
         if d.GetLayer() == pcbnew.F_Mask and d.GetText().startswith(("{dblquote}In another life", "NOT TODAY PROTON")):
             DEAD.append(d)
     FP["RF1"].Reference().SetVisible(False)
+
+    # Outer-face art (bare-copper mask openings) now lies over the moved charger: cut it back 0.3 mm around every
+    # B.Cu land and via there, so no opening bridges two nets and the charger's joints keep their mask dams.
+    ART_BOX = pcbnew.BOX2I(P(-27.0, -37.0), pcbnew.VECTOR2I(mm(22.5), mm(22.5)))  # the charger block after its move
+    cut = pcbnew.SHAPE_POLY_SET()
+    for f in [x for x in v.Footprints()]:
+        if f.GetReference() != "G***":
+            for p in f.Pads():
+                if p.IsOnLayer(pcbnew.B_Cu) and ART_BOX.Contains(p.GetPosition()):
+                    p.TransformShapeToPolygon(cut, pcbnew.B_Cu, mm(0.3), mm(0.005), pcbnew.ERROR_OUTSIDE)
+    for tr in [x for x in v.Tracks()]:
+        if tr.GetClass() == "PCB_VIA" and ART_BOX.Contains(tr.GetPosition()) and tr not in DEAD:
+            q, r = tr.GetPosition(), mm(0.3 + 0.3)
+            cut.NewOutline()
+            for i in range(24):
+                cut.Append(int(q.x + r * math.cos(i * math.pi / 12)), int(q.y + r * math.sin(i * math.pi / 12)))
+    cut.Simplify()
+
+    def mask_poly(ps):
+        ps.BooleanSubtract(cut)
+        ps.Fracture()
+        return ps
+
+    for f in [x for x in v.Footprints()]:
+        if f.GetReference() == "G***" and f.GetBoundingBox(False).Intersects(ART_BOX):
+            for g in f.GraphicalItems():
+                if g.GetLayer() == pcbnew.B_Mask and g.GetShape() == pcbnew.SHAPE_T_POLY:
+                    g.SetPolyShape(mask_poly(g.GetPolyShape()))
+    for d in texts:
+        if d.GetText() == "THE PLEIADES FIVE":  # along its band to the part the charger does not reach
+            d.Move(pcbnew.VECTOR2I(mm(-8.5), 0))
+    for d in texts:
+        if d.GetLayer() == pcbnew.B_Mask and d.GetBoundingBox().Intersects(ART_BOX):
+            ps = pcbnew.SHAPE_POLY_SET()
+            d.TransformTextToPolySet(ps, 0, mm(0.005), pcbnew.ERROR_INSIDE)
+            ps = mask_poly(ps)
+            for i in range(ps.OutlineCount()):  # one shape per glyph piece
+                one = pcbnew.SHAPE_POLY_SET()
+                one.AddOutline(ps.Outline(i))
+                g = pcbnew.PCB_SHAPE(v, pcbnew.SHAPE_T_POLY)
+                g.SetLayer(pcbnew.B_Mask)
+                g.SetFilled(True)
+                g.SetWidth(0)
+                g.SetPolyShape(one)
+                v.Add(g)
+            DEAD.append(d)
 # ---- 1. drop the dipole (removals last)
 drop_nets = set()
 for ref in ("B1", "J6"):
@@ -445,6 +508,26 @@ for z in dead_zones:
     v.Remove(z)
 for ref in ("B1", "J6"):
     v.Remove(FP[ref])
+
+# No plane copper under the tape pads: over In1 at 0.21 mm each pad is about 8.6 pF across its feed.
+for ref in RF_REFS:
+    box = next(iter(FP2[ref].Pads())).GetBoundingBox()
+    box.Inflate(mm(0.5))
+    z = pcbnew.ZONE(v)
+    z.SetIsRuleArea(True)
+    z.SetDoNotAllowZoneFills(True)
+    for flag in (z.SetDoNotAllowTracks, z.SetDoNotAllowVias, z.SetDoNotAllowPads, z.SetDoNotAllowFootprints):
+        flag(False)
+    ls = pcbnew.LSET()
+    ls.AddLayer(pcbnew.In1_Cu)
+    ls.AddLayer(pcbnew.In2_Cu)
+    z.SetLayerSet(ls)
+    z.SetZoneName(f"{ref} pad: no plane copper")
+    o = z.Outline()
+    o.NewOutline()
+    for x, y in ((box.GetLeft(), box.GetTop()), (box.GetRight(), box.GetTop()), (box.GetRight(), box.GetBottom()), (box.GetLeft(), box.GetBottom())):
+        o.Append(x, y)
+    v.Add(z)
 
 v.SynchronizeNetsAndNetClasses(False)  # new nets pick up the RF netclass (0.4 mm CPWG gap) before the fill
 pcbnew.ZONE_FILLER(v).Fill(v.Zones())

@@ -7,7 +7,13 @@ Reads only the board and the schematic netlist, not tools/rf_plan.py, so a wrong
 - any RF corner is not 45 degrees, or any RF segment is off the 0/45/90 degree grid,
 - UHF_A is not a quarter guided wave (90 +/- 2 deg at 437 MHz) longer than UHF_B,
 - the four element feeds differ by more than 0.05 mm,
-- the phase the hybrids and the delay line give the elements does not step 90 deg from AE1 to AE2 to AE3 to AE4.
+- the feed phase does not lag 90 deg per element clockwise as seen from F.Cu (north, east, south, west by pad
+  position), which is right-hand circular out of B.Cu, the outer face with the USB ports,
+- a hybrid is flipped or its lands are not numbered 1 to 4 clockwise from the top left (datasheet figure 2, top view),
+- an isolated port's load is not 49.9 Ohm in 2512 to GND,
+- In1 ground is missing under any RF line or hybrid (the cleared boxes under the tape pads and the MMCX pin's antipad excepted),
+- GND stitching thins out: fewer than 60 vias within 1.6 mm of RF copper, or a point on an RF line more than
+  4 mm from any GND via.
 """
 import math
 import sys
@@ -103,13 +109,73 @@ while todo:
                 m = net_of[(ref, out)]
                 lag[m] = lag[n] + deg(length[n]) + extra
                 todo.append(m)
-el = {}
+centre = b.GetBoardEdgesBoundingBox().GetCenter()
+fps = {f.GetReference(): f for f in b.Footprints()}
+el = []
 for n in NETS[3:]:
     ref = next(r for r, _ in want[n] if r.startswith("AE"))
-    el[ref] = (lag[n] + deg(length[n])) % 360
-steps = [(el[b_] - el[a_]) % 360 for a_, b_ in (("AE1", "AE2"), ("AE2", "AE3"), ("AE3", "AE4"), ("AE4", "AE1"))]
-print("element phase lag (deg):", {k: round(v, 1) for k, v in sorted(el.items())}, "steps", [round(s, 1) for s in steps])
-if any(abs(s - 90) > 2 for s in steps):
-    fail("elements do not step 90 deg in the order AE1, AE2, AE3, AE4")
+    q = next(iter(fps[ref].Pads())).GetPosition() - centre
+    # screen angle, clockwise from north: KiCad draws F.Cu as seen from the F side, y down
+    el.append(((math.degrees(math.atan2(q.x, -q.y)) + 45) % 360 - 45, ref, (lag[n] + deg(length[n])) % 360))
+el.sort()
+if any(abs(a - want_a) > 3 for (a, _, _), want_a in zip(el, (0, 90, 180, 270))):
+    fail(f"tape pads are not north, east, south, west of centre: {[(r, round(a)) for a, r, _ in el]}")
+steps = [(el[(i + 1) % 4][2] - el[i][2]) % 360 for i in range(4)]
+print("phase lag clockwise from north, seen from F.Cu:", [(r, round((ph - el[0][2]) % 360, 1)) for _, r, ph in el], "steps", [round(x, 1) for x in steps])
+if any(abs(x - 90) > 2 for x in steps):
+    fail("feed phase does not lag 90 deg per element clockwise from F.Cu: not right-hand circular out of the outer face")
+
+for ref in HYBRIDS:
+    f = fps[ref]
+    a = math.radians(f.GetOrientationDegrees())
+    quad = {}
+    for p in f.Pads():
+        if p.GetNumber() in PORTS:
+            d = p.GetPosition() - f.GetPosition()
+            lx, ly = d.x * math.cos(a) - d.y * math.sin(a), d.x * math.sin(a) + d.y * math.cos(a)
+            quad[p.GetNumber()] = (lx > 0, ly > 0)
+    if f.IsFlipped() or quad != {"1": (False, False), "2": (True, False), "3": (True, True), "4": (False, True)}:
+        fail(f"{ref} is flipped or its lands are not in the datasheet's top-view order: {quad}")
+
+comp = {c.get("ref"): c for c in root.iter("comp")}
+for ref in sorted(r for r in comp if r.startswith("R30")):
+    c = comp[ref]
+    if c.findtext("value") != "49.9" or "2512" not in c.findtext("footprint") or net_of.get((ref, "2")) != "GND":
+        fail(f"{ref} is not a 49.9 Ohm 2512 load to GND")
+    if {p.GetNumber(): p.GetNetname() for p in fps[ref].Pads()}.get("2") != "GND":
+        fail(f"{ref} pad 2 is not on GND on the board")
+
+in1 = [z for z in b.Zones() if z.GetNetname() == "GND" and z.IsOnLayer(pcbnew.In1_Cu) and not z.GetIsRuleArea()]
+fill = in1[0].GetFilledPolysList(pcbnew.In1_Cu) if in1 else None
+boxes = []
+for _, ref, _ in el:
+    bx = next(iter(fps[ref].Pads())).GetBoundingBox()
+    bx.Inflate(pcbnew.FromMM(1.0))
+    boxes.append(bx)
+gnd_vias = [t.GetPosition() for t in b.Tracks() if t.GetClass() == "PCB_VIA" and t.GetNetname() == "GND"]
+gnd_vias += [p.GetPosition() for ref in HYBRIDS for p in fps[ref].Pads() if p.GetNetname() == "GND" and p.HasHole()]
+rf_holes = [p.GetPosition() for n in NETS for _, _, p in pads.get(n, []) if p.HasHole()]
+bare, far, near, where = 0, 0.0, set(), []
+for t in b.Tracks():
+    if t.GetNetname() not in NETS or t.GetClass() != "PCB_TRACK":
+        continue
+    k = max(1, int(pcbnew.ToMM(t.GetLength()) / 0.25))
+    for i in range(k + 1):
+        q = pcbnew.VECTOR2I(int(t.GetStart().x + (t.GetEnd().x - t.GetStart().x) * i / k), int(t.GetStart().y + (t.GetEnd().y - t.GetStart().y) * i / k))
+        ds = [math.hypot(g.x - q.x, g.y - q.y) for g in gnd_vias]
+        near.update(j for j, d_ in enumerate(ds) if d_ < pcbnew.FromMM(1.6))
+        if any(bx.Contains(q) for bx in boxes) or any(math.hypot(h.x - q.x, h.y - q.y) < pcbnew.FromMM(2.0) for h in rf_holes):
+            continue  # the cleared tape-pad boxes and the MMCX pins' antipads and thermals
+        if fill is None or not fill.Contains(q):
+            bare += 1
+            where.append((round(pcbnew.ToMM(q.x - centre.x), 2), round(pcbnew.ToMM(q.y - centre.y), 2)))
+        far = max(far, pcbnew.ToMM(min(ds)))
+for ref in HYBRIDS:
+    bare += fill is None or not fill.Contains(fps[ref].GetPosition())
+print(f"In1 ground: {bare} bare sample points under RF copper; GND vias within 1.6 mm of RF copper: {len(near)}; farthest RF point from a GND via: {far:.2f} mm")
+if bare:
+    fail(f"In1 ground is missing under RF copper, first at {where[:3]}")
+if len(near) < 60 or far > 4.0:
+    fail("GND stitching along the RF lines is too thin")
 print("PASS" if ok else "FAIL")
 sys.exit(0 if ok else 1)

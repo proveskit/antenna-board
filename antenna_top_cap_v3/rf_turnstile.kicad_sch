@@ -811,7 +811,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
 			(at 76.2 132.08 0)
 			(hide yes)
 			(show_name no)
@@ -833,7 +833,7 @@
 				)
 			)
 		)
-		(property "Description" "Hybrid isolated-port load, 49.9 Ohm 1 %, >= 0.5 W (stowed TX can dump ~0.33 W here)"
+		(property "Description" "Hybrid isolated-port load, 49.9 Ohm 1 %, 2512, 1 W or more (stowed 1 W TX puts about 0.5 W in R302 and R303)"
 			(at 76.2 132.08 0)
 			(hide yes)
 			(show_name no)
@@ -1059,16 +1059,6 @@
 		)
 	)
 	(label "UHF_A"
-		(at 134.62 60.96 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "6a77d321-457b-5832-b816-1bd019e9ec37")
-	)
-	(label "TERM2"
 		(at 134.62 66.04 180)
 		(effects
 			(font
@@ -1076,19 +1066,19 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "eee7f3d9-79b2-591c-ae36-7efe359d2ad8")
+		(uuid "7981969c-d5a9-520c-b49f-67772bd5700a")
 	)
-	(label "UHF_0"
-		(at 160.02 60.96 0)
+	(label "TERM2"
+		(at 134.62 60.96 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
-		(uuid "a2e4a12e-a48e-5943-be15-8a5825817f67")
+		(uuid "9b9498ec-88bc-5ddf-8282-af3afac4a798")
 	)
-	(label "UHF_90"
+	(label "UHF_0"
 		(at 160.02 66.04 0)
 		(effects
 			(font
@@ -1096,7 +1086,17 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "8473d8f0-f406-5d28-8b4e-7c738f2597c6")
+		(uuid "aab10ab5-58ec-5e55-88aa-9143401b098f")
+	)
+	(label "UHF_90"
+		(at 160.02 60.96 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "69e420eb-c42f-55ae-8319-8155cc87aaae")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -1209,7 +1209,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
 			(at 147.32 93.98 0)
 			(hide yes)
 			(show_name no)
@@ -1231,7 +1231,7 @@
 				)
 			)
 		)
-		(property "Description" "Hybrid isolated-port load, 49.9 Ohm 1 %, >= 0.5 W (stowed TX can dump ~0.33 W here)"
+		(property "Description" "Hybrid isolated-port load, 49.9 Ohm 1 %, 2512, 1 W or more (stowed 1 W TX puts about 0.5 W in R302 and R303)"
 			(at 147.32 93.98 0)
 			(hide yes)
 			(show_name no)
@@ -1457,16 +1457,6 @@
 		)
 	)
 	(label "UHF_B"
-		(at 134.62 137.16 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "fa41b042-2779-50b1-a1aa-a84e6c2e7ff6")
-	)
-	(label "TERM3"
 		(at 134.62 142.24 180)
 		(effects
 			(font
@@ -1474,19 +1464,19 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "8f98b731-ed96-5d50-8926-dd86b7e46224")
+		(uuid "8bea6ccb-18a9-5639-9518-9cdcf97dcf7a")
 	)
-	(label "UHF_180"
-		(at 160.02 137.16 0)
+	(label "TERM3"
+		(at 134.62 137.16 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
-		(uuid "5fcb6d4d-e30d-56cf-8d80-ee6e697183c0")
+		(uuid "3e5a032d-e6c9-5daa-abe6-7db0e37cf434")
 	)
-	(label "UHF_270"
+	(label "UHF_180"
 		(at 160.02 142.24 0)
 		(effects
 			(font
@@ -1494,7 +1484,17 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "5e421c68-64d8-5067-b6ab-c0432d3e8ebb")
+		(uuid "3e380e41-eefe-52f1-830c-645bed7e1402")
+	)
+	(label "UHF_270"
+		(at 160.02 137.16 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "bf253caf-dd4c-5a91-af87-d4be2e06d895")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -1607,7 +1607,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
 			(at 147.32 170.18 0)
 			(hide yes)
 			(show_name no)
@@ -1629,7 +1629,7 @@
 				)
 			)
 		)
-		(property "Description" "Hybrid isolated-port load, 49.9 Ohm 1 %, >= 0.5 W (stowed TX can dump ~0.33 W here)"
+		(property "Description" "Hybrid isolated-port load, 49.9 Ohm 1 %, 2512, 1 W or more (stowed 1 W TX puts about 0.5 W in R302 and R303)"
 			(at 147.32 170.18 0)
 			(hide yes)
 			(show_name no)
@@ -1752,8 +1752,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "d0ff3040-2f8d-54e5-b06a-88da105f615c")
-		(property "Reference" "AE1"
+		(uuid "bbaa8718-7336-5426-8cc8-fd5f2528777d")
+		(property "Reference" "AE2"
 			(at 223.52 44.45 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1764,7 +1764,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Tape 0 deg"
+		(property "Value" "Tape north, 0 deg"
 			(at 223.52 46.99 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1797,7 +1797,7 @@
 				)
 			)
 		)
-		(property "Description" "Spring-steel tape element, 0 deg feed phase"
+		(property "Description" "Spring-steel tape element, north, 0 deg feed phase"
 			(at 220.98 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -1809,12 +1809,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "ff58406d-f589-5e2b-a865-9004c7d71de3")
+			(uuid "2118a83e-c5ab-5feb-8e7f-beb74e84aefc")
 		)
 		(instances
 			(project "antenna_top_cap_v3"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "AE1")
+					(reference "AE2")
 					(unit 1)
 				)
 			)
@@ -1840,8 +1840,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "c8c1b97f-9950-55cd-ad33-3508db885182")
-		(property "Reference" "AE2"
+		(uuid "2c51a062-70f3-5e1f-bdc5-da6304484d5e")
+		(property "Reference" "AE1"
 			(at 223.52 69.85 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1852,7 +1852,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Tape 90 deg"
+		(property "Value" "Tape east, 90 deg"
 			(at 223.52 72.39 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1885,7 +1885,7 @@
 				)
 			)
 		)
-		(property "Description" "Spring-steel tape element, 90 deg feed phase"
+		(property "Description" "Spring-steel tape element, east, 90 deg feed phase"
 			(at 220.98 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -1897,12 +1897,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "2118a83e-c5ab-5feb-8e7f-beb74e84aefc")
+			(uuid "ff58406d-f589-5e2b-a865-9004c7d71de3")
 		)
 		(instances
 			(project "antenna_top_cap_v3"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "AE2")
+					(reference "AE1")
 					(unit 1)
 				)
 			)
@@ -1928,8 +1928,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "8640ec4e-497d-523c-acc1-c9cb8b2540b9")
-		(property "Reference" "AE3"
+		(uuid "edacc855-6757-50f1-bb7f-85208eda1d3c")
+		(property "Reference" "AE4"
 			(at 223.52 120.65 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1940,7 +1940,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Tape 180 deg"
+		(property "Value" "Tape south, 180 deg"
 			(at 223.52 123.19 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1973,7 +1973,7 @@
 				)
 			)
 		)
-		(property "Description" "Spring-steel tape element, 180 deg feed phase"
+		(property "Description" "Spring-steel tape element, south, 180 deg feed phase"
 			(at 220.98 127 0)
 			(hide yes)
 			(show_name no)
@@ -1985,12 +1985,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "212823fb-c140-5fa1-b4ba-0dbf5487e044")
+			(uuid "93e86649-f68d-5395-8110-182f7ab5aade")
 		)
 		(instances
 			(project "antenna_top_cap_v3"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "AE3")
+					(reference "AE4")
 					(unit 1)
 				)
 			)
@@ -2016,8 +2016,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "b33a533d-2082-5818-bfd3-f12b9617cbac")
-		(property "Reference" "AE4"
+		(uuid "9196f69f-9cb3-5f6a-95a9-bf86819a5b97")
+		(property "Reference" "AE3"
 			(at 223.52 146.05 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2028,7 +2028,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Tape 270 deg"
+		(property "Value" "Tape west, 270 deg"
 			(at 223.52 148.59 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2061,7 +2061,7 @@
 				)
 			)
 		)
-		(property "Description" "Spring-steel tape element, 270 deg feed phase"
+		(property "Description" "Spring-steel tape element, west, 270 deg feed phase"
 			(at 220.98 152.4 0)
 			(hide yes)
 			(show_name no)
@@ -2073,12 +2073,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "93e86649-f68d-5395-8110-182f7ab5aade")
+			(uuid "212823fb-c140-5fa1-b4ba-0dbf5487e044")
 		)
 		(instances
 			(project "antenna_top_cap_v3"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "AE4")
+					(reference "AE3")
 					(unit 1)
 				)
 			)
@@ -2106,7 +2106,7 @@
 		)
 		(uuid "e517bc3d-03a4-51e6-a4a5-c187d1a21adf")
 	)
-	(text "Three MEGSINE MHC0410L03 hybrids (JLC C52139893). Port straight across from the input is coupled (0 deg),\nthe diagonal port is direct (-90 deg), the port beside the input is isolated and takes the 49.9 Ohm load.\n- U301 is fed on pin 2, so UHF_A (pin 4) is the -90 deg output and UHF_B (pin 3) the 0 deg output.\n- UHF_A is lambda_g/4 longer than UHF_B (94.1 mm at 437 MHz, e_eff 3.32): UHF_A arrives 180 deg behind UHF_B.\n- U302 and U303 are fed on pin 1: pin 4 is 0 deg, pin 3 is -90 deg. Each element lags the one before it by\n  90 deg in the order AE1, AE2, AE3, AE4 (the phase names are relative).\n- UHF_0/90/180/270 are length-matched. RF netclass: 0.3424 mm CPWG, 0.4 mm gap to the GND pour.\n- All RF corners are 45 deg. tools/check_rf.py checks the lengths, the pins and the corners."
+	(text "Right-hand circular out of the outer face (B.Cu, the side with the USB ports).\nThree MEGSINE MHC0410L03 hybrids (JLC C52139893). The port straight across from the input is coupled (0 deg),\nthe diagonal port is direct (-90 deg), the port beside the input is isolated and takes the 49.9 Ohm load.\n- All three are fed on pin 2: pin 3 is the 0 deg output and pin 4 the -90 deg output.\n- UHF_A is lambda_g/4 longer than UHF_B (94.1 mm at 437 MHz, e_eff 3.32): UHF_A arrives 180 deg behind UHF_B.\n- The feed phase lags north (AE2), east (AE1), south (AE4), west (AE3) in 90 deg steps. That is clockwise\n  seen from the inner face and counter-clockwise seen from the outer face.\n- UHF_0/90/180/270 are length-matched. RF netclass: 0.3424 mm CPWG, 0.4 mm gap to the GND pour.\n- All RF corners are 45 deg. tools/check_rf.py checks the lengths, the pins, the corners and the sense."
 		(exclude_from_sim no)
 		(at 25.4 30.48 0)
 		(effects
@@ -2115,7 +2115,7 @@
 			)
 			(justify left top)
 		)
-		(uuid "cf90d95b-7511-51e7-977e-6d9203f682c0")
+		(uuid "a1617761-a01d-5d35-8aeb-9e4aa2b5de5c")
 	)
 	(embedded_fonts no)
 )
