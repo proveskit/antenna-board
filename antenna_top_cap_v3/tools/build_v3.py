@@ -133,8 +133,9 @@ def no_fill(name, box, layers, no_vias=False):
     return z
 
 
-# No plane copper under the tape pads (over In1 at 0.21 mm each pad is about 8.6 pF across its feed), the same on
-# B.Cu for all four, and no F.Cu pour or vias on the strip the tape crosses between its pad and its slot.
+# The tape lies on its pad and on the strip from the pad to its slot. No copper there on any layer but the pad
+# itself: over In1 at 0.21 mm the pad alone was about 8.6 pF across its feed and the strip another 4 pF. Tracks may
+# still cross on B.Cu (SWD does under AE2: two 0.2 mm tracks 1.5 mm below the tape, about 0.06 pF each).
 TAPE_KEEPOUTS = []
 for f in [x for x in v.Footprints()]:
     if f.GetReference() in RF_REFS:
@@ -143,9 +144,8 @@ for f in [x for x in v.Footprints()]:
         for g in f.GraphicalItems():
             if g.GetLayer() == pcbnew.Edge_Cuts:
                 strip.Merge(g.GetBoundingBox())
-        pad_box.Inflate(mm(0.3))
         strip.Inflate(mm(0.3))
-        no_fill(f"{f.GetReference()} pad: no plane copper", pad_box, (pcbnew.In1_Cu, pcbnew.In2_Cu, pcbnew.B_Cu))
+        no_fill(f"{f.GetReference()} pad to slot: no plane copper", strip, (pcbnew.In1_Cu, pcbnew.In2_Cu, pcbnew.B_Cu))
         TAPE_KEEPOUTS.append(no_fill(f"{f.GetReference()} tape strip: no pour, no vias", strip, (pcbnew.F_Cu,), no_vias=True))
 
 RF_PLAN = rf_plan.plan()

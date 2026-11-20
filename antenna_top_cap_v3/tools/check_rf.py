@@ -11,10 +11,10 @@ Reads only the board and the schematic netlist, not tools/rf_plan.py, so a wrong
   position), which is right-hand circular out of B.Cu, the outer face with the USB ports,
 - a hybrid is flipped or its lands are not numbered 1 to 4 clockwise from the top left (datasheet figure 2, top view),
 - an isolated port's load is not 49.9 Ohm in 2512 to GND,
-- In1 ground is missing within 0.9 mm of any RF line or load stub, or anywhere under a hybrid body (the cleared
-  boxes under the tape pads and the MMCX pins excepted),
-- a tape pad still has In1, In2 or B.Cu copper under its centre, or F.Cu pour on the strip to its slot,
-- another net's F.Cu copper comes within 1.0 mm of an RF line,
+- In1 ground is missing within 1.0 mm of any RF line or load stub, or anywhere under a hybrid body (the cleared
+  boxes under the tapes and the MMCX pins excepted),
+- any zone copper on In1, In2 or B.Cu lies under a tape pad or the strip to its slot, or any F.Cu pour on them,
+- another net's F.Cu track, via or pad, or netless F.Cu copper, comes within 1.0 mm of an RF line,
 - GND stitching thins out: fewer than 60 vias within 1.6 mm of RF copper, or a point on an RF line more than
   4 mm from any GND via.
 """
@@ -151,9 +151,18 @@ for ref in sorted(r for r in comp if r.startswith("R30")):
 
 in1 = [z for z in b.Zones() if z.GetNetname() == "GND" and z.IsOnLayer(pcbnew.In1_Cu) and not z.GetIsRuleArea()]
 fill = in1[0].GetFilledPolysList(pcbnew.In1_Cu) if in1 else None
+def tape_box(ref):
+    """The tape's pad, its slot and the strip between them."""
+    bx = next(iter(fps[ref].Pads())).GetBoundingBox()
+    for g in fps[ref].GraphicalItems():
+        if g.GetLayer() == pcbnew.Edge_Cuts:
+            bx.Merge(g.GetBoundingBox())
+    return bx
+
+
 boxes = []
 for _, ref, _ in el:
-    bx = next(iter(fps[ref].Pads())).GetBoundingBox()
+    bx = tape_box(ref)
     bx.Inflate(pcbnew.FromMM(1.0))
     boxes.append(bx)
 gnd_vias = [t.GetPosition() for t in b.Tracks() if t.GetClass() == "PCB_VIA" and t.GetNetname() == "GND"]
@@ -171,7 +180,7 @@ def grounded(q):
 
 rf_tracks = [t for t in b.Tracks() if t.GetNetname() in NETS + STUBS and t.GetClass() == "PCB_TRACK"]
 for t in rf_tracks:
-    k = max(1, int(pcbnew.ToMM(t.GetLength()) / 0.25))
+    k = max(1, int(pcbnew.ToMM(t.GetLength()) / 0.1))
     dx, dy = t.GetEnd().x - t.GetStart().x, t.GetEnd().y - t.GetStart().y
     L = math.hypot(dx, dy) or 1
     for i in range(k + 1):
@@ -181,59 +190,44 @@ for t in rf_tracks:
             near.update(j for j, d_ in enumerate(ds) if d_ < pcbnew.FromMM(1.6))
         if any(bx.Contains(q) for bx in boxes) or any(math.hypot(h.x - q.x, h.y - q.y) < pcbnew.FromMM(2.6) for h in rf_holes):
             continue  # the cleared tape-pad boxes and the MMCX pins' antipads and thermals
-        for side in (-0.9, 0, 0.9):
+        for side in (-1.0, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1.0):
             grounded(pcbnew.VECTOR2I(int(q.x - dy / L * pcbnew.FromMM(side)), int(q.y + dx / L * pcbnew.FromMM(side))))
         if t.GetNetname() in NETS:
             far = max(far, pcbnew.ToMM(min(ds)))
 for ref in HYBRIDS:  # the whole body, 14.22 x 8.89 mm
     f = fps[ref]
     a = math.radians(f.GetOrientationDegrees())
-    for i in range(-7, 8):
-        for j in range(-4, 5):
-            lx, ly = pcbnew.FromMM(i), pcbnew.FromMM(j)
+    for i in range(-28, 29):
+        for j in range(-17, 18):
+            lx, ly = pcbnew.FromMM(i * 0.25), pcbnew.FromMM(j * 0.25)
             grounded(pcbnew.VECTOR2I(int(f.GetPosition().x + lx * math.cos(a) + ly * math.sin(a)), int(f.GetPosition().y - lx * math.sin(a) + ly * math.cos(a))))
 
+fills = [(layer, z.GetFilledPolysList(layer)) for z in b.Zones() if not z.GetIsRuleArea()
+         for layer in (pcbnew.F_Cu, pcbnew.In1_Cu, pcbnew.In2_Cu, pcbnew.B_Cu) if z.IsOnLayer(layer)]
 for _, ref, _ in el:
-    f = fps[ref]
-    pad = next(iter(f.Pads()))
-    q = pad.GetPosition()
-    for z in b.Zones():
-        if z.GetIsRuleArea():
-            continue
-        for layer in (pcbnew.In1_Cu, pcbnew.In2_Cu, pcbnew.B_Cu):
-            if z.IsOnLayer(layer) and z.GetFilledPolysList(layer).Contains(q):
-                fail(f"{ref} pad has {b.GetLayerName(layer)} copper under its centre")
-    slot = None
-    for g in f.GraphicalItems():
-        if g.GetLayer() == pcbnew.Edge_Cuts:
-            if slot is None:
-                slot = g.GetBoundingBox()
-            else:
-                slot.Merge(g.GetBoundingBox())
-    pb, sc = pad.GetBoundingBox(), slot.GetCenter()
-    # the middle of the strip: halfway between the pad's edge and the slot's edge, on the line joining their centres
-    ux, uy = sc.x - q.x, sc.y - q.y
-    pad_half = (pb.GetWidth() if abs(ux) > abs(uy) else pb.GetHeight()) / 2
-    slot_half = (slot.GetWidth() if abs(ux) > abs(uy) else slot.GetHeight()) / 2
-    d = math.hypot(ux, uy)
-    r = (pad_half + (d - slot_half)) / 2
-    strip = pcbnew.VECTOR2I(int(q.x + ux / d * r), int(q.y + uy / d * r))
-    for z in b.Zones():
-        if not z.GetIsRuleArea() and z.IsOnLayer(pcbnew.F_Cu) and z.GetFilledPolysList(pcbnew.F_Cu).Contains(strip):
-            fail(f"{ref} still has F.Cu pour on the strip between its pad and its slot")
+    bx = tape_box(ref)
+    hit = set()
+    for i in range(0, bx.GetWidth() + 1, pcbnew.FromMM(0.2)):
+        for j in range(0, bx.GetHeight() + 1, pcbnew.FromMM(0.2)):
+            q = pcbnew.VECTOR2I(bx.GetLeft() + i, bx.GetTop() + j)
+            hit.update(b.GetLayerName(layer) for layer, poly in fills if poly.Contains(q))
+    if hit:
+        fail(f"{ref}: zone copper on {sorted(hit)} under the tape (pad, strip or slot)")
 
-own = set(NETS + STUBS) | {"GND", ""}
+own = set(NETS + STUBS) | {"GND"}
 closest = (9e9, "")
-for o in b.Tracks():
-    if o.GetNetname() in own or (o.GetClass() == "PCB_TRACK" and o.GetLayer() != pcbnew.F_Cu):
-        continue
-    so = o.GetEffectiveShape(pcbnew.F_Cu)
+others = [(o.GetEffectiveShape(pcbnew.F_Cu), o.GetNetname() or "no net") for o in b.Tracks()
+          if o.GetNetname() not in own - {""} and (o.GetClass() == "PCB_VIA" or o.GetLayer() == pcbnew.F_Cu)]
+rf_refs = {r for n in NETS + STUBS for r, _ in want.get(n, [])}
+others += [(p.GetEffectiveShape(pcbnew.F_Cu), f"{f.GetReference()}.{p.GetNumber()}") for f in b.Footprints() if f.GetReference() not in rf_refs
+           for p in f.Pads() if p.IsOnLayer(pcbnew.F_Cu) and p.GetNetname() != "GND"]
+for so, name in others:
     for t in rf_tracks:
         if t.GetNetname() in NETS:
             c = so.GetClearance(t.GetEffectiveShape(pcbnew.F_Cu))
             if c < closest[0]:
-                closest = (c, o.GetNetname())
-print(f"closest other-net F.Cu track or via to an RF line: {pcbnew.ToMM(closest[0]):.2f} mm ({closest[1]})")
+                closest = (c, name)
+print(f"closest other-net or netless F.Cu track, via or pad to an RF line: {pcbnew.ToMM(closest[0]):.2f} mm ({closest[1]})")
 if closest[0] < pcbnew.FromMM(1.0):
     fail("another net's copper is within 1.0 mm of an RF line")
 print(f"In1 ground: {bare} bare sample points under RF copper; GND vias within 1.6 mm of RF copper: {len(near)}; farthest RF point from a GND via: {far:.2f} mm")
