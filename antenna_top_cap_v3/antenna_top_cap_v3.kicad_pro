@@ -638,7 +638,11 @@
       },
       {
         "netclass": "RF",
-        "pattern": "/RF/UHF_*"
+        "pattern": "/RF/*"
+      },
+      {
+        "netclass": "RF",
+        "pattern": "/UHF"
       }
     ]
   },

@@ -833,7 +833,29 @@
 				)
 			)
 		)
-		(property "Description" "Hybrid isolated-port load, 49.9 Ohm 1 %, 2512, 1 W or more (stowed 1 W TX puts about 0.5 W in R302 and R303)"
+		(property "Description" "Hybrid isolated-port load, 49.9 Ohm 1 %, 2512, 2 W (stowed 1 W TX puts about 0.5 W in R302 and R303)"
+			(at 76.2 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C723714"
+			(at 76.2 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RC2512FK-7W49R9L"
 			(at 76.2 132.08 0)
 			(hide yes)
 			(show_name no)
@@ -1231,7 +1253,29 @@
 				)
 			)
 		)
-		(property "Description" "Hybrid isolated-port load, 49.9 Ohm 1 %, 2512, 1 W or more (stowed 1 W TX puts about 0.5 W in R302 and R303)"
+		(property "Description" "Hybrid isolated-port load, 49.9 Ohm 1 %, 2512, 2 W (stowed 1 W TX puts about 0.5 W in R302 and R303)"
+			(at 147.32 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C723714"
+			(at 147.32 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RC2512FK-7W49R9L"
 			(at 147.32 93.98 0)
 			(hide yes)
 			(show_name no)
@@ -1629,7 +1673,29 @@
 				)
 			)
 		)
-		(property "Description" "Hybrid isolated-port load, 49.9 Ohm 1 %, 2512, 1 W or more (stowed 1 W TX puts about 0.5 W in R302 and R303)"
+		(property "Description" "Hybrid isolated-port load, 49.9 Ohm 1 %, 2512, 2 W (stowed 1 W TX puts about 0.5 W in R302 and R303)"
+			(at 147.32 170.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C723714"
+			(at 147.32 170.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RC2512FK-7W49R9L"
 			(at 147.32 170.18 0)
 			(hide yes)
 			(show_name no)

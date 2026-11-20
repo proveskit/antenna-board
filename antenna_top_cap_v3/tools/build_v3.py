@@ -113,6 +113,41 @@ def place(libdir, name, ref, at, rot):
     return f
 
 
+def no_fill(name, box, layers, no_vias=False):
+    z = pcbnew.ZONE(v)
+    z.SetIsRuleArea(True)
+    z.SetDoNotAllowZoneFills(True)
+    for flag in (z.SetDoNotAllowTracks, z.SetDoNotAllowPads, z.SetDoNotAllowFootprints):
+        flag(False)
+    z.SetDoNotAllowVias(no_vias)
+    ls = pcbnew.LSET()
+    for layer in layers:
+        ls.AddLayer(layer)
+    z.SetLayerSet(ls)
+    z.SetZoneName(name)
+    o = z.Outline()
+    o.NewOutline()
+    for x, y in ((box.GetLeft(), box.GetTop()), (box.GetRight(), box.GetTop()), (box.GetRight(), box.GetBottom()), (box.GetLeft(), box.GetBottom())):
+        o.Append(x, y)
+    v.Add(z)
+    return z
+
+
+# No plane copper under the tape pads (over In1 at 0.21 mm each pad is about 8.6 pF across its feed), the same on
+# B.Cu for all four, and no F.Cu pour or vias on the strip the tape crosses between its pad and its slot.
+TAPE_KEEPOUTS = []
+for f in [x for x in v.Footprints()]:
+    if f.GetReference() in RF_REFS:
+        pad_box = next(iter(f.Pads())).GetBoundingBox()
+        strip = pcbnew.BOX2I(pad_box.GetOrigin(), pad_box.GetSize())
+        for g in f.GraphicalItems():
+            if g.GetLayer() == pcbnew.Edge_Cuts:
+                strip.Merge(g.GetBoundingBox())
+        pad_box.Inflate(mm(0.3))
+        strip.Inflate(mm(0.3))
+        no_fill(f"{f.GetReference()} pad: no plane copper", pad_box, (pcbnew.In1_Cu, pcbnew.In2_Cu, pcbnew.B_Cu))
+        TAPE_KEEPOUTS.append(no_fill(f"{f.GetReference()} tape strip: no pour, no vias", strip, (pcbnew.F_Cu,), no_vias=True))
+
 RF_PLAN = rf_plan.plan()
 for ref, (at, rot) in rf_plan.HYBRIDS.items():
     place(f"{HERE}/footprints.pretty", "MHC0410L03", ref, at, rot)
@@ -123,7 +158,12 @@ for ref, (hyb, pin) in rf_plan.LOADS.items():
     half = math.dist(*[(pcbnew.ToMM(p.GetPosition().x), pcbnew.ToMM(p.GetPosition().y)) for p in r.Pads()]) / 2
     r.SetPosition(P(*rf_plan.go(pts[-1], d, half)))
     track(PINNET[(ref, "1")], pcbnew.F_Cu, rf_plan.WIDTH, *pts)
-    via("GND", rf_plan.go(pts[-1], d, 2 * half + 1.3))
+    for p in r.Pads():
+        if p.GetNumber() == "2":
+            p.SetLocalZoneConnection(pcbnew.ZONE_CONNECTION_FULL)
+    end = rf_plan.go(pts[-1], d, 2 * half + 1.3)
+    for side in (-1.2, 0, 1.2):  # three ground vias just past the ground pad
+        via("GND", (end[0] - d[1] * side, end[1] + d[0] * side))
 for name, pts in RF_PLAN.items():
     if name != "/UHF":
         track(name, pcbnew.F_Cu, rf_plan.WIDTH, *pts)
@@ -237,14 +277,14 @@ def offset(pts, d):
 
 # West of the TP6 keepout, then under the strip between AE2's pad and its slot on B.Cu (the tape lies on that strip
 # on F.Cu), back to F.Cu, around the outside of U302 and into J201 from the south.
-SWD_W = [(-10.15, -42.0), (-10.15, -31.5), (-8.65, -30.0), (-8.4, -30.0)]
-SWD_E = [(8.4, -30.0), (25.6, -30.0), (29.3, -26.3), (29.3, -14.3), (30.4, -13.2), (38.0, -13.2)]
+SWD_W = [(-10.15, -42.0), (-10.15, -31.65), (-8.65, -30.15), (-8.4, -30.15)]
+SWD_E = [(8.4, -30.15), (25.6, -30.15), (29.3, -26.45), (29.3, -14.3), (30.4, -13.2), (38.0, -13.2)]
 SWD = {"/Charger & SWD/SWCLK": ([(-1.046, -43.317), (-9.75, -43.317)],
-                                [(-9.75, -43.317)] + offset(SWD_W, 0.4)[:-1] + [(-7.3, -30.4)],
-                                [(8.9, -30.4)] + offset(SWD_E, 0.4)[1:] + [(38.354, -13.6), (38.954, -14.2), (38.954, -15.292)]),
+                                [(-9.75, -43.317)] + offset(SWD_W, 0.4)[:-1] + [(-7.3, -30.55)],
+                                [(8.9, -30.55)] + offset(SWD_E, 0.4)[1:] + [(38.354, -13.6), (38.954, -14.2), (38.954, -15.292)]),
        "/Charger & SWD/SWDIO": ([(0.954, -42.617), (-10.75, -42.617)],
-                                [(-10.75, -42.617), (-10.75, -42.4), (-10.55, -42.2)] + offset(SWD_W, -0.4)[:-1] + [(-8.3, -29.6)],
-                                [(7.9, -29.6)] + offset(SWD_E, -0.4)[1:] + [(40.354, -12.8), (40.954, -13.4), (40.954, -15.292)])}
+                                [(-10.75, -42.617), (-10.75, -42.4), (-10.55, -42.2)] + offset(SWD_W, -0.4)[:-1] + [(-8.3, -29.75)],
+                                [(7.9, -29.75)] + offset(SWD_E, -0.4)[1:] + [(40.354, -12.8), (40.954, -13.4), (40.954, -15.292)])}
 if STAGE >= 3:
     for name, (back, west, east) in SWD.items():
         for tr in V_TRACKS:  # keep only the B.Cu stub at J202
@@ -454,6 +494,9 @@ if STAGE >= 7:
             cut.NewOutline()
             for i in range(24):
                 cut.Append(int(q.x + r * math.cos(i * math.pi / 12)), int(q.y + r * math.sin(i * math.pi / 12)))
+        elif tr.GetClass() == "PCB_TRACK" and tr.GetLayer() == pcbnew.B_Cu and tr.GetNetname() and tr not in DEAD \
+                and (ART_BOX.Contains(tr.GetStart()) or ART_BOX.Contains(tr.GetEnd())):
+            tr.TransformShapeToPolygon(cut, pcbnew.B_Cu, mm(0.2), mm(0.005), pcbnew.ERROR_OUTSIDE)
     cut.Simplify()
 
     def mask_poly(ps):
@@ -469,10 +512,15 @@ if STAGE >= 7:
     for d in texts:
         if d.GetText() == "THE PLEIADES FIVE":  # along its band to the part the charger does not reach
             d.Move(pcbnew.VECTOR2I(mm(-8.5), 0))
-    for d in texts:
+    lines = [d for d in v.GetDrawings() if d.GetClass() == "PCB_SHAPE" and d.GetLayer() == pcbnew.B_Mask
+             and d.GetShape() == pcbnew.SHAPE_T_SEGMENT and d.GetBoundingBox().Intersects(ART_BOX)]
+    for d in texts + lines:
         if d.GetLayer() == pcbnew.B_Mask and d.GetBoundingBox().Intersects(ART_BOX):
             ps = pcbnew.SHAPE_POLY_SET()
-            d.TransformTextToPolySet(ps, 0, mm(0.005), pcbnew.ERROR_INSIDE)
+            if d.GetClass() == "PCB_TEXT":
+                d.TransformTextToPolySet(ps, 0, mm(0.005), pcbnew.ERROR_INSIDE)
+            else:
+                d.TransformShapeToPolygon(ps, pcbnew.B_Mask, 0, mm(0.005), pcbnew.ERROR_INSIDE)
             ps = mask_poly(ps)
             for i in range(ps.OutlineCount()):  # one shape per glyph piece
                 one = pcbnew.SHAPE_POLY_SET()
@@ -508,26 +556,6 @@ for z in dead_zones:
     v.Remove(z)
 for ref in ("B1", "J6"):
     v.Remove(FP[ref])
-
-# No plane copper under the tape pads: over In1 at 0.21 mm each pad is about 8.6 pF across its feed.
-for ref in RF_REFS:
-    box = next(iter(FP2[ref].Pads())).GetBoundingBox()
-    box.Inflate(mm(0.5))
-    z = pcbnew.ZONE(v)
-    z.SetIsRuleArea(True)
-    z.SetDoNotAllowZoneFills(True)
-    for flag in (z.SetDoNotAllowTracks, z.SetDoNotAllowVias, z.SetDoNotAllowPads, z.SetDoNotAllowFootprints):
-        flag(False)
-    ls = pcbnew.LSET()
-    ls.AddLayer(pcbnew.In1_Cu)
-    ls.AddLayer(pcbnew.In2_Cu)
-    z.SetLayerSet(ls)
-    z.SetZoneName(f"{ref} pad: no plane copper")
-    o = z.Outline()
-    o.NewOutline()
-    for x, y in ((box.GetLeft(), box.GetTop()), (box.GetRight(), box.GetTop()), (box.GetRight(), box.GetBottom()), (box.GetLeft(), box.GetBottom())):
-        o.Append(x, y)
-    v.Add(z)
 
 v.SynchronizeNetsAndNetClasses(False)  # new nets pick up the RF netclass (0.4 mm CPWG gap) before the fill
 pcbnew.ZONE_FILLER(v).Fill(v.Zones())

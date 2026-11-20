@@ -186,8 +186,8 @@ def hybrid(ref, x, y, nets):
 
 
 def load(ref, x, y, term):
-    r = Sym("Device:R", ref, "49.9", x, y, fp=R_FP,
-            desc="Hybrid isolated-port load, 49.9 Ohm 1 %, 2512, 1 W or more (stowed 1 W TX puts about 0.5 W in R302 and R303)",
+    r = Sym("Device:R", ref, "49.9", x, y, fp=R_FP, lcsc="C723714", mpn="RC2512FK-7W49R9L",
+            desc="Hybrid isolated-port load, 49.9 Ohm 1 %, 2512, 2 W (stowed 1 W TX puts about 0.5 W in R302 and R303)",
             ref_at=(x + 2.54, y - 1.27), val_at=(x + 2.54, y + 1.27))
     label(term, r.p("1"), 90)
     gnd(r.p("2"))
