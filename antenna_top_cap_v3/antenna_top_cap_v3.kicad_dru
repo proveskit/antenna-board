@@ -1,0 +1,6 @@
+(version 1)
+
+# /UHF is in the RF class (0.4 mm) but has to pass between the MMCX ground pins, 0.23 mm either side.
+(rule "UHF between the MMCX ground pins"
+	(condition "A.NetName == '/UHF' && B.memberOfFootprint('RF1')")
+	(constraint clearance (min 0.2mm)))

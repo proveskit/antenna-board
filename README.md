@@ -17,3 +17,9 @@ V2c plus USB charging and an SWD pass-through. See `antenna_top_cap_v2d/DECISION
 - 1.5 A fuse plus a 0 Ohm "CHG LINK" (R210, outer face) between the charger and the battery. Hot-air R210 off before flight.
 - Green LED: USB 5 V present. Red LED: charging (blinks on a fault).
 - J201 (inner face) to J202 (outer face) JST-SH SWD pass-through, same pinout as the FC's J22.
+
+## antenna_top_cap_v3
+V2d with the dipole replaced by the circularly polarized canted turnstile (OreSat0 heritage, from `proves_canted_turnstile` on `Turnstile-Test-Board`). Harness, jumpers, holes, sensors, charger and SWD are V2d's, so it drops into the same structure with the same firmware. See `antenna_top_cap_v3/DECISIONS.md`.
+- Four tape elements fed 0/90/180/270 deg by three Mini-Circuits QBA-07+ hybrids and a quarter-wave delay line.
+- One MMCX (RF1), moved next to the feed network.
+- `tools/check_rf.py` proves the RF copper matches the turnstile; `tools/check_interface.py` proves the interface parts match V2d.
