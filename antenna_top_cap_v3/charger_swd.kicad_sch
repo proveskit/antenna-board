@@ -7367,7 +7367,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_SH_BM03B-SRSS-TB_1x03-1MP_P1.00mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_SH_SM03B-SRSS-TB_1x03-1MP_P1.00mm_Horizontal"
 			(at 96.52 160.02 0)
 			(hide yes)
 			(show_name no)
@@ -7389,7 +7389,7 @@
 				)
 			)
 		)
-		(property "Description" "Outer side; Raspberry Pi Debug Probe pinout"
+		(property "Description" "Outer side, top edge next to the USB ports, right angle; Raspberry Pi Debug Probe pinout"
 			(at 96.52 160.02 0)
 			(hide yes)
 			(show_name no)
@@ -7400,7 +7400,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C160389"
+		(property "LCSC" "C160403"
 			(at 96.52 160.02 0)
 			(hide yes)
 			(show_name no)
@@ -7411,7 +7411,7 @@
 				)
 			)
 		)
-		(property "MPN" "BM03B-SRSS-TB(LF)(SN)"
+		(property "MPN" "SM03B-SRSS-TB(LF)(SN)"
 			(at 96.52 160.02 0)
 			(hide yes)
 			(show_name no)
@@ -7696,7 +7696,7 @@
 		)
 		(uuid "9cd236a3-ad1f-59f0-ae80-a5bb38fc0665")
 	)
-	(text "FC J22 is unreachable on an assembled cube. A 1:1 JST-SH 3-pin cable (pin 1 to pin 1)\nruns from FC J22 to J201 on the inner side; J202 on the outer side takes the Raspberry Pi\nDebug Probe cable. Pinout matches FC J22: 1 SWCLK, 2 GND, 3 SWDIO. No parts in series."
+	(text "FC J22 is unreachable on an assembled cube. A 1:1 JST-SH 3-pin cable (pin 1 to pin 1)\nruns from FC J22 to J201 on the inner side; J202 (right angle, outer side top edge, next to\nthe USB ports) takes the Raspberry Pi Debug Probe cable. Pinout matches FC J22: 1 SWCLK, 2 GND, 3 SWDIO. No parts in series."
 		(exclude_from_sim no)
 		(at 25.4 172.72 0)
 		(effects

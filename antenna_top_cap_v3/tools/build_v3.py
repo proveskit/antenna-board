@@ -4,39 +4,30 @@
 usage: build_v3.py <v2d board> <turnstile board> <netlist.xml> <kicad footprints dir> <out board> [stage]
 Starts from the V2d board every run, so reruns are idempotent.
   1. Drop the dipole: B1, J6, their nets, and the dipole-window keepouts / balun ground island.
-  2. Transplant the turnstile RF block (U1-U3, R1-R3, AE1-AE4, RF tracks, GND stitching) at its own
-     coordinates. Lengths of the 90-degree delay line and element feeds are kept exactly.
+  2. Take the four tape element pads (AE1-AE4) from the turnstile board at their own coordinates, then place
+     the three MHC0410L03 hybrids and their 1206 loads and route the feed network from tools/rf_plan.py.
   3. Move the charger block (rigid) off the +Y-up (north) element, and re-run its two outside links.
-  4. Move J7 (burn wire) and RF1 (MMCX) out of the delay line, route BURN and the UHF feed.
-  5. Drop GND stitching vias that now land on other copper, holes, slots or keepouts.
-  6. Bind the RF footprints to the V3 schematic (library IDs, values, fields, symbol paths); the hybrid
-     isolated-port loads become 1206 parts with the TERM pad where the 0603 TERM pad was.
+  4. Move RF1 (MMCX) next to U301 and route the UHF feed. J7 (burn wire) stays where V2d has it.
+  5. Stitch GND vias along the RF lines and drop any that land on other copper, holes, slots or keepouts.
+  6. Bind the RF footprints to the V3 schematic (library IDs, values, fields, symbol paths).
 """
 import math
+import os
 import sys
 import xml.etree.ElementTree as ET
 
 import pcbnew
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import rf_plan  # noqa: E402
+
 V2D, TURN, NETLIST, FPDIR, OUT = sys.argv[1:6]
 STAGE = int(sys.argv[6]) if len(sys.argv) > 6 else 9
 mm = pcbnew.FromMM
 
-RF_REFS = ["U1", "U2", "U3", "R1", "R2", "R3", "AE1", "AE2", "AE3", "AE4"]
-REF_V3 = {"U1": "U301", "U2": "U302", "U3": "U303", "R1": "R301", "R2": "R302", "R3": "R303"}  # V2d already uses R1, U3
+RF_REFS = ["AE1", "AE2", "AE3", "AE4"]
 # turnstile net -> V3 schematic net
-NETMAP = {
-    "/UHF": "/UHF",
-    "/UHF-SHORT": "/RF/UHF_A",
-    "/UHF-SHORT+1{slash}4WAVE": "/RF/UHF_B",
-    "/UHF_0": "/RF/UHF_0",
-    "/UHF_90": "/RF/UHF_90",
-    "/UHF_180": "/RF/UHF_180",
-    "/UHF_270": "/RF/UHF_270",
-    "Net-(U1-TERM)": "/RF/TERM1",
-    "Net-(U2-TERM)": "/RF/TERM2",
-    "Net-(U3-TERM)": "/RF/TERM3",
-}
+NETMAP = {"/UHF_0": "/RF/UHF_0", "/UHF_90": "/RF/UHF_90", "/UHF_180": "/RF/UHF_180", "/UHF_270": "/RF/UHF_270"}
 CHG_REFS = ["U201", "L201", "C201", "C202", "C204", "C205", "C206", "C207", "C208", "C209", "F201",
             "R201", "R202", "R203", "R204", "R205", "R206", "R207", "R210", "D201", "D202"]
 CHG_OFF = (-11.0, -2.0)
@@ -94,45 +85,49 @@ def via(netname, at, dia=0.6, drill=0.3):
     v.Add(vi)
 
 
-# ---- 2. transplant (adds first: removing items before iterating others upsets the SWIG wrappers)
-rf_src = [tr for tr in T_TRACKS if tr.GetNetname() in NETMAP and tr.GetNetname() != "/UHF"]
-
-
-def near_rf(pos, r=4.0e6):
-    for tr in rf_src:
-        if tr.GetClass() == "PCB_VIA":
-            continue
-        a, b = tr.GetStart(), tr.GetEnd()
-        dx, dy = b.x - a.x, b.y - a.y
-        L2 = dx * dx + dy * dy or 1
-        u = max(0, min(1, ((pos.x - a.x) * dx + (pos.y - a.y) * dy) / L2))
-        if math.hypot(a.x + u * dx - pos.x, a.y + u * dy - pos.y) < r:
-            return True
-    return False
-
-
+# ---- 2. tape element pads from the turnstile (adds first: removing items before iterating others upsets SWIG)
 NEW_VIAS = []
 for f in T_FPS:
     if f.GetReference() not in RF_REFS:
         continue
     nf = pcbnew.FOOTPRINT(f)
-    nf.SetReference(REF_V3.get(f.GetReference(), f.GetReference()))
     for p in nf.Pads():
         if p.GetNetname():
-            p.SetNet(net(NETMAP.get(p.GetNetname(), p.GetNetname())))
+            p.SetNet(net(NETMAP[p.GetNetname()]))
     v.Add(nf)
     nf.Move(delta)
-for tr in T_TRACKS:
-    n = tr.GetNetname()
-    keep = (n in NETMAP and n != "/UHF") or (tr.GetClass() == "PCB_VIA" and n == "GND" and near_rf(tr.GetPosition()))
-    if not keep:
-        continue
-    nt = tr.Duplicate().Cast()
-    nt.SetNet(net(NETMAP.get(n, n)))
-    v.Add(nt)
-    if nt.GetClass() == "PCB_VIA":
-        NEW_VIAS.append(nt.GetPosition())
-    nt.Move(delta)
+
+_root = ET.parse(NETLIST).getroot()
+COMPS = {c.get("ref"): c for c in _root.iter("comp")}
+PINNET = {(n2.get("ref"), n2.get("pin")): n.get("name") for n in _root.iter("net") for n2 in n.iter("node")}
+IO = pcbnew.PCB_IO_MGR.FindPlugin(pcbnew.PCB_IO_MGR.KICAD_SEXP)
+HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+def place(libdir, name, ref, at, rot):
+    f = IO.FootprintLoad(libdir, name)
+    f.SetReference(ref)
+    v.Add(f)
+    f.SetPosition(P(*at))
+    f.SetOrientationDegrees(rot)
+    for p in f.Pads():
+        if p.GetNumber():
+            p.SetNet(net(PINNET[(ref, p.GetNumber())]))
+    f.Reference().SetVisible(False)  # V2d shows only connector refs on silk
+    return f
+
+
+RF_PLAN = rf_plan.plan()
+for ref, (at, rot) in rf_plan.HYBRIDS.items():
+    place(f"{HERE}/footprints.pretty", "MHC0410L03", ref, at, rot)
+for ref, (hyb, pin) in rf_plan.LOADS.items():
+    pts, centre, d = rf_plan.term(hyb, pin)
+    # pad 1 (TERM) faces the hybrid: the pad-1-to-pad-2 axis points along d
+    place(f"{FPDIR}/Resistor_SMD.pretty", "R_1206_3216Metric", ref, centre, math.degrees(math.atan2(-d[1], d[0])))
+    track(PINNET[(ref, "1")], pcbnew.F_Cu, rf_plan.WIDTH, *pts)
+for name, pts in RF_PLAN.items():
+    if name != "/UHF":
+        track(name, pcbnew.F_Cu, rf_plan.WIDTH, *pts)
 
 FP = {f.GetReference(): f for f in [x for x in v.Footprints()]}
 
@@ -197,8 +192,9 @@ def seg(netname, a, b, tol=0.05):
 VB = "/Charger & SWD/VBUS_CHG"
 if STAGE >= 3:
     # The VBUS trunk from J204 used to run along y -32.72, which is now the north element's slot.
-    DEAD.append(seg(VB, (7.4, -32.72), (-9.15, -32.72)))
-    DEAD.append(seg(VB, (7.4, -39.92), (7.4, -32.72)))
+    DEAD.append(seg(VB, (6.9, -32.72), (-9.15, -32.72)))
+    DEAD.append(seg(VB, (7.4, -33.22), (6.9, -32.72)))
+    DEAD.append(seg(VB, (7.4, -39.92), (7.4, -33.22)))
     chg_nets = {p.GetNetname() for r in CHG_REFS for p in FP[r].Pads()} - {VB}
     move_block(CHG_REFS, *CHG_OFF, only_nets=chg_nets)
     for tr in V_TRACKS:  # charger-internal VBUS copper moves with the block
@@ -207,7 +203,7 @@ if STAGE >= 3:
             if pcbnew.ToMM(q.y) - CY > -35.0 and pcbnew.ToMM(q.x) - CX < 0:
                 tr.Move(pcbnew.VECTOR2I(mm(CHG_OFF[0]), mm(CHG_OFF[1])))
     vd = (-9.15 + CHG_OFF[0], -32.72 + CHG_OFF[1])
-    track(VB, pcbnew.B_Cu, 1.0, (7.4, -39.92), (7.4, -35.2), (vd[0] + 0.52, -35.2), vd)
+    track(VB, pcbnew.B_Cu, 1.0, (7.404, -39.917), (7.404, -35.7), (6.904, -35.2), (vd[0] + 0.483, -35.2), vd)
     track(VB, pcbnew.B_Cu, 0.3, (-2.77 + CHG_OFF[0], -32.72 + CHG_OFF[1]), (-2.77 + CHG_OFF[0], -35.2))  # R206 stub onto the trunk centreline
 
     # SCL1/SDA1 to the VEML6031 crossed the west element feed on F.Cu: drop them to B.Cu at the pull-ups.
@@ -225,7 +221,37 @@ if STAGE >= 3:
     via("SDA1", (-14.4, 2.6))
     track("SDA1", pcbnew.B_Cu, 0.152, (-14.4, 2.6), (-25.54, 13.74), (-33.55, 13.74))
 
-# ---- 4. burn wire and MMCX out of the delay line
+# ---- 3b. SWD from J202 (top edge) to J201: V2d runs it on F.Cu through what is now the charger and the RF block
+def offset(pts, d):
+    """Parallel polyline d mm to the left of travel (y down, so left of south is east), mitred corners."""
+    out = []
+    for i, p in enumerate(pts):
+        ns = []
+        for a, b in zip(pts[max(i - 1, 0):i + 1], pts[max(i, 1):i + 2]):
+            L = math.dist(a, b)
+            ns.append(((b[1] - a[1]) / L, -(b[0] - a[0]) / L))
+        nx, ny = sum(n[0] for n in ns), sum(n[1] for n in ns)
+        k = d / (nx * ns[0][0] + ny * ns[0][1])
+        out.append((p[0] + nx * k, p[1] + ny * k))
+    return out
+
+
+SWD_MID = [(-10.15, -42.0), (-10.15, -31.5), (-8.65, -30.0), (25.6, -30.0), (29.3, -26.3), (29.3, -14.3), (30.4, -13.2), (38.0, -13.2)]
+SWD = {"/Charger & SWD/SWCLK": ([(-1.046, -43.317), (-9.85, -43.317)],
+                                [(-9.85, -43.317)] + offset(SWD_MID, 0.3) + [(38.45, -13.5), (38.954, -14.004), (38.954, -15.292)]),
+       "/Charger & SWD/SWDIO": ([(0.954, -42.617), (-10.65, -42.617)],
+                                [(-10.65, -42.617), (-10.65, -42.4), (-10.45, -42.2)] + offset(SWD_MID, -0.3)
+                                + [(40.454, -12.9), (40.954, -13.4), (40.954, -15.292)])}
+if STAGE >= 3:
+    for name, (back, front) in SWD.items():
+        for tr in V_TRACKS:  # keep only the B.Cu stub at J202
+            if tr.GetNetname() == name and (tr.GetClass() == "PCB_VIA" or tr.GetLayer() == pcbnew.F_Cu or tr.GetLength() > mm(5)):
+                DEAD.append(tr)
+        track(name, pcbnew.B_Cu, 0.2, *back)
+        via(name, front[0])
+        track(name, pcbnew.F_Cu, 0.2, *front)
+
+# ---- 4. MMCX next to U301
 def gnd_in(x0, y0, x1, y1):
     """V2d GND tracks with both ends inside a board-centred box."""
     A, B = P(x0, y0), P(x1, y1)
@@ -233,18 +259,17 @@ def gnd_in(x0, y0, x1, y1):
     return [tr for tr in V_TRACKS if tr.GetNetname() == "GND" and tr.GetClass() != "PCB_VIA" and ins(tr.GetStart()) and ins(tr.GetEnd())]
 
 
-# GND ties left floating once J7 moves and B1 goes; a floating track takes the net of whatever it touches on fill.
-DEAD.extend(gnd_in(-12.0, 9.8, -5.0, 14.0))  # J7 pin-2 ties
-DEAD.extend(gnd_in(-1.6, 13.5, 0.3, 19.0))  # B1 ground
+# GND ties left floating once B1 goes; a floating track takes the net of whatever it touches on fill.
+DEAD.extend(gnd_in(-1.6, 13.5, 0.3, 19.0))
 if STAGE >= 4:
-    move_block(["J7"], 0, 8.5, only_nets={"BURN"}, bridge=True)
     rf1 = FP["RF1"]
-    rf1.SetPosition(P(24.15, 28.35))
-    rf1.SetOrientationDegrees(45)
+    rf1.SetPosition(P(*RF_PLAN["/UHF"][-1]))
+    rf1.SetOrientationDegrees(rf_plan.RF1_ROT)
     for p in rf1.Pads():
         if p.GetNumber() == "5":
             p.SetNet(net("/UHF"))
-    track("/UHF", pcbnew.F_Cu, 0.3424, P(24.15, 28.35), pad("U301", "1").GetPosition())
+    track("/UHF", pcbnew.F_Cu, rf_plan.WIDTH, *RF_PLAN["/UHF"])
+
 
 # ---- 5. GND stitching vias that now sit on other copper, holes, slots or keepouts
 def seg_dist(q, a, b):
@@ -254,13 +279,34 @@ def seg_dist(q, a, b):
     return math.hypot(a.x + u * dx - q.x, a.y + u * dy - q.y)
 
 
+def stitch(pts, off=1.05, pitch=2.5):
+    """GND vias both sides of a polyline; the cull below drops the ones that do not fit."""
+    for a, b in zip(pts, pts[1:]):
+        L = math.dist(a, b)
+        n = int(L // pitch)
+        ux, uy = (b[0] - a[0]) / L, (b[1] - a[1]) / L
+        for i in range(n + 1):
+            t = (L - n * pitch) / 2 + i * pitch
+            for sgn in (-1, 1):
+                q = P(a[0] + ux * t - uy * off * sgn, a[1] + uy * t + ux * off * sgn)
+                via("GND", q)
+                NEW_VIAS.append(q - delta)
+
+
 if STAGE >= 5:
+    for pts in RF_PLAN.values():
+        stitch(pts)
     CLR = mm(0.25)
+    RF_CLR = mm(0.45)  # RF netclass clearance is 0.4 mm
     items = [x for x in v.Tracks()]
-    pads = [p for f in [x for x in v.Footprints()] for p in f.Pads()]
+    going = {p.GetNetname() for r in ("B1", "J6") for p in FP[r].Pads()} - {"GND", ""}
+    staying = [f for f in [x for x in v.Footprints()] if f.GetReference() not in ("B1", "J6")]  # the dipole parts go in step 1
+    pads = [p for f in staying for p in f.Pads()]
     edges = [d for d in v.GetDrawings() if d.GetLayer() == pcbnew.Edge_Cuts]
-    edges += [g for f in [x for x in v.Footprints()] for g in f.GraphicalItems() if g.GetLayer() == pcbnew.Edge_Cuts]
-    keepouts = [z for z in v.Zones() if z.GetIsRuleArea() and z.GetDoNotAllowVias() and z not in dead_zones_pre]
+    edges += [g for f in staying for g in f.GraphicalItems() if g.GetLayer() == pcbnew.Edge_Cuts]
+    gone = {(z.GetBoundingBox().GetX(), z.GetBoundingBox().GetY()) for z in dead_zones_pre}  # SWIG wrappers do not compare equal
+    keepouts = [z for z in v.Zones() if z.GetIsRuleArea() and z.GetDoNotAllowVias()
+                and (z.GetBoundingBox().GetX(), z.GetBoundingBox().GetY()) not in gone]
     dead_ids = {id(x) for x in DEAD}
     culled = 0
     for vi in items:
@@ -270,7 +316,7 @@ if STAGE >= 5:
         mine = any(abs(q.x - w.x - delta.x) < 10 and abs(q.y - w.y - delta.y) < 10 for w in NEW_VIAS)
         bad = False
         for tr in items:
-            if tr is vi:
+            if tr is vi or tr.GetNetname() in going:
                 continue
             if tr.GetNetname() == "GND":
                 if mine and tr.GetClass() == "PCB_VIA" and not any(tr is d for d in DEAD) and math.hypot(
@@ -283,12 +329,14 @@ if STAGE >= 5:
             if tr.GetClass() == "PCB_VIA":
                 bad = math.hypot(tr.GetPosition().x - q.x, tr.GetPosition().y - q.y) < r + tr.GetWidth() / 2 + CLR
             else:
-                bad = seg_dist(q, tr.GetStart(), tr.GetEnd()) < r + tr.GetWidth() / 2 + CLR
+                rf = tr.GetNetname().startswith(("/RF/", "/UHF"))
+                bad = seg_dist(q, tr.GetStart(), tr.GetEnd()) < r + tr.GetWidth() / 2 + (RF_CLR if rf else CLR)
             if bad:
                 break
         if not bad and mine:
             for p in pads:
-                if p.GetNetname() != "GND" and p.GetEffectiveShape(p.GetLayerSet().Seq()[0]).Collide(q, int(r + CLR)):
+                gap = RF_CLR if p.GetNetname() != "GND" else mm(0.15)  # no stitching via in a GND land either
+                if p.GetLayerSet().Seq() and p.GetEffectiveShape(p.GetLayerSet().Seq()[0]).Collide(q, int(r + gap)):
                     bad = True
                     break
                 if p.HasHole() and math.hypot(p.GetPosition().x - q.x, p.GetPosition().y - q.y) < vi.GetDrillValue() / 2 + max(p.GetDrillSize().x, p.GetDrillSize().y) / 2 + mm(0.3):
@@ -307,14 +355,14 @@ if STAGE >= 5:
         if bad:
             DEAD.append(vi)
             culled += 1
+            if not mine and any(tr.GetClass() != "PCB_VIA" and tr.GetNetname() == "GND" and q in (tr.GetStart(), tr.GetEnd()) for tr in items):
+                sys.exit(f"V2d GND via with a track on it would be culled at {pcbnew.ToMM(q.x) - CX:.2f}, {pcbnew.ToMM(q.y) - CY:.2f}")
     print("GND vias culled", culled)
 
 # ---- 6. bind RF footprints to the schematic
 if STAGE >= 6:
-    root = ET.parse(NETLIST).getroot()
-    comps = {c.get("ref"): c for c in root.iter("comp")}
-    pinnet = {(n2.get("ref"), n2.get("pin")): n.get("name") for n in root.iter("net") for n2 in n.iter("node")}
-    IO = pcbnew.PCB_IO_MGR.FindPlugin(pcbnew.PCB_IO_MGR.KICAD_SEXP)
+    FP2 = {f.GetReference(): f for f in [x for x in v.Footprints()]}
+    comps = COMPS
 
     def bind(fp, ref):
         c = comps[ref]
@@ -323,7 +371,7 @@ if STAGE >= 6:
         fp.SetValue(c.findtext("value"))
         fp.SetPath(pcbnew.KIID_PATH(c.find("sheetpath").get("tstamps") + c.findtext("tstamps")))
         fields = {f.get("name"): f.text or "" for f in c.iter("field")}
-        for fname in ("MPN", "Description", "Datasheet"):
+        for fname in ("MPN", "LCSC", "Description", "Datasheet"):
             if fields.get(fname):
                 fld = fp.GetField(fname) if fp.HasField(fname) else None
                 if fld is None:
@@ -332,33 +380,10 @@ if STAGE >= 6:
                 fld.SetText(fields[fname])
                 fld.SetVisible(False)
 
-    for ref in ["U301", "U302", "U303", "AE1", "AE2", "AE3", "AE4", "RF1"]:
-        bind(FP[ref], ref)
+    for ref in ["U301", "U302", "U303", "R301", "R302", "R303", "AE1", "AE2", "AE3", "AE4", "RF1"]:
+        bind(FP2[ref], ref)
     for ref in ["AE1", "AE2", "AE3", "AE4"]:
-        FP[ref].SetAttributes(pcbnew.FP_SMD)
-    for ref in ["U301", "U302", "U303"]:
-        FP[ref].Reference().SetVisible(False)  # V2d shows only connector refs on silk
-    for ref in ["R301", "R302", "R303"]:
-        old = FP[ref]
-        pads = {p.GetNumber(): p.GetPosition() for p in old.Pads()}
-        term, gndp = pads["2"], pads["1"]  # turnstile R1-R3: pad 2 on TERM, pad 1 on GND
-        new = IO.FootprintLoad(f"{FPDIR}/Resistor_SMD.pretty", "R_1206_3216Metric")
-        new.SetReference(ref)
-        v.Add(new)
-        ux, uy = gndp.x - term.x, gndp.y - term.y
-        for deg in range(0, 360, 45):
-            new.SetOrientationDegrees(deg)
-            new.SetPosition(pcbnew.VECTOR2I(0, 0))
-            q = {p.GetNumber(): p.GetPosition() for p in new.Pads()}
-            dx, dy = q["2"].x - q["1"].x, q["2"].y - q["1"].y
-            if dx * ux + dy * uy > 0.99 * math.hypot(dx, dy) * math.hypot(ux, uy):
-                break
-        new.SetPosition(pcbnew.VECTOR2I(term.x - q["1"].x, term.y - q["1"].y))
-        for p in new.Pads():
-            p.SetNet(net(pinnet[(ref, p.GetNumber())]))
-        bind(new, ref)
-        new.Reference().SetVisible(False)
-        DEAD.append(old)
+        FP2[ref].SetAttributes(pcbnew.FP_SMD)
 
 # ---- 7. silk and art
 if STAGE >= 7:
@@ -370,6 +395,8 @@ if STAGE >= 7:
     for d in texts:
         if d.GetText() == "REMOVE FOR FLIGHT":  # R210 label sat just outside the charger box
             d.Move(pcbnew.VECTOR2I(mm(CHG_OFF[0]), mm(CHG_OFF[1])))
+        if d.GetText() == "This is where the magic happens":  # sat on U301
+            d.Move(pcbnew.VECTOR2I(0, mm(-3.6)))
         if d.GetText().startswith("3PySquared Antenna Board"):
             d.SetText(d.GetText().replace("\nV2d\n", "\nV3 (CP turnstile)\n"))
     # The inner-face PDF logo and its caption now sit on the charger: move them to the free south-west corner.

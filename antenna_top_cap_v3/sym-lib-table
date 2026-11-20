@@ -8,5 +8,5 @@
 	(lib (name "Antenna") (type "KiCad") (uri "${KIPRJMOD}/symbols/PCT2075DP_118.kicad_sym") (options "") (descr ""))
 	(lib (name "PCT2075DP_118") (type "KiCad") (uri "${KIPRJMOD}/symbols/PCT2075DP_118.kicad_sym") (options "") (descr ""))
 	(lib (name "BM04B-SRSS-TB_LF__SN_") (type "KiCad") (uri "${KIPRJMOD}/symbols/BM04B-SRSS-TB_LF__SN_.kicad_sym") (options "") (descr ""))
-	(lib (name "turnstile_rf") (type "KiCad") (uri "${KIPRJMOD}/symbols/turnstile_rf.kicad_sym") (options "") (descr "Mini-Circuits QBA-07+ 90 degree hybrid"))
+	(lib (name "turnstile_rf") (type "KiCad") (uri "${KIPRJMOD}/symbols/turnstile_rf.kicad_sym") (options "") (descr "Turnstile feed hybrids"))
 )

@@ -6,25 +6,24 @@
 	(paper "A4")
 	(title_block
 		(title "Antenna Board V3: turnstile CP feed")
-		(date "2026-11-14")
+		(date "2026-11-19")
 		(rev "V3")
 		(company "PROVES Kit / Open Source Space Foundation")
 	)
 	(lib_symbols
-		(symbol "turnstile_rf:QBA-07+"
+		(symbol "turnstile_rf:MHC0410L03"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "U"
-				(at -10.16 -10.16 0)
+				(at -10.16 8.89 0)
 				(effects
 					(font
-						(size 1.778 1.5113)
+						(size 1.27 1.27)
 					)
-					(justify left bottom)
 				)
 			)
-			(property "Value" ""
+			(property "Value" "MHC0410L03"
 				(at 0 0 0)
 				(effects
 					(font
@@ -33,7 +32,7 @@
 					(hide yes)
 				)
 			)
-			(property "Footprint" "plusz-end-card-with-turnstile-mezzanine:QBA-07+"
+			(property "Footprint" "Antenna_board:MHC0410L03"
 				(at 0 0 0)
 				(effects
 					(font
@@ -42,7 +41,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" ""
+			(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/46836830f8b0c6affe7c26a253a585e6.pdf"
 				(at 0 0 0)
 				(effects
 					(font
@@ -51,7 +50,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" ""
+			(property "Description" "3 dB 90 degree hybrid coupler, 400-1000 MHz, 100 W"
 				(at 0 0 0)
 				(effects
 					(font
@@ -60,230 +59,68 @@
 					(hide yes)
 				)
 			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "QBA-07+_1_0"
-				(polyline
-					(pts
-						(xy -10.16 5.08) (xy 10.16 5.08)
-					)
+			(symbol "MHC0410L03_1_1"
+				(rectangle
+					(start -10.16 7.62)
+					(end 10.16 -7.62)
 					(stroke
 						(width 0.1524)
 						(type solid)
 					)
 					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -10.16 -7.62) (xy -10.16 5.08)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 10.16 5.08) (xy 10.16 -7.62)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 10.16 -7.62) (xy -10.16 -7.62)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(text "QBA-07+"
-					(at -5.08 -2.54 0)
-					(effects
-						(font
-							(size 1.778 1.5113)
-						)
-						(justify left bottom)
+						(type background)
 					)
 				)
 				(pin passive line
 					(at -12.7 2.54 0)
 					(length 2.54)
-					(name "SUM"
+					(name "P1"
 						(effects
 							(font
-								(size 1.524 1.524)
+								(size 1.27 1.27)
 							)
 						)
 					)
 					(number "1"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
 				(pin passive line
-					(at -12.7 -5.08 0)
+					(at -12.7 -2.54 0)
 					(length 2.54)
-					(name "TERM"
+					(name "P2"
 						(effects
 							(font
-								(size 1.524 1.524)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 0 -10.16 90)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 					(number "2"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
-				(pin power_in line
-					(at 0 -10.16 90)
+				(pin passive line
+					(at 12.7 -2.54 180)
 					(length 2.54)
-					(name "GND"
+					(name "P3"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 					(number "3"
 						(effects
 							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 0 -10.16 90)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 0 -10.16 90)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 0 -10.16 90)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 0 -10.16 90)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 0 -10.16 90)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "GND-NO-PAD"
-						(effects
-							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
@@ -291,35 +128,35 @@
 				(pin passive line
 					(at 12.7 2.54 180)
 					(length 2.54)
-					(name "0"
+					(name "P4"
 						(effects
 							(font
-								(size 1.524 1.524)
+								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "6"
+					(number "4"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
-				(pin passive line
-					(at 12.7 -5.08 180)
+				(pin power_in line
+					(at 0 -10.16 90)
 					(length 2.54)
-					(name "90"
+					(name "GND"
 						(effects
 							(font
-								(size 1.524 1.524)
+								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "10"
+					(number "5"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
@@ -711,7 +548,7 @@
 		)
 	)
 	(symbol
-		(lib_id "turnstile_rf:QBA-07+")
+		(lib_id "turnstile_rf:MHC0410L03")
 		(at 76.2 101.6 0)
 		(unit 1)
 		(body_style 1)
@@ -722,7 +559,7 @@
 		(dnp no)
 		(uuid "59a1a151-7c7c-57ad-86c7-63d83875ae82")
 		(property "Reference" "U301"
-			(at 78.74 100.33 0)
+			(at 66.04 92.71 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -732,7 +569,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "QBA-07+"
+		(property "Value" "MHC0410L03"
 			(at 78.74 102.87 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -743,7 +580,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Antenna_board:QBA-07+"
+		(property "Footprint" "Antenna_board:MHC0410L03"
 			(at 76.2 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -754,7 +591,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.minicircuits.com/pdfs/QBA-07+.pdf"
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/46836830f8b0c6affe7c26a253a585e6.pdf"
 			(at 76.2 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -765,7 +602,7 @@
 				)
 			)
 		)
-		(property "Description" "Mini-Circuits 2-way 90 degree hybrid splitter, LTCC; not stocked at LCSC, hand-place or consign"
+		(property "Description" "MEGSINE 3 dB 90 degree hybrid, 400-1000 MHz, 14.22 x 8.89 mm"
 			(at 76.2 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -776,7 +613,18 @@
 				)
 			)
 		)
-		(property "MPN" "QBA-07+"
+		(property "LCSC" "C52139893"
+			(at 76.2 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "MHC0410L03"
 			(at 76.2 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -790,9 +638,6 @@
 		(pin "1"
 			(uuid "09df2571-acf7-54e0-aeac-a004b557650f")
 		)
-		(pin "5"
-			(uuid "ed02f17f-5a3d-52fa-a54f-42e72761ef6a")
-		)
 		(pin "2"
 			(uuid "99100f81-9586-5956-8e0b-120d853fc98a")
 		)
@@ -802,23 +647,8 @@
 		(pin "4"
 			(uuid "c9be2e9a-ee44-5161-a3ef-7d5b775b5257")
 		)
-		(pin "7"
-			(uuid "0c660096-d354-5fc5-bcf7-4f06618794e9")
-		)
-		(pin "8"
-			(uuid "e5e14119-bd8f-50de-bf70-e9582c436669")
-		)
-		(pin "9"
-			(uuid "11faa77a-927f-5049-abd7-d3fbbad9dc83")
-		)
-		(pin "GND-NO-PAD"
-			(uuid "68fefa75-024e-5745-b5b8-66c251909786")
-		)
-		(pin "6"
-			(uuid "03aed511-7c2c-5fd3-aa71-135f035865ca")
-		)
-		(pin "10"
-			(uuid "b702ac46-b577-5280-a492-11bef580001a")
+		(pin "5"
+			(uuid "ed02f17f-5a3d-52fa-a54f-42e72761ef6a")
 		)
 		(instances
 			(project "antenna_top_cap_v3"
@@ -831,7 +661,7 @@
 	)
 	(hierarchical_label "UHF"
 		(shape input)
-		(at 63.5 99.06 180)
+		(at 63.5 104.14 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -839,6 +669,26 @@
 			(justify right)
 		)
 		(uuid "7c2a965c-0214-566c-895b-e4ca5f1086e1")
+	)
+	(label "TERM1"
+		(at 63.5 99.06 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "2a34558d-cd88-5a8d-8f48-4ff73d4a82ec")
+	)
+	(label "UHF_B"
+		(at 88.9 104.14 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "89bd286c-3b6d-5353-9ff1-ac7c7ba724eb")
 	)
 	(label "UHF_A"
 		(at 88.9 99.06 0)
@@ -849,26 +699,6 @@
 			(justify left bottom)
 		)
 		(uuid "29734e55-b32a-5d38-a675-57d003696db7")
-	)
-	(label "UHF_B"
-		(at 88.9 106.68 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "5eb600f5-0ff7-596c-a74d-c2a7e4ecd7a9")
-	)
-	(label "TERM1"
-		(at 63.5 106.68 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "2948ee6f-22e8-5cbb-ab06-1e0675839751")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -943,474 +773,6 @@
 			(project "antenna_top_cap_v3"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
 					(reference "#PWR0301")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 76.2 111.76 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board no)
-		(in_pos_files no)
-		(dnp no)
-		(uuid "d4b7e182-b46a-50e6-ae38-4c9ae8f9aca8")
-		(property "Reference" "#PWR0302"
-			(at 78.74 110.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 76.2 115.57 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 76.2 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 76.2 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 76.2 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "426d6c2a-6096-5a12-8045-1cae17c0af9e")
-		)
-		(instances
-			(project "antenna_top_cap_v3"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0302")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 76.2 111.76 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board no)
-		(in_pos_files no)
-		(dnp no)
-		(uuid "502b1676-1776-58fe-9bbd-82623dffa175")
-		(property "Reference" "#PWR0303"
-			(at 78.74 110.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 76.2 115.57 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 76.2 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 76.2 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 76.2 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "1d88b9b5-f07f-5961-99b6-57b40f946977")
-		)
-		(instances
-			(project "antenna_top_cap_v3"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0303")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 76.2 111.76 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board no)
-		(in_pos_files no)
-		(dnp no)
-		(uuid "0d660d40-6146-5878-adce-f3daa00f48c4")
-		(property "Reference" "#PWR0304"
-			(at 78.74 110.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 76.2 115.57 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 76.2 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 76.2 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 76.2 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "a50d4ee0-bc22-55c4-bed0-31d0ae24f10a")
-		)
-		(instances
-			(project "antenna_top_cap_v3"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0304")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 76.2 111.76 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board no)
-		(in_pos_files no)
-		(dnp no)
-		(uuid "dbcfe168-daf1-502a-bfe6-58b8a604f001")
-		(property "Reference" "#PWR0305"
-			(at 78.74 110.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 76.2 115.57 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 76.2 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 76.2 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 76.2 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "6297c032-311b-513d-8f6b-e02ec6bf7769")
-		)
-		(instances
-			(project "antenna_top_cap_v3"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0305")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 76.2 111.76 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board no)
-		(in_pos_files no)
-		(dnp no)
-		(uuid "6d3b62b2-8e5f-559f-b325-210e43ba6efe")
-		(property "Reference" "#PWR0306"
-			(at 78.74 110.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 76.2 115.57 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 76.2 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 76.2 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 76.2 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "5f4ab9c5-4954-5261-86b5-124518468bf2")
-		)
-		(instances
-			(project "antenna_top_cap_v3"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0306")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 76.2 111.76 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board no)
-		(in_pos_files no)
-		(dnp no)
-		(uuid "d44208c1-21e4-58fc-b055-4bc16e532edf")
-		(property "Reference" "#PWR0307"
-			(at 78.74 110.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 76.2 115.57 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 76.2 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 76.2 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 76.2 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "87ed1746-53b2-5dcc-9339-638eee22dfaf")
-		)
-		(instances
-			(project "antenna_top_cap_v3"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0307")
 					(unit 1)
 				)
 			)
@@ -1517,8 +879,8 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "23711b67-1321-5598-a015-63791aa2fa4c")
-		(property "Reference" "#PWR0308"
+		(uuid "1acf01ff-f789-5d00-8dce-975f5405f0ac")
+		(property "Reference" "#PWR0302"
 			(at 78.74 134.62 0)
 			(hide yes)
 			(show_name no)
@@ -1573,19 +935,19 @@
 			)
 		)
 		(pin "1"
-			(uuid "98b0b762-8121-549f-ae15-375a450a306d")
+			(uuid "426d6c2a-6096-5a12-8045-1cae17c0af9e")
 		)
 		(instances
 			(project "antenna_top_cap_v3"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0308")
+					(reference "#PWR0302")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "turnstile_rf:QBA-07+")
+		(lib_id "turnstile_rf:MHC0410L03")
 		(at 147.32 63.5 0)
 		(unit 1)
 		(body_style 1)
@@ -1596,7 +958,7 @@
 		(dnp no)
 		(uuid "ebac6c10-0a3d-5214-9f2e-64937c077dc9")
 		(property "Reference" "U302"
-			(at 149.86 62.23 0)
+			(at 137.16 54.61 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1606,7 +968,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "QBA-07+"
+		(property "Value" "MHC0410L03"
 			(at 149.86 64.77 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1617,7 +979,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Antenna_board:QBA-07+"
+		(property "Footprint" "Antenna_board:MHC0410L03"
 			(at 147.32 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -1628,7 +990,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.minicircuits.com/pdfs/QBA-07+.pdf"
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/46836830f8b0c6affe7c26a253a585e6.pdf"
 			(at 147.32 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -1639,7 +1001,7 @@
 				)
 			)
 		)
-		(property "Description" "Mini-Circuits 2-way 90 degree hybrid splitter, LTCC; not stocked at LCSC, hand-place or consign"
+		(property "Description" "MEGSINE 3 dB 90 degree hybrid, 400-1000 MHz, 14.22 x 8.89 mm"
 			(at 147.32 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -1650,7 +1012,18 @@
 				)
 			)
 		)
-		(property "MPN" "QBA-07+"
+		(property "LCSC" "C52139893"
+			(at 147.32 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "MHC0410L03"
 			(at 147.32 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -1664,9 +1037,6 @@
 		(pin "1"
 			(uuid "7c5f5b84-07ff-5e59-8012-77cd6d36e2cf")
 		)
-		(pin "5"
-			(uuid "3560fd27-6d7c-5216-84db-3f9a76ce829d")
-		)
 		(pin "2"
 			(uuid "06cda897-e133-5cac-a6ce-098d5550851c")
 		)
@@ -1676,23 +1046,8 @@
 		(pin "4"
 			(uuid "207bbf39-f7d1-51bc-b2f7-4a48a555c2a1")
 		)
-		(pin "7"
-			(uuid "b1131129-1942-5ca7-8b48-ecc36677858b")
-		)
-		(pin "8"
-			(uuid "c2cc9a9e-f054-59aa-bcd1-2dc2abb579cd")
-		)
-		(pin "9"
-			(uuid "a4285dd7-db1b-53df-bd9d-166aef415660")
-		)
-		(pin "GND-NO-PAD"
-			(uuid "bc6a05c4-8473-5bd4-a699-85b18be46f4b")
-		)
-		(pin "6"
-			(uuid "455831cb-841d-5fca-b287-f7441015009f")
-		)
-		(pin "10"
-			(uuid "87504b2a-43f5-5fba-9e9f-96c808df4ef9")
+		(pin "5"
+			(uuid "3560fd27-6d7c-5216-84db-3f9a76ce829d")
 		)
 		(instances
 			(project "antenna_top_cap_v3"
@@ -1713,6 +1068,16 @@
 		)
 		(uuid "6a77d321-457b-5832-b816-1bd019e9ec37")
 	)
+	(label "TERM2"
+		(at 134.62 66.04 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "eee7f3d9-79b2-591c-ae36-7efe359d2ad8")
+	)
 	(label "UHF_0"
 		(at 160.02 60.96 0)
 		(effects
@@ -1724,24 +1089,14 @@
 		(uuid "a2e4a12e-a48e-5943-be15-8a5825817f67")
 	)
 	(label "UHF_90"
-		(at 160.02 68.58 0)
+		(at 160.02 66.04 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "3bdc0809-28cc-5424-9fce-5fd5ca3e5707")
-	)
-	(label "TERM2"
-		(at 134.62 68.58 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ac3e56f7-713a-5ca9-bb0d-6b69de004876")
+		(uuid "8473d8f0-f406-5d28-8b4e-7c738f2597c6")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -1753,8 +1108,8 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "7215aa14-3f99-5eae-9020-06777b463b76")
-		(property "Reference" "#PWR0309"
+		(uuid "54b8b177-5903-5b07-a3ad-b55f780f4ef3")
+		(property "Reference" "#PWR0303"
 			(at 149.86 72.39 0)
 			(hide yes)
 			(show_name no)
@@ -1810,480 +1165,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "8544dcdf-c42e-5b76-b169-af1fa3b59272")
+			(uuid "1d88b9b5-f07f-5961-99b6-57b40f946977")
 		)
 		(instances
 			(project "antenna_top_cap_v3"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0309")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 147.32 73.66 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board no)
-		(in_pos_files no)
-		(dnp no)
-		(uuid "05ed0024-0205-578a-a017-1c86a1e1d498")
-		(property "Reference" "#PWR0310"
-			(at 149.86 72.39 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 147.32 77.47 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 147.32 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 147.32 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 147.32 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "bcb59768-8d48-5896-a9b7-50dbe134e717")
-		)
-		(instances
-			(project "antenna_top_cap_v3"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0310")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 147.32 73.66 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board no)
-		(in_pos_files no)
-		(dnp no)
-		(uuid "a401f064-a352-51c3-9577-f8b80321a40a")
-		(property "Reference" "#PWR0311"
-			(at 149.86 72.39 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 147.32 77.47 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 147.32 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 147.32 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 147.32 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "9d2a397e-49a4-532a-8c1e-aecc0eb14530")
-		)
-		(instances
-			(project "antenna_top_cap_v3"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0311")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 147.32 73.66 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board no)
-		(in_pos_files no)
-		(dnp no)
-		(uuid "a009c5c3-fa68-5beb-9d04-582646f1caf5")
-		(property "Reference" "#PWR0312"
-			(at 149.86 72.39 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 147.32 77.47 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 147.32 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 147.32 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 147.32 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "aeb8e646-606a-5c08-8cfe-fa18130ea942")
-		)
-		(instances
-			(project "antenna_top_cap_v3"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0312")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 147.32 73.66 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board no)
-		(in_pos_files no)
-		(dnp no)
-		(uuid "758b9d0a-d2b4-5090-af1c-7dfe6d3bbb8d")
-		(property "Reference" "#PWR0313"
-			(at 149.86 72.39 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 147.32 77.47 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 147.32 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 147.32 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 147.32 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "fd88201b-d475-574c-9c03-dd6721ae29e7")
-		)
-		(instances
-			(project "antenna_top_cap_v3"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0313")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 147.32 73.66 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board no)
-		(in_pos_files no)
-		(dnp no)
-		(uuid "b17e781f-d236-5f9e-aa0c-ac3eda409ab2")
-		(property "Reference" "#PWR0314"
-			(at 149.86 72.39 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 147.32 77.47 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 147.32 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 147.32 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 147.32 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "22e0cd7f-1661-56d4-98da-cc27139da513")
-		)
-		(instances
-			(project "antenna_top_cap_v3"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0314")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 147.32 73.66 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board no)
-		(in_pos_files no)
-		(dnp no)
-		(uuid "b0182732-0986-5ab3-bca7-411da50c28bf")
-		(property "Reference" "#PWR0315"
-			(at 149.86 72.39 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 147.32 77.47 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 147.32 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 147.32 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 147.32 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "6fc11a69-31ff-555e-a94d-2704d3610c2f")
-		)
-		(instances
-			(project "antenna_top_cap_v3"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0315")
+					(reference "#PWR0303")
 					(unit 1)
 				)
 			)
@@ -2390,8 +1277,8 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "4ccc32ad-cef1-5167-b8c8-08da8a2ab174")
-		(property "Reference" "#PWR0316"
+		(uuid "27eb6d4e-8934-52dc-9cdf-d9456b21f304")
+		(property "Reference" "#PWR0304"
 			(at 149.86 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -2446,19 +1333,19 @@
 			)
 		)
 		(pin "1"
-			(uuid "92bf62ca-55c6-51fc-aefb-e8b7aaa38fb6")
+			(uuid "a50d4ee0-bc22-55c4-bed0-31d0ae24f10a")
 		)
 		(instances
 			(project "antenna_top_cap_v3"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0316")
+					(reference "#PWR0304")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "turnstile_rf:QBA-07+")
+		(lib_id "turnstile_rf:MHC0410L03")
 		(at 147.32 139.7 0)
 		(unit 1)
 		(body_style 1)
@@ -2469,7 +1356,7 @@
 		(dnp no)
 		(uuid "b376f0af-bd1a-51d9-a6df-3becc8d07a4a")
 		(property "Reference" "U303"
-			(at 149.86 138.43 0)
+			(at 137.16 130.81 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2479,7 +1366,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "QBA-07+"
+		(property "Value" "MHC0410L03"
 			(at 149.86 140.97 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2490,7 +1377,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Antenna_board:QBA-07+"
+		(property "Footprint" "Antenna_board:MHC0410L03"
 			(at 147.32 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -2501,7 +1388,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.minicircuits.com/pdfs/QBA-07+.pdf"
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/46836830f8b0c6affe7c26a253a585e6.pdf"
 			(at 147.32 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -2512,7 +1399,7 @@
 				)
 			)
 		)
-		(property "Description" "Mini-Circuits 2-way 90 degree hybrid splitter, LTCC; not stocked at LCSC, hand-place or consign"
+		(property "Description" "MEGSINE 3 dB 90 degree hybrid, 400-1000 MHz, 14.22 x 8.89 mm"
 			(at 147.32 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -2523,7 +1410,18 @@
 				)
 			)
 		)
-		(property "MPN" "QBA-07+"
+		(property "LCSC" "C52139893"
+			(at 147.32 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "MHC0410L03"
 			(at 147.32 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -2537,9 +1435,6 @@
 		(pin "1"
 			(uuid "b882235e-521c-5fb5-8bef-6bbf4eafeb12")
 		)
-		(pin "5"
-			(uuid "55ac2f94-bf7c-508a-8fa4-965bee647e74")
-		)
 		(pin "2"
 			(uuid "049a68b5-6ca8-5c66-a3f9-f7d4e87c38b4")
 		)
@@ -2549,23 +1444,8 @@
 		(pin "4"
 			(uuid "2cf6f7c8-9f37-5be8-aabd-2db101362ab7")
 		)
-		(pin "7"
-			(uuid "bc6bdfa2-02e0-59c2-b179-02e4bdd6c908")
-		)
-		(pin "8"
-			(uuid "9b9d4823-293d-50c4-a9ac-73c065321108")
-		)
-		(pin "9"
-			(uuid "0521e930-c42b-557e-abb2-6b9884070660")
-		)
-		(pin "GND-NO-PAD"
-			(uuid "a2b9a9ef-e5ce-5a3b-b660-d16b13f12e44")
-		)
-		(pin "6"
-			(uuid "8d9b7ffd-f580-532f-ab62-39fbf114e6e5")
-		)
-		(pin "10"
-			(uuid "2d8d7387-c18f-5b83-aad1-8e16bd1825da")
+		(pin "5"
+			(uuid "55ac2f94-bf7c-508a-8fa4-965bee647e74")
 		)
 		(instances
 			(project "antenna_top_cap_v3"
@@ -2586,6 +1466,16 @@
 		)
 		(uuid "fa41b042-2779-50b1-a1aa-a84e6c2e7ff6")
 	)
+	(label "TERM3"
+		(at 134.62 142.24 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8f98b731-ed96-5d50-8926-dd86b7e46224")
+	)
 	(label "UHF_180"
 		(at 160.02 137.16 0)
 		(effects
@@ -2597,24 +1487,14 @@
 		(uuid "5fcb6d4d-e30d-56cf-8d80-ee6e697183c0")
 	)
 	(label "UHF_270"
-		(at 160.02 144.78 0)
+		(at 160.02 142.24 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "9beeb6d9-7e17-59db-a713-93fc75d57b74")
-	)
-	(label "TERM3"
-		(at 134.62 144.78 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a179c314-6dce-5205-9553-de34c3a241fe")
+		(uuid "5e421c68-64d8-5067-b6ab-c0432d3e8ebb")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -2626,8 +1506,8 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "d5e92bc6-8a95-5a0c-8e74-bbeda897f6dd")
-		(property "Reference" "#PWR0317"
+		(uuid "9a9cde48-3604-5a06-ad95-a128c01518d5")
+		(property "Reference" "#PWR0305"
 			(at 149.86 148.59 0)
 			(hide yes)
 			(show_name no)
@@ -2683,480 +1563,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "a9b01613-7feb-58bc-b149-65ad98c7b715")
+			(uuid "6297c032-311b-513d-8f6b-e02ec6bf7769")
 		)
 		(instances
 			(project "antenna_top_cap_v3"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0317")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 147.32 149.86 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board no)
-		(in_pos_files no)
-		(dnp no)
-		(uuid "0a669c49-eeb1-56f6-b722-1b165e40b29a")
-		(property "Reference" "#PWR0318"
-			(at 149.86 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 147.32 153.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 147.32 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 147.32 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 147.32 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "945564f3-2ee2-508d-8b7e-5fa43b4ea37b")
-		)
-		(instances
-			(project "antenna_top_cap_v3"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0318")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 147.32 149.86 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board no)
-		(in_pos_files no)
-		(dnp no)
-		(uuid "65eaee60-80ec-50c7-a8cb-9f476e3d7844")
-		(property "Reference" "#PWR0319"
-			(at 149.86 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 147.32 153.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 147.32 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 147.32 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 147.32 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "c620fa9a-6e0f-5ea5-ad65-9e68153a7951")
-		)
-		(instances
-			(project "antenna_top_cap_v3"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0319")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 147.32 149.86 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board no)
-		(in_pos_files no)
-		(dnp no)
-		(uuid "c7394310-cbb7-58ce-9a99-5ea4ce29c055")
-		(property "Reference" "#PWR0320"
-			(at 149.86 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 147.32 153.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 147.32 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 147.32 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 147.32 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "064c1464-b24e-5125-8a9f-77024c1052c2")
-		)
-		(instances
-			(project "antenna_top_cap_v3"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0320")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 147.32 149.86 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board no)
-		(in_pos_files no)
-		(dnp no)
-		(uuid "63d4129e-ead1-5fed-9f73-da5f1d8522c3")
-		(property "Reference" "#PWR0321"
-			(at 149.86 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 147.32 153.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 147.32 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 147.32 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 147.32 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "63ceaca2-2191-511c-97b1-7f1678a6d350")
-		)
-		(instances
-			(project "antenna_top_cap_v3"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0321")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 147.32 149.86 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board no)
-		(in_pos_files no)
-		(dnp no)
-		(uuid "f24f28f8-3f59-5868-830d-3411e56a423b")
-		(property "Reference" "#PWR0322"
-			(at 149.86 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 147.32 153.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 147.32 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 147.32 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 147.32 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "b123514a-87b0-5655-9f2a-c637914a7bf7")
-		)
-		(instances
-			(project "antenna_top_cap_v3"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0322")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 147.32 149.86 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board no)
-		(in_pos_files no)
-		(dnp no)
-		(uuid "32696cbd-8585-561f-915c-f14ca6857e88")
-		(property "Reference" "#PWR0323"
-			(at 149.86 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 147.32 153.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 147.32 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 147.32 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 147.32 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "11428a06-0ccf-57fe-9113-b1b0c2df7306")
-		)
-		(instances
-			(project "antenna_top_cap_v3"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0323")
+					(reference "#PWR0305")
 					(unit 1)
 				)
 			)
@@ -3263,8 +1675,8 @@
 		(on_board no)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "7e92c64b-482e-5a02-9fda-7fadb34ad833")
-		(property "Reference" "#PWR0324"
+		(uuid "54d35c2a-43cd-522e-bb6b-79d749e2864f")
+		(property "Reference" "#PWR0306"
 			(at 149.86 172.72 0)
 			(hide yes)
 			(show_name no)
@@ -3319,12 +1731,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "fdd2a6ae-bea2-53e4-9edd-4f7693df2591")
+			(uuid "5f4ab9c5-4954-5261-86b5-124518468bf2")
 		)
 		(instances
 			(project "antenna_top_cap_v3"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/1f57a4ed-0b81-513c-b1d6-b67ccb50741e"
-					(reference "#PWR0324")
+					(reference "#PWR0306")
 					(unit 1)
 				)
 			)
@@ -3694,7 +2106,7 @@
 		)
 		(uuid "e517bc3d-03a4-51e6-a4a5-c187d1a21adf")
 	)
-	(text "Layout copied from proves_canted_turnstile (OreSat0 heritage). Keep the copper as routed:\n- UHF_B is 94.6 mm longer than UHF_A: lambda_g/4 at 437 MHz on JLC04161H-7628 (e_eff 3.32), 90.4 deg.\n- UHF_0/90/180/270 are length-matched (25.25 mm). AE1..AE4 sit 90 deg apart, in order, around the board.\n- RF netclass: 0.3424 mm CPWG, 0.4 mm gap to the GND pour.\nCheck before fab: QBA-07+ port-10 (90) phase sign from the .s3p (AE1/AE3 must be 180 deg apart)."
+	(text "Three MEGSINE MHC0410L03 hybrids (JLC C52139893). Port straight across from the input is coupled (0 deg),\nthe diagonal port is direct (-90 deg), the port beside the input is isolated and takes the 49.9 Ohm load.\n- U301 is fed on pin 2, so UHF_A (pin 4) is the -90 deg output and UHF_B (pin 3) the 0 deg output.\n- UHF_A is lambda_g/4 longer than UHF_B (94.1 mm at 437 MHz, e_eff 3.32): UHF_A arrives 180 deg behind UHF_B.\n- U302 and U303 are fed on pin 1: pin 4 is 0 deg, pin 3 is -90 deg. Each element lags the one before it by\n  90 deg in the order AE1, AE2, AE3, AE4 (the phase names are relative).\n- UHF_0/90/180/270 are length-matched. RF netclass: 0.3424 mm CPWG, 0.4 mm gap to the GND pour.\n- All RF corners are 45 deg. tools/check_rf.py checks the lengths, the pins and the corners."
 		(exclude_from_sim no)
 		(at 25.4 30.48 0)
 		(effects
@@ -3703,7 +2115,7 @@
 			)
 			(justify left top)
 		)
-		(uuid "690ed572-6994-5d63-9ddc-f4170ffd1a32")
+		(uuid "cf90d95b-7511-51e7-977e-6d9203f682c0")
 	)
 	(embedded_fonts no)
 )

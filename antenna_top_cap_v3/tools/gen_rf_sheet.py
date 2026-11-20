@@ -165,24 +165,23 @@ def text(s, x, y, size=1.27, bold=False):
 
 
 R_FP = "Resistor_SMD:R_1206_3216Metric"
-HYB_FP = "Antenna_board:QBA-07+"
+HYB_FP = "Antenna_board:MHC0410L03"
 TAPE_FP = "Antenna_board:Turnstile_Tape_Element"
-HYB_DS = "https://www.minicircuits.com/pdfs/QBA-07+.pdf"
-GND_PINS = ["2", "3", "4", "7", "8", "9", "GND-NO-PAD"]
+HYB_DS = "https://datasheet.lcsc.com/datasheet/pdf/46836830f8b0c6affe7c26a253a585e6.pdf"
 
 
-def hybrid(ref, x, y, sum_net, net0, net90, term):
-    u = Sym("turnstile_rf:QBA-07+", ref, "QBA-07+", x, y, fp=HYB_FP, mpn="QBA-07+", ds=HYB_DS,
-            desc="Mini-Circuits 2-way 90 degree hybrid splitter, LTCC; not stocked at LCSC, hand-place or consign")
-    if sum_net == "UHF":
-        hlabel("UHF", u.p("1"), "input", rot=180)
-    else:
-        label(sum_net, u.p("1"), 180)
-    label(net0, u.p("6"))
-    label(net90, u.p("10"))
-    label(term, u.p("5"))
-    for n in GND_PINS:
-        gnd(u.p(n), hide=True)
+def hybrid(ref, x, y, nets):
+    """nets: pin number -> net. Any port can be the input; the port beside it on the same long side is isolated,
+    the port straight across is coupled (0 deg) and the diagonal port is direct (-90 deg)."""
+    u = Sym("turnstile_rf:MHC0410L03", ref, "MHC0410L03", x, y, fp=HYB_FP, mpn="MHC0410L03", lcsc="C52139893", ds=HYB_DS,
+            desc="MEGSINE 3 dB 90 degree hybrid, 400-1000 MHz, 14.22 x 8.89 mm", ref_at=(x - 10.16, y - 8.89))
+    for num, name in nets.items():
+        left = num in ("1", "2")
+        if name == "UHF":
+            hlabel("UHF", u.p(num), "input", rot=180)
+        else:
+            label(name, u.p(num), 180 if left else 0)
+    gnd(u.p("5"), hide=True)
     return u
 
 
@@ -200,11 +199,11 @@ def element(ref, x, y, netname, phase):
     label(netname, a.p("1"))
 
 
-hybrid("U301", 76.2, 101.6, "UHF", "UHF_A", "UHF_B", "TERM1")
+hybrid("U301", 76.2, 101.6, {"2": "UHF", "1": "TERM1", "3": "UHF_B", "4": "UHF_A"})
 load("R301", 76.2, 132.08, "TERM1")
-hybrid("U302", 147.32, 63.5, "UHF_A", "UHF_0", "UHF_90", "TERM2")
+hybrid("U302", 147.32, 63.5, {"1": "UHF_A", "2": "TERM2", "4": "UHF_0", "3": "UHF_90"})
 load("R302", 147.32, 93.98, "TERM2")
-hybrid("U303", 147.32, 139.7, "UHF_B", "UHF_180", "UHF_270", "TERM3")
+hybrid("U303", 147.32, 139.7, {"1": "UHF_B", "2": "TERM3", "4": "UHF_180", "3": "UHF_270"})
 load("R303", 147.32, 170.18, "TERM3")
 element("AE1", 220.98, 50.8, "UHF_0", "0 deg")
 element("AE2", 220.98, 76.2, "UHF_90", "90 deg")
@@ -212,15 +211,18 @@ element("AE3", 220.98, 127.0, "UHF_180", "180 deg")
 element("AE4", 220.98, 152.4, "UHF_270", "270 deg")
 
 text("Circularly polarized turnstile feed", 25.4, 25.4, size=2.0, bold=True)
-text("Layout copied from proves_canted_turnstile (OreSat0 heritage). Keep the copper as routed:\n"
-     "- UHF_B is 94.6 mm longer than UHF_A: lambda_g/4 at 437 MHz on JLC04161H-7628 (e_eff 3.32), 90.4 deg.\n"
-     "- UHF_0/90/180/270 are length-matched (25.25 mm). AE1..AE4 sit 90 deg apart, in order, around the board.\n"
-     "- RF netclass: 0.3424 mm CPWG, 0.4 mm gap to the GND pour.\n"
-     "Check before fab: QBA-07+ port-10 (90) phase sign from the .s3p (AE1/AE3 must be 180 deg apart).", 25.4, 30.48)
+text("Three MEGSINE MHC0410L03 hybrids (JLC C52139893). Port straight across from the input is coupled (0 deg),\n"
+     "the diagonal port is direct (-90 deg), the port beside the input is isolated and takes the 49.9 Ohm load.\n"
+     "- U301 is fed on pin 2, so UHF_A (pin 4) is the -90 deg output and UHF_B (pin 3) the 0 deg output.\n"
+     "- UHF_A is lambda_g/4 longer than UHF_B (94.1 mm at 437 MHz, e_eff 3.32): UHF_A arrives 180 deg behind UHF_B.\n"
+     "- U302 and U303 are fed on pin 1: pin 4 is 0 deg, pin 3 is -90 deg. Each element lags the one before it by\n"
+     "  90 deg in the order AE1, AE2, AE3, AE4 (the phase names are relative).\n"
+     "- UHF_0/90/180/270 are length-matched. RF netclass: 0.3424 mm CPWG, 0.4 mm gap to the GND pour.\n"
+     "- All RF corners are 45 deg. tools/check_rf.py checks the lengths, the pins and the corners.", 25.4, 30.48)
 # ---------------------------------------------------------------- assemble
 libs = "".join("\t\t" + lib_symbol(l)[0].replace("\n\t", "\n\t\t") + "\n" for l in used_libs)
 out = (f'(kicad_sch\n\t(version 20260306)\n\t(generator "eeschema")\n\t(generator_version "10.0")\n\t(uuid "{SHEET_UUID}")\n'
-       f'\t(paper "A4")\n\t(title_block\n\t\t(title "Antenna Board V3: turnstile CP feed")\n\t\t(date "2026-11-14")\n'
+       f'\t(paper "A4")\n\t(title_block\n\t\t(title "Antenna Board V3: turnstile CP feed")\n\t\t(date "2026-11-19")\n'
        f'\t\t(rev "V3")\n\t\t(company "PROVES Kit / Open Source Space Foundation")\n\t)\n'
        f'\t(lib_symbols\n{libs}\t)\n' + "".join(items) + '\t(embedded_fonts no)\n)\n')
 open(OUT, "w").write(out)
